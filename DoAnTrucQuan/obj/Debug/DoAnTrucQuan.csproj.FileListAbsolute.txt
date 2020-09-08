@@ -1,0 +1,10 @@
+G:\Source Truc Quan\DoAnTrucQuan\DoAnTrucQuan\bin\Debug\DoAnTrucQuan.exe.config
+G:\Source Truc Quan\DoAnTrucQuan\DoAnTrucQuan\bin\Debug\DoAnTrucQuan.exe
+G:\Source Truc Quan\DoAnTrucQuan\DoAnTrucQuan\bin\Debug\DoAnTrucQuan.pdb
+G:\Source Truc Quan\DoAnTrucQuan\DoAnTrucQuan\obj\Debug\DoAnTrucQuan.csprojAssemblyReference.cache
+G:\Source Truc Quan\DoAnTrucQuan\DoAnTrucQuan\obj\Debug\DoAnTrucQuan.Properties.Resources.resources
+G:\Source Truc Quan\DoAnTrucQuan\DoAnTrucQuan\obj\Debug\DoAnTrucQuan.csproj.GenerateResource.cache
+G:\Source Truc Quan\DoAnTrucQuan\DoAnTrucQuan\obj\Debug\DoAnTrucQuan.csproj.CoreCompileInputs.cache
+G:\Source Truc Quan\DoAnTrucQuan\DoAnTrucQuan\obj\Debug\DoAnTrucQuan.exe
+G:\Source Truc Quan\DoAnTrucQuan\DoAnTrucQuan\obj\Debug\DoAnTrucQuan.pdb
+G:\Source Truc Quan\DoAnTrucQuan\DoAnTrucQuan\obj\Debug\DoAnTrucQuan.ManHinhQuanLyNhanVien.resources
