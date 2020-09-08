@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI\FormDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormDangNhap.Designer.cs">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ManHinhQuanLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ManHinhQuanLy.Designer.cs">
+      <DependentUpon>ManHinhQuanLy.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ManHinhQuanLyNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +66,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\FormDangNhap.resx">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ManHinhQuanLy.resx">
+      <DependentUpon>ManHinhQuanLy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\ManHinhQuanLyNhanVien.resx">
       <DependentUpon>ManHinhQuanLyNhanVien.cs</DependentUpon>
     </EmbeddedResource>
