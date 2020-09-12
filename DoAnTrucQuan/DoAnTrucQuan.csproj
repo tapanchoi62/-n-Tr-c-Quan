@@ -49,6 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI\FormDangKyTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormDangKyTaiKhoan.Designer.cs">
+      <DependentUpon>FormDangKyTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormMHC_QuanLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormMHC_QuanLy.Designer.cs">
+      <DependentUpon>FormMHC_QuanLy.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormQuanLiChatLuong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +85,12 @@
     <Compile Include="GUI\FormQuanLiCoSoSanXuat.Designer.cs">
       <DependentUpon>FormQuanLiCoSoSanXuat.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormQuanLyPhieuDangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormQuanLyPhieuDangKy.Designer.cs">
+      <DependentUpon>FormQuanLyPhieuDangKy.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,8 +111,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\FormDangKyTaiKhoan.resx">
+      <DependentUpon>FormDangKyTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormMHC_QuanLy.resx">
+      <DependentUpon>FormMHC_QuanLy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormQuanLiChatLuong.resx">
       <DependentUpon>FormQuanLiChatLuong.cs</DependentUpon>
@@ -104,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormQuanLiPhieuKiemNghiem.resx">
       <DependentUpon>FormQuanLiPhieuKiemNghiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormQuanLyPhieuDangKy.resx">
+      <DependentUpon>FormQuanLyPhieuDangKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormSanPham.resx">
       <DependentUpon>FormSanPham.cs</DependentUpon>
