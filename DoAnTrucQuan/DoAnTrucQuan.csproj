@@ -61,6 +61,18 @@
     <Compile Include="GUI\FormMHC_QuanLy.Designer.cs">
       <DependentUpon>FormMHC_QuanLy.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormNhanVien.Designer.cs">
+      <DependentUpon>FormNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormPhongBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormPhongBan.Designer.cs">
+      <DependentUpon>FormPhongBan.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormQuanLiChatLuong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +131,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormMHC_QuanLy.resx">
       <DependentUpon>FormMHC_QuanLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormNhanVien.resx">
+      <DependentUpon>FormNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormPhongBan.resx">
+      <DependentUpon>FormPhongBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormQuanLiChatLuong.resx">
       <DependentUpon>FormQuanLiChatLuong.cs</DependentUpon>
