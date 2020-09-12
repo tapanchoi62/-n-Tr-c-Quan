@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>DoAnTrucQuan</RootNamespace>
     <AssemblyName>DoAnTrucQuan</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,6 +36,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,11 +49,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI\FormQuanLiChatLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormQuanLiChatLuong.Designer.cs">
+      <DependentUpon>FormQuanLiChatLuong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormQuanLiPhieuKiemNghiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormQuanLiPhieuKiemNghiem.Designer.cs">
+      <DependentUpon>FormQuanLiPhieuKiemNghiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\FormDangNhap.Designer.cs">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormQuanLiCoSoSanXuat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormQuanLiCoSoSanXuat.Designer.cs">
+      <DependentUpon>FormQuanLiCoSoSanXuat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormSanPham.Designer.cs">
+      <DependentUpon>FormSanPham.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\ManHinhQuanLy.cs">
       <SubType>Form</SubType>
@@ -68,6 +95,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormQuanLiChatLuong.resx">
+      <DependentUpon>FormQuanLiChatLuong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormQuanLiCoSoSanXuat.resx">
+      <DependentUpon>FormQuanLiCoSoSanXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormQuanLiPhieuKiemNghiem.resx">
+      <DependentUpon>FormQuanLiPhieuKiemNghiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormSanPham.resx">
+      <DependentUpon>FormSanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ManHinhQuanLy.resx">
       <DependentUpon>ManHinhQuanLy.cs</DependentUpon>
