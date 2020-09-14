@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DoAnTrucQuan.DAL
+namespace TEST
 {
-    class ConnectDB
+    class Program
     {
+        static void Main(string[] args)
+        {
+        }
     }
 }
