@@ -203,5 +203,8 @@
     <Content Include="Icon\trash-icon.png" />
     <Content Include="Icon\xem.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DAL\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
