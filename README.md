@@ -1,1 +1,1 @@
-# -n-Tr-c-Quan
+# Quản lý cơ sở sản xuất
