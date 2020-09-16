@@ -96,6 +96,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BAL\ChiTieuBAL.cs" />
+    <Compile Include="BAL\CSSXBAL.cs" />
+    <Compile Include="BAL\CTPhieuDKBAL.cs" />
+    <Compile Include="BAL\CTPhieuKNBAL.cs" />
+    <Compile Include="BAL\NhanVienBAL.cs" />
+    <Compile Include="BAL\PhieuDKBAL.cs" />
+    <Compile Include="BAL\PhieuKNBAL.cs" />
+    <Compile Include="BAL\PhongBanBAL.cs" />
+    <Compile Include="BAL\SanPhamBAL.cs" />
+    <Compile Include="BAL\TaiKhoanBAL.cs" />
+    <Compile Include="DAO\NhanVien.cs" />
+    <Compile Include="DAO\PhieuDK.cs" />
+    <Compile Include="DAO\PhieuKN.cs" />
+    <Compile Include="DAO\PhongBan.cs" />
+    <Compile Include="DAO\SanPham.cs" />
+    <Compile Include="DAO\TaiKhoan.cs" />
+    <Compile Include="DTO\ConnectDB.cs" />
+    <Compile Include="DAO\ChiTieu.cs" />
+    <Compile Include="DAO\CSSX.cs" />
+    <Compile Include="DAO\CTPhieuDK.cs" />
+    <Compile Include="DAO\CTPhieuKN.cs" />
+    <Compile Include="DTO\DBMySQLUtils.cs" />
     <Compile Include="GUI\FormDangKyTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -16,5 +16,16 @@ namespace DoAnTrucQuan.GUI
         {
             InitializeComponent();
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime iDate;
+            iDate = dateTimePicker1.Value;
+
+            this.dateTimePicker1.CustomFormat ="dd-mm-yyyy";
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            
+            MessageBox.Show("Bạn đã lựa chọn: " + iDate.ToString("dd-mm-yyyy"));
+        }
     }
 }

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoAnTrucQuan", "DoAnTrucQuan\DoAnTrucQuan.csproj", "{7BD8CAD7-EA19-4C61-B531-FCD6F51B445A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{9CB75CB1-9352-4643-B0B8-72B693B89D24}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEST", "TEST\TEST.csproj", "{1E63EFBF-905E-4247-8061-D73837369A00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{7BD8CAD7-EA19-4C61-B531-FCD6F51B445A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BD8CAD7-EA19-4C61-B531-FCD6F51B445A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BD8CAD7-EA19-4C61-B531-FCD6F51B445A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9CB75CB1-9352-4643-B0B8-72B693B89D24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9CB75CB1-9352-4643-B0B8-72B693B89D24}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9CB75CB1-9352-4643-B0B8-72B693B89D24}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9CB75CB1-9352-4643-B0B8-72B693B89D24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E63EFBF-905E-4247-8061-D73837369A00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E63EFBF-905E-4247-8061-D73837369A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E63EFBF-905E-4247-8061-D73837369A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E63EFBF-905E-4247-8061-D73837369A00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
