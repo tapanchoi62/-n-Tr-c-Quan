@@ -37,6 +37,7 @@ namespace DoAnTrucQuan.BAL
             conn.Close();
             return list;
         }
+
         public TaiKhoan GetByID(MySqlConnection conn, int id)
         {
             conn.Open();
@@ -65,6 +66,35 @@ namespace DoAnTrucQuan.BAL
             conn.Close();
             return a;
         }
+        public TaiKhoan GetByTenTK(MySqlConnection conn, string tentk, string pass)
+        {
+            conn.Open();
+            TaiKhoan a = new TaiKhoan();
+            string sql = "SELECT * FROM taikhoan where tentk= @tentk and matkhau = @pass";
+
+            var cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@tentk", tentk);
+            cmd.Parameters.AddWithValue("@pass", pass);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+
+            if (rdr.HasRows)
+            {
+                while (rdr.Read())
+                {
+
+                    a.Matk = rdr.GetInt16("matk");
+                    a.Tentk = rdr.GetString("tentk");
+                    a.Quyen = rdr.GetString("quyen");
+                    a.Matkhau = rdr.GetString("matkhau");
+                    a.Manv = rdr.GetInt16("manv");
+
+                }
+            }
+            conn.Close();
+            return a;
+        }
+
         public void Insert(MySqlConnection conn, int matk, string tentk, string matkhau,
             int manv,string quyen)
         {

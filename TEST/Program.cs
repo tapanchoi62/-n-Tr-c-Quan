@@ -20,18 +20,11 @@ namespace TEST
             {
                 Console.WriteLine("Openning Connection ...");
 
-                PhieuDKBAL a = new PhieuDKBAL();
+                NhanVienBAL a = new NhanVienBAL();
+                a.Insert(conn, "a", "2020-09-16", "Nam", "pb01", "1111");
 
-                foreach (var item in a.GetAll(conn))
-
-                {
-                    foreach (var item1 in item.get())
-                    {
-                        Console.WriteLine(item1.get().Tenchitieu);
-                    }
-                }
-                
-
+/*                INSERT INTO `nhanvien` (`tennv`, `ngsinh`, `gioitinh`, `mapb`, `sdt`) VALUES('c', '2020-09-16', 'Nam', 'pb02', 'aaa')
+*/
             }
             catch (Exception e)
             {

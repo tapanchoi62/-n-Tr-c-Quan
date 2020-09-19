@@ -13,7 +13,7 @@ namespace DoAnTrucQuan.DTO
         {
             // Connection String.
             String connString = "Server=" + host + ";Database=" + database
-                + ";User Id=" + username + ";password=" + password;
+                + ";User Id=" + username + ";password=" + password+ ";convert zero datetime = True";
 
             MySqlConnection conn = new MySqlConnection(connString);
 

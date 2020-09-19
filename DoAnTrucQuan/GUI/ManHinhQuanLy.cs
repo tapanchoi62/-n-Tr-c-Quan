@@ -15,16 +15,25 @@ namespace DoAnTrucQuan.GUI
         public ManHinhQuanLy()
         {
             InitializeComponent();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            FormNhanVien form = new FormNhanVien();
+            form.Visible = true;
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ManHinhQuanLy_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormDangNhap dn = new FormDangNhap();
+            dn.Visible = true;
         }
     }
 }

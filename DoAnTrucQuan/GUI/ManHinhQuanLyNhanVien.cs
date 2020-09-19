@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoAnTrucQuan.GUI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +31,12 @@ namespace DoAnTrucQuan
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ManHinhQuanLyNhanVien_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormDangNhap dn = new FormDangNhap();
+            dn.Visible = true;
         }
     }
 }

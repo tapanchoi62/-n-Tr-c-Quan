@@ -124,6 +124,7 @@
             this.Controls.Add(this.button1);
             this.Name = "ManHinhQuanLyNhanVien";
             this.Text = "ManHinhQuanLyNhanVien";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ManHinhQuanLyNhanVien_FormClosed);
             this.ResumeLayout(false);
 
         }

@@ -32,15 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNhanVien));
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.SoPhieuKiemNghiem = new System.Windows.Forms.TextBox();
+            this.FindNhanVien = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.GetThongTinbt = new System.Windows.Forms.Button();
             this.Xoabt = new System.Windows.Forms.Button();
             this.Suabt = new System.Windows.Forms.Button();
             this.Thembt = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -68,7 +66,7 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.SoPhieuKiemNghiem);
+            this.panel2.Controls.Add(this.FindNhanVien);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(2, 5);
             this.panel2.Name = "panel2";
@@ -80,20 +78,21 @@
             this.button1.Image = global::DoAnTrucQuan.Properties.Resources.search_icon;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(27, 24);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(60, 37);
             this.button1.TabIndex = 3;
             this.button1.Text = "Tìm";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // SoPhieuKiemNghiem
+            // FindNhanVien
             // 
-            this.SoPhieuKiemNghiem.Location = new System.Drawing.Point(123, 33);
-            this.SoPhieuKiemNghiem.Name = "SoPhieuKiemNghiem";
-            this.SoPhieuKiemNghiem.Size = new System.Drawing.Size(241, 20);
-            this.SoPhieuKiemNghiem.TabIndex = 2;
+            this.FindNhanVien.Location = new System.Drawing.Point(123, 33);
+            this.FindNhanVien.Name = "FindNhanVien";
+            this.FindNhanVien.Size = new System.Drawing.Size(241, 20);
+            this.FindNhanVien.TabIndex = 2;
             // 
             // label1
             // 
@@ -112,8 +111,6 @@
             this.panel1.Controls.Add(this.Xoabt);
             this.panel1.Controls.Add(this.Suabt);
             this.panel1.Controls.Add(this.Thembt);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.textBox2);
@@ -141,6 +138,7 @@
             this.GetThongTinbt.Text = "Lấy Thông Tin";
             this.GetThongTinbt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.GetThongTinbt.UseVisualStyleBackColor = false;
+            this.GetThongTinbt.Click += new System.EventHandler(this.GetThongTinbt_Click);
             // 
             // Xoabt
             // 
@@ -153,6 +151,7 @@
             this.Xoabt.Text = "Xoá ";
             this.Xoabt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Xoabt.UseVisualStyleBackColor = true;
+            this.Xoabt.Click += new System.EventHandler(this.Xoabt_Click);
             // 
             // Suabt
             // 
@@ -165,6 +164,7 @@
             this.Suabt.Text = "Sửa";
             this.Suabt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Suabt.UseVisualStyleBackColor = true;
+            this.Suabt.Click += new System.EventHandler(this.Suabt_Click);
             // 
             // Thembt
             // 
@@ -177,30 +177,13 @@
             this.Thembt.Text = "Thêm ";
             this.Thembt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Thembt.UseVisualStyleBackColor = true;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(322, 158);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(56, 20);
-            this.textBox3.TabIndex = 14;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(280, 161);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 13);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Mã PB";
+            this.Thembt.Click += new System.EventHandler(this.Thembt_Click);
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(113, 158);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(151, 21);
             this.comboBox2.TabIndex = 12;
@@ -235,8 +218,11 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ"});
             this.comboBox1.Location = new System.Drawing.Point(113, 86);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(78, 21);
             this.comboBox1.TabIndex = 8;
@@ -254,11 +240,10 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(113, 45);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker1.TabIndex = 6;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label3
             // 
@@ -292,7 +277,7 @@
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel3.Controls.Add(this.listView1);
             this.panel3.Location = new System.Drawing.Point(407, 5);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(646, 335);
             this.panel3.TabIndex = 40;
@@ -307,14 +292,17 @@
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6});
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(6, 5);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView1.Location = new System.Drawing.Point(2, 2);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(638, 328);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -354,7 +342,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormNhanVien";
             this.Text = "FormNhanVien";
             this.panel2.ResumeLayout(false);
@@ -370,11 +358,9 @@
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox SoPhieuKiemNghiem;
+        private System.Windows.Forms.TextBox FindNhanVien;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox2;
