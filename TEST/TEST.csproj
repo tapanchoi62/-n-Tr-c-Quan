@@ -99,9 +99,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DoAnTrucQuan\DoAnTrucQuan.csproj">
+    <ProjectReference Include="..\DoAnTrucQuan\QuanLyCoSoSX.csproj">
       <Project>{7bd8cad7-ea19-4c61-b531-fcd6f51b445a}</Project>
-      <Name>DoAnTrucQuan</Name>
+      <Name>QuanLyCoSoSX</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
