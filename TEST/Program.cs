@@ -1,5 +1,5 @@
-﻿using DoAnTrucQuan.BAL;
-using DoAnTrucQuan.DTO;
+﻿using QuanLyCoSoSX.BAL;
+using QuanLyCoSoSX.DTO;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
