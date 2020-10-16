@@ -25,6 +25,10 @@ namespace QuanLyCoSoSX
 
         private void button3_Click(object sender, EventArgs e)
         {
+            
+            FormSanPham sanpham = new FormSanPham(this);
+            sanpham.Show();
+            this.Hide();
 
         }
 
@@ -37,6 +41,18 @@ namespace QuanLyCoSoSX
         {
             FormDangNhap dn = new FormDangNhap();
             dn.Visible = true;
+        }
+
+        private void ManHinhQuanLyNhanVien_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormQuanLyPhieuDangKy qlpdk = new FormQuanLyPhieuDangKy(this);
+            qlpdk.Show();
         }
     }
 }

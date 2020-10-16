@@ -50,6 +50,7 @@
             this.button5.Text = " QUẢN LÝ ĐĂNG KÍ CHẤT LƯỢNG SẢN PHẨM";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -125,6 +126,7 @@
             this.Name = "ManHinhQuanLyNhanVien";
             this.Text = "ManHinhQuanLyNhanVien";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ManHinhQuanLyNhanVien_FormClosed);
+            this.Load += new System.EventHandler(this.ManHinhQuanLyNhanVien_Load);
             this.ResumeLayout(false);
 
         }
