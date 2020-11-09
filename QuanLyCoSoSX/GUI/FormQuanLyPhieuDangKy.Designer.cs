@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnThongTin = new System.Windows.Forms.Panel();
             this.DGVDSChiTieu = new System.Windows.Forms.DataGridView();
             this.dgvTenChiTieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -133,18 +133,21 @@
             // 
             this.DGVDSChiTieu.AllowUserToAddRows = false;
             this.DGVDSChiTieu.AllowUserToDeleteRows = false;
+            this.DGVDSChiTieu.AllowUserToResizeRows = false;
             this.DGVDSChiTieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVDSChiTieu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTenChiTieu,
             this.dgvYNghia,
             this.dgvChiSoDangKi});
             this.DGVDSChiTieu.Location = new System.Drawing.Point(15, 61);
+            this.DGVDSChiTieu.MultiSelect = false;
             this.DGVDSChiTieu.Name = "DGVDSChiTieu";
             this.DGVDSChiTieu.ReadOnly = true;
             this.DGVDSChiTieu.RowHeadersVisible = false;
             this.DGVDSChiTieu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVDSChiTieu.Size = new System.Drawing.Size(1059, 97);
             this.DGVDSChiTieu.TabIndex = 19;
+            this.DGVDSChiTieu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVDSChiTieu_CellClick);
             // 
             // dgvTenChiTieu
             // 
@@ -325,9 +328,9 @@
             // dgvNgayHH
             // 
             this.dgvNgayHH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dgvNgayHH.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dgvNgayHH.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvNgayHH.HeaderText = "Ngày hết hạn";
             this.dgvNgayHH.Name = "dgvNgayHH";
             this.dgvNgayHH.ReadOnly = true;
@@ -352,7 +355,7 @@
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Location = new System.Drawing.Point(469, 308);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(622, 78);
+            this.panel1.Size = new System.Drawing.Size(622, 79);
             this.panel1.TabIndex = 38;
             // 
             // panel5
@@ -481,13 +484,15 @@
             this.PanelThaoTac.Controls.Add(this.cbMaCSSX);
             this.PanelThaoTac.Location = new System.Drawing.Point(4, 6);
             this.PanelThaoTac.Name = "PanelThaoTac";
-            this.PanelThaoTac.Size = new System.Drawing.Size(459, 382);
+            this.PanelThaoTac.Size = new System.Drawing.Size(462, 382);
             this.PanelThaoTac.TabIndex = 37;
             // 
             // txtMaSP
             // 
+            this.txtMaSP.Enabled = false;
             this.txtMaSP.Location = new System.Drawing.Point(329, 100);
             this.txtMaSP.Name = "txtMaSP";
+            this.txtMaSP.ReadOnly = true;
             this.txtMaSP.Size = new System.Drawing.Size(120, 20);
             this.txtMaSP.TabIndex = 4;
             // 
@@ -502,8 +507,10 @@
             // 
             // txtMaCT
             // 
+            this.txtMaCT.Enabled = false;
             this.txtMaCT.Location = new System.Drawing.Point(330, 144);
             this.txtMaCT.Name = "txtMaCT";
+            this.txtMaCT.ReadOnly = true;
             this.txtMaCT.Size = new System.Drawing.Size(120, 20);
             this.txtMaCT.TabIndex = 17;
             // 
@@ -518,7 +525,7 @@
             // 
             // txtNgayHH
             // 
-            this.txtNgayHH.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.txtNgayHH.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtNgayHH.Location = new System.Drawing.Point(330, 242);
             this.txtNgayHH.Margin = new System.Windows.Forms.Padding(2);
             this.txtNgayHH.Name = "txtNgayHH";
@@ -536,12 +543,13 @@
             // 
             // txtNgayDK
             // 
-            this.txtNgayDK.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtNgayDK.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtNgayDK.Location = new System.Drawing.Point(115, 242);
             this.txtNgayDK.Margin = new System.Windows.Forms.Padding(2);
             this.txtNgayDK.Name = "txtNgayDK";
             this.txtNgayDK.Size = new System.Drawing.Size(123, 20);
             this.txtNgayDK.TabIndex = 13;
+            this.txtNgayDK.ValueChanged += new System.EventHandler(this.txtNgayDK_ValueChanged);
             // 
             // cbTenCT
             // 
@@ -704,6 +712,7 @@
             // 
             // txtSoPDK
             // 
+            this.txtSoPDK.Enabled = false;
             this.txtSoPDK.Location = new System.Drawing.Point(118, 10);
             this.txtSoPDK.Name = "txtSoPDK";
             this.txtSoPDK.Size = new System.Drawing.Size(120, 20);
@@ -779,8 +788,10 @@
             // 
             // txtMaCS
             // 
+            this.txtMaCS.Enabled = false;
             this.txtMaCS.Location = new System.Drawing.Point(330, 55);
             this.txtMaCS.Name = "txtMaCS";
+            this.txtMaCS.ReadOnly = true;
             this.txtMaCS.Size = new System.Drawing.Size(120, 20);
             this.txtMaCS.TabIndex = 2;
             // 

@@ -13,14 +13,23 @@ namespace QuanLyCoSoSX
 {
     public partial class ManHinhQuanLyNhanVien : Form
     {
+        private  Form parent;
         public ManHinhQuanLyNhanVien()
         {
             InitializeComponent();
         }
 
+        public ManHinhQuanLyNhanVien(Form par)
+        {
+            this.parent = par;
+            InitializeComponent();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-
+            FormQuanLiCoSoSanXuat cssx = new FormQuanLiCoSoSanXuat(this);
+            cssx.Show();
+            this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -34,13 +43,14 @@ namespace QuanLyCoSoSX
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            FormQuanLiChatLuong ChiTieu = new FormQuanLiChatLuong(this);
+            ChiTieu.Show();
+            this.Hide();
         }
 
         private void ManHinhQuanLyNhanVien_FormClosed(object sender, FormClosedEventArgs e)
         {
-            FormDangNhap dn = new FormDangNhap();
-            dn.Visible = true;
+            this.parent.Show();
         }
 
         private void ManHinhQuanLyNhanVien_Load(object sender, EventArgs e)

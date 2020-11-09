@@ -12,12 +12,18 @@ namespace QuanLyCoSoSX.GUI
 {
     public partial class ManHinhQuanLy : Form
     {
+        Form parent;
         public ManHinhQuanLy()
         {
             InitializeComponent();
             
         }
 
+        public ManHinhQuanLy(Form par)
+        {
+            this.parent = par;
+            InitializeComponent();
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             FormNhanVien form = new FormNhanVien();
@@ -32,8 +38,7 @@ namespace QuanLyCoSoSX.GUI
 
         private void ManHinhQuanLy_FormClosed(object sender, FormClosedEventArgs e)
         {
-            FormDangNhap dn = new FormDangNhap();
-            dn.Visible = true;
+            this.parent.Show();
         }
     }
 }

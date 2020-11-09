@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Remoting.Messaging;
 
 namespace QuanLyCoSoSX.BAL
 {
@@ -38,6 +39,29 @@ namespace QuanLyCoSoSX.BAL
             return list;
         }
 
+        public bool CheckUser(MySqlConnection conn,string tentk)
+        {
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM taikhoan where tentk= @tentk ";
+                var cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@tentk", tentk);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.HasRows)
+                {
+                    conn.Close();
+                    return true;
+                }
+                conn.Close();
+                return false;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            
+        }
         public TaiKhoan GetByID(MySqlConnection conn, int id)
         {
             conn.Open();
@@ -95,12 +119,28 @@ namespace QuanLyCoSoSX.BAL
             return a;
         }
 
-        public void Insert(MySqlConnection conn, int matk, string tentk, string matkhau,
+        public void Insert(MySqlConnection conn, string tentk, string matkhau,
             int manv,string quyen)
         {
             try
             {
+
                 conn.Open();
+                string sql1 = "SELECT MAX(matk) FROM taikhoan";
+                var cmd1 = new MySqlCommand(sql1, conn);
+                MySqlDataReader rdr1 = cmd1.ExecuteReader();
+                int matk = 0;
+                if (rdr1.HasRows)
+                {
+                    rdr1.Read();
+                    matk = rdr1.GetInt16("Max(matk)") + 1;
+                }
+                else
+                {
+                    matk = 1;
+                }
+                rdr1.Close();
+
                 string sql = "INSERT INTO `taikhoan` (`matk`, `tentk`, `matkhau`, `manv`, `quyen`) " +
                     "VALUES (@matk, @tentk, @matkhau, @manv, @quyen);";
                 var cmd = new MySqlCommand(sql, conn);
@@ -116,7 +156,7 @@ namespace QuanLyCoSoSX.BAL
             }
             catch (Exception ex)
             {
-                Console.WriteLine("That bai," + ex.Message);
+                throw ex;
             }
 
 

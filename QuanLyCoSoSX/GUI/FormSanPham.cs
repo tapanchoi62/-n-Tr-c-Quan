@@ -71,8 +71,8 @@ namespace QuanLyCoSoSX.GUI
             SanPhamBAL sanpham = new SanPhamBAL();
             try
             {
-                sanpham.Insert(conn, txtMasp.Text, txtTensp.Text, txtDonvitinh.Text, Convert.ToInt32(txtMaCSSX.Text));
-                DGVSanPham.Rows.Add(txtMasp.Text, txtTensp.Text, txtDonvitinh.Text, cbCSSX.SelectedItem);
+                sanpham.Insert(conn, txtTensp.Text, txtDonvitinh.Text, Convert.ToInt32(txtMaCSSX.Text));
+                GetDGV();
             }
             catch(Exception ex)
             {
@@ -115,19 +115,13 @@ namespace QuanLyCoSoSX.GUI
         private void SearchByID()
         {
             MySqlConnection conn = DBConnect.GetDBConnection();
-            SanPhamBAL sanpham = new SanPhamBAL();
-            if (txtFindByID.Text == "")
-            {
-                GetDGV();
-                return;
-            }
-                
+            SanPhamBAL sanpham = new SanPhamBAL();                
             try
             {
                 SanPham sp = sanpham.GetByID(conn, txtFindByID.Text);
+                DGVSanPham.Rows.Clear();
                 if (sp != null)
-                {
-                    DGVSanPham.Rows.Clear();
+                {   
                     DGVSanPham.Rows.Add(sp.Masp, sp.Tensp, sp.Donvi, sp.get().Tencs);
                 }
 

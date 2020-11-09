@@ -65,14 +65,31 @@ namespace QuanLyCoSoSX.BAL
 
                 }
             }
+            else
+            {
+                conn.Close();
+                return null;
+            }
             conn.Close();
             return a;
         }
-        public void Insert(MySqlConnection conn, int macs, string tencs, string diachi, string tenchu, string sodt)
+        public void Insert(MySqlConnection conn, string tencs, string diachi, string tenchu, string sodt)
         {
             try
             {
                 conn.Open();
+
+                string slqmacs = "SELECT MAX(macs) FROM cssx";
+                var cmd1 = new MySqlCommand(slqmacs, conn);
+                MySqlDataReader mrd =  cmd1.ExecuteReader();
+                int macs = 1;
+                if(mrd.HasRows)
+                {
+                    mrd.Read();
+                    macs = mrd.GetInt16("MAX(macs)") + 1;
+                }
+
+                mrd.Close();
                 string sql = "INSERT INTO `cssx` (`macs`, `tencs`, `diachi`, `tenchu`, `sodt`) VALUES (@macs, @tencs, @diachi, @tenchu,@sodt);";
                 var cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@macs", macs);
@@ -81,13 +98,12 @@ namespace QuanLyCoSoSX.BAL
                 cmd.Parameters.AddWithValue("@tenchu", tenchu);
                 cmd.Parameters.AddWithValue("@sodt", sodt);
                 cmd.Prepare();
-
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
             catch (Exception ex)
             {
-                Console.WriteLine("That bai," + ex.Message);
+                throw ex;
             }
 
 
@@ -129,16 +145,12 @@ namespace QuanLyCoSoSX.BAL
                 string sql = "Delete from CSSX where macs= @macs";
                 var cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@macs", macs);
-
-
-
-
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
             catch (Exception ex)
             {
-                Console.WriteLine("That bai," + ex.Message);
+                throw ex;
             }
         }
     }

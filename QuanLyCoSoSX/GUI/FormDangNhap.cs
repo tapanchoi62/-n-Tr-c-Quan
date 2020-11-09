@@ -38,16 +38,16 @@ namespace QuanLyCoSoSX.GUI
             {
                 if(tk.Quyen == "nhanvien")
                 {
-                    ManHinhQuanLyNhanVien manhinh = new ManHinhQuanLyNhanVien();
-                    manhinh.Visible = true;
-                    this.Visible = false;
+                    ManHinhQuanLyNhanVien manhinh = new ManHinhQuanLyNhanVien(this);
+                    manhinh.Show();
+                    this.Hide();
                 }
                 else
                 if(tk.Quyen == ("quanly"))
                 {
-                    ManHinhQuanLy manhinh = new ManHinhQuanLy();
-                    manhinh.Visible = true;
-                    this.Close();
+                    ManHinhQuanLy manhinh = new ManHinhQuanLy(this);
+                    manhinh.Show();
+                    this.Hide();
 
                 }
             }
@@ -88,16 +88,17 @@ namespace QuanLyCoSoSX.GUI
                 {
                     if (tk.Quyen == "nhanvien")
                     {
-                        ManHinhQuanLyNhanVien manhinh = new ManHinhQuanLyNhanVien();
-                        manhinh.Visible = true;
-                        this.Visible = false;
+                        ManHinhQuanLyNhanVien manhinh = new ManHinhQuanLyNhanVien(this);
+                        manhinh.Show();
+                        this.Hide();
                     }
                     else
                     if (tk.Quyen == ("quanly"))
                     {
-                        ManHinhQuanLy manhinh = new ManHinhQuanLy();
-                        manhinh.Visible = true;
-                        this.Visible = false;
+                        ManHinhQuanLy manhinh = new ManHinhQuanLy(this);
+                        manhinh.Show();
+                        this.Hide();
+
                     }
                 }
                 else
@@ -120,23 +121,31 @@ namespace QuanLyCoSoSX.GUI
                 {
                     if (tk.Quyen == "nhanvien")
                     {
-                        ManHinhQuanLyNhanVien manhinh = new ManHinhQuanLyNhanVien();
-                        manhinh.Visible = true;
-                        this.Visible = false;
+                        ManHinhQuanLyNhanVien manhinh = new ManHinhQuanLyNhanVien(this);
+                        manhinh.Show();
+                        this.Hide();
                     }
                     else
                     if (tk.Quyen == ("quanly"))
                     {
-                        ManHinhQuanLy manhinh = new ManHinhQuanLy();
-                        manhinh.Visible = true;
-                        this.Visible = false;
+                        ManHinhQuanLy manhinh = new ManHinhQuanLy(this);
+                        manhinh.Show();
+                        this.Hide();
+
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Đăng nhập lỗi, vui lòng đăng nhập lại !!! ","Thông báo");
+                    MessageBox.Show("Đăng nhập lỗi, vui lòng đăng nhập lại !!! ", "Thông báo");
                 }
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FormDangKyTaiKhoan dangki = new FormDangKyTaiKhoan(this);
+            this.Hide();
+            dangki.Show();
         }
     }
 }
