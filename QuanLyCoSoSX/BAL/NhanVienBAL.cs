@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace QuanLyCoSoSX.BAL
 {
@@ -40,6 +41,27 @@ namespace QuanLyCoSoSX.BAL
             }
             conn.Close();
             return list;
+        }
+
+        public bool CheackMaNV(MySqlConnection conn, int manv)
+        {
+            conn.Open();
+            string sql = "SELECT * FROM nhanvien Where manv =@id";
+            var cmd = new MySqlCommand(sql,conn);
+            cmd.Parameters.AddWithValue("@id", manv);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            if (rdr.HasRows)
+            {
+                conn.Close();
+                return true;
+            }
+            else
+            {
+                conn.Close();
+                return false;     
+            }
+                
+            
         }
         public NhanVien GetByID(MySqlConnection conn, int id)
         {

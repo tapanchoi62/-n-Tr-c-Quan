@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Org.BouncyCastle.Bcpg.OpenPgp;
 
 namespace QuanLyCoSoSX.BAL
 {
@@ -63,6 +64,11 @@ namespace QuanLyCoSoSX.BAL
 
                 }
             }
+            else
+            {
+                conn.Close();
+                return null;
+            }
             conn.Close();
             return a;
         }
@@ -97,12 +103,23 @@ namespace QuanLyCoSoSX.BAL
             return list;
         }
 
-        public void Insert(MySqlConnection conn, string masp, string tensp, string donvi,
+        public void Insert(MySqlConnection conn, string tensp, string donvi,
             int macs)
         {
             try
             {
                 conn.Open();
+                string sqlmasp = "SELECT MAX(RIGHT(masp,length(masp)-2-length(macs)-1)) FROM sanpham where macs= @macs";
+                var cmd1 = new MySqlCommand(sqlmasp, conn);
+                cmd1.Parameters.AddWithValue("@macs", macs);
+                MySqlDataReader mdr = cmd1.ExecuteReader();
+                string masp = "sp" + macs.ToString() + "01";
+                if(mdr.HasRows)
+                {
+                    mdr.Read();
+                    masp = "sp" + macs.ToString() + "0" + (mdr.GetInt16("MAX(RIGHT(masp,length(masp)-2-length(macs)-1))")+1).ToString();
+                }
+                mdr.Close();
                 string sql = "INSERT INTO `sanpham` (`masp`, `tensp`, `donvi`, `macs`) " +
                     "VALUES (@masp, @tensp,@donvi ,@macs);";
                 var cmd = new MySqlCommand(sql, conn);
@@ -118,7 +135,7 @@ namespace QuanLyCoSoSX.BAL
             }
             catch (Exception ex)
             {
-                Console.WriteLine("That bai," + ex.Message);
+                throw ex;
             }
 
 
@@ -132,21 +149,20 @@ namespace QuanLyCoSoSX.BAL
             try
             {
                 conn.Open();
-                string sql = "Update `SanPham` Set `tensp`=@tennv, `donvi`=@donvi, `macs`=@macs," +
+                string sql = "Update `SanPham`" +
+                    " Set `tensp`=@tensp, `donvi`=@donvi, `macs`=@macs" +
                     " where masp =@masp";
                 var cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@masp", masp);
                 cmd.Parameters.AddWithValue("@tensp", tensp);
                 cmd.Parameters.AddWithValue("@donvi", donvi);
                 cmd.Parameters.AddWithValue("@macs", macs);
-
-
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
             catch (Exception ex)
             {
-                Console.WriteLine("That bai," + ex.Message);
+                throw ex;
             }
         }
 

@@ -109,7 +109,7 @@ namespace QuanLyCoSoSX.BAL
             }
             catch (Exception ex)
             {
-                Console.WriteLine("That bai," + ex.Message);
+                throw ex;
             }
 
 
@@ -151,15 +151,12 @@ namespace QuanLyCoSoSX.BAL
                 var cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@mact", mact);
                 cmd.Parameters.AddWithValue("@spdk", spdk);
-
-
-
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
             catch (Exception ex)
             {
-                Console.WriteLine("That bai," + ex.Message);
+                throw ex;
             }
         }
     }

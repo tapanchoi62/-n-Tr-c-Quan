@@ -18,9 +18,10 @@ namespace QuanLyCoSoSX.GUI
         private Form parent;
         private void GetDGV()
         {
-            MySqlConnection conn = DBConnect.GetDBConnection();
+            
             try
             {
+                MySqlConnection conn = DBConnect.GetDBConnection();
                 DGVDSPhieuDK.Rows.Clear();
                 PhieuDKBAL dbPDK = new PhieuDKBAL();
                 foreach (var phieudk in dbPDK.GetAll(conn))
@@ -52,10 +53,24 @@ namespace QuanLyCoSoSX.GUI
             GetPanelThaoTac();
         }
 
+        bool CheckNgay()
+        {
+            DateTime day1 = DateTime.Parse(txtNgayDK.Value.ToString("yyyy/MM/dd"));
+            DateTime day2 = DateTime.Parse(txtNgayHH.Value.ToString("yyyy/MM/dd"));
+            if (day1 < day2)
+                return true;
+            else
+                return false;
+            
+        }
         private void btThem_Click(object sender, EventArgs e)
         {
             try
             {
+                if(!CheckNgay())
+                {
+                    throw new Exception("Ngày đăng kí và ngày hết hạn không hợp lệ");
+                }
                 MySqlConnection conn = DBConnect.GetDBConnection();
                 PhieuDKBAL bdPhieuDK = new PhieuDKBAL();
                 string soPDK = txtSoPDK.Text;
@@ -64,7 +79,11 @@ namespace QuanLyCoSoSX.GUI
                 string ngayDK = txtNgayDK.Value.ToString("yyyy/MM/dd");
                 string ngayHH = txtNgayHH.Value.ToString("yyyy/MM/dd");
                 int soLuong = int.Parse(txtSoLuong.Text);
-                bdPhieuDK.Insert(conn, soPDK, maCS, maSP, ngayDK, ngayHH, soLuong);
+                if (soLuong < 0)
+                {
+                    throw new Exception("Số lượng không thể là số âm");
+                }
+                bdPhieuDK.Insert(conn, maCS, maSP, ngayDK, ngayHH, soLuong);
                 GetPanelThongTin(soPDK);
                 GetDGV();
             }
@@ -78,9 +97,10 @@ namespace QuanLyCoSoSX.GUI
 
         private void btXoa_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = DBConnect.GetDBConnection();
+            
             try
             {
+                MySqlConnection conn = DBConnect.GetDBConnection();
                 PhieuDKBAL dbPhieuDK = new PhieuDKBAL();
                 string soPDK = txtSoPDK.Text;
                 dbPhieuDK.Delete(conn, soPDK);
@@ -95,63 +115,33 @@ namespace QuanLyCoSoSX.GUI
 
         private void btSua_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = DBConnect.GetDBConnection();
             try
             {
+                if (!CheckNgay())
+                    throw new Exception("Ngày đăng ký, ngày hết hạn không hợp lệ");
+                MySqlConnection conn = DBConnect.GetDBConnection();
                 PhieuDKBAL dbPhieuDK = new PhieuDKBAL();
                 string soPhieuDK = txtSoPDK.Text;
                 int maCS = int.Parse(txtMaCS.Text);
-                string maSP = txtMaCS.Text;
-                string ngayDK = txtNgayDK.Text;
-                string ngayHH = txtNgayHH.Text;
+                string maSP = txtMaSP.Text;
+                string ngayDK = txtNgayDK.Value.ToString("yyyy/MM/dd");
+                string ngayHH = txtNgayHH.Value.ToString("yyyy/MM/dd");
                 int soLuong = int.Parse(txtSoLuong.Text);
+                if(soLuong<0)
+                {
+                    throw new Exception("Số lượng không thể là số âm");
+                }
                 dbPhieuDK.Update(conn, soPhieuDK, maCS, maSP, ngayDK, ngayHH, soLuong);
                 GetDGV();
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message,"Thất bại");
-            }
-            
-        }
-
-        private void btThemCTP_Click(object sender, EventArgs e)
-        {
-            MySqlConnection conn = DBConnect.GetDBConnection();
-            try
-            {
-                CTPhieuDKBAL dbCTPhieuDK = new CTPhieuDKBAL();
-                string maCT = cbMaCT.Text;
-                string spDK = cbTenSP.Text;
-                int csDK = int.Parse(txtCSDK.Text);
-                dbCTPhieuDK.Insert(conn, maCT, spDK, csDK);
-                GetPanelThongTin(txtSoPDK.Text);
-                GetPanelThaoTac(txtSoPDK.Text);
-            }
             catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message,"Thất bại");
-            }
-        }
-
-        private void btXoaCTP_Click(object sender, EventArgs e)
-        {
-            MySqlConnection conn = DBConnect.GetDBConnection();
-            try
-            {
-                CTPhieuDKBAL dbCTPhieuDK = new CTPhieuDKBAL();
-                string maCT = cbMaCT.Text;
-                string spdk = txtSoPDK.Text;
-                dbCTPhieuDK.Delete(conn, maCT, spdk);
-                GetPanelThongTin(txtSoPDK.Text);
-                GetPanelThaoTac(txtSoPDK.Text);
-            }
-            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Thất bại");
             }
-            
+
         }
+
+              
 
         private void btSuaCTP_Click(object sender, EventArgs e)
         {
@@ -162,6 +152,8 @@ namespace QuanLyCoSoSX.GUI
                 string maCT = txtMaCT.Text;
                 string spDK = txtSoPDK.Text;
                 int csDK = int.Parse(txtCSDK.Text);
+                if (csDK < 0)
+                    throw new Exception("Chỉ số đăng kí không thể là số âm");
                 dbCTPDK.Update(conn, maCT, spDK, csDK);
                 GetPanelThongTin(txtSoPDK.Text);
                 GetPanelThaoTac(txtSoPDK.Text);
@@ -181,20 +173,27 @@ namespace QuanLyCoSoSX.GUI
 
         private void SearchByID()
         {
-            MySqlConnection conn = DBConnect.GetDBConnection();
+            
             try
             {
+                if (txtMaPhieu.Text == "")
+                    return;
+                MySqlConnection conn = DBConnect.GetDBConnection();
                 PhieuDKBAL dbPhieuDK = new PhieuDKBAL();
                 PhieuDK phieudk;
                 phieudk = dbPhieuDK.GetByID(conn, txtMaPhieu.Text);
-                DGVDSPhieuDK.Rows.Clear();
-                var row = new string[]
-                { phieudk.Spdk,
+                if(phieudk!=null)
+                {
+                    DGVDSPhieuDK.Rows.Clear();
+                    var row = new string[]
+                    { phieudk.Spdk,
                   phieudk.getSanPham().Tensp,
                   phieudk.Ngdk.ToString("dd/MM/yyyy"),
                   phieudk.Nghh.ToString("dd/MM/yyyy")
-                };
-                DGVDSPhieuDK.Rows.Add(row);
+                    };
+                    DGVDSPhieuDK.Rows.Add(row);
+                }
+                
             }
             catch (Exception ex)
             {
@@ -221,6 +220,7 @@ namespace QuanLyCoSoSX.GUI
         {
             MySqlConnection conn = DBConnect.GetDBConnection();
             PhieuDKBAL dbPhieuDk = new PhieuDKBAL();
+
             PhieuDK phieuDK = dbPhieuDk.GetByID(conn,ID);
             txtSoPDK1.Text = phieuDK.Spdk;
             txtNgayDK1.Text = phieuDK.Ngdk.ToString("dd/MM/yyyy");
@@ -236,24 +236,28 @@ namespace QuanLyCoSoSX.GUI
         private void GetPanelThaoTac()
         {
             MySqlConnection conn = DBConnect.GetDBConnection();
-            PhieuDKBAL dbPhieuDK = new PhieuDKBAL();
-            var lstPhieuDK = dbPhieuDK.GetAll(conn);
-            foreach(var phieudk in lstPhieuDK)
+            ChiTieuBAL ChiTieu = new ChiTieuBAL();
+            CSSXBAL CoSoSanXuat = new CSSXBAL();
+            SanPhamBAL SanPham = new SanPhamBAL();
+            foreach(var cssx in CoSoSanXuat.GetAll(conn))
             {
-                var CSSX = phieudk.getCoso();
-                cbCSSX.Items.Add(CSSX.Tencs);
-                cbMaCSSX.Items.Add(CSSX.Macs);
-                
+                cbCSSX.Items.Add(cssx.Tencs);
+                cbMaCSSX.Items.Add(cssx.Macs);
+            }
+            
+            foreach(var sp in SanPham.GetAll(conn) )
+            {
+
+                cbTenSP.Items.Add(sp.Tensp);
+                cbMaSP.Items.Add(sp.Masp);
+            }
+            foreach(var ct in ChiTieu.GetAll(conn))
+            {
+                cbTenCT.Items.Add(ct.Tenchitieu);
+                cbMaCT.Items.Add(ct.Mact);
             }
 
-            ChiTieuBAL dbChiTieu = new ChiTieuBAL();
-            var lstChiTieu = dbChiTieu.GetAll(conn);
-            foreach(var chitieu in lstChiTieu)
-            {
-                cbTenCT.Items.Add(chitieu.Tenchitieu);
-                cbMaCT.Items.Add(chitieu.Mact);
-                
-            }
+            
         }
         private void GetPanelThaoTac(String ID)
         {
@@ -275,9 +279,13 @@ namespace QuanLyCoSoSX.GUI
         {
             if(e.RowIndex>=0)
             {
-                string ID = DGVDSPhieuDK.Rows[e.RowIndex].Cells[0].Value.ToString();
-                GetPanelThaoTac(ID);
-                GetPanelThongTin(ID);
+                if (DGVDSPhieuDK.Rows[e.RowIndex].Cells[0].Value.ToString()!=null)
+                {
+                    string ID = DGVDSPhieuDK.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    GetPanelThaoTac(ID);
+                    GetPanelThongTin(ID);
+                }
+                    
             }
            
             
@@ -326,7 +334,15 @@ namespace QuanLyCoSoSX.GUI
                 cbTenSP.Items.Add(sanpham.Tensp);
                 cbMaSP.Items.Add(sanpham.Masp);
             }
-            
+            if(cbTenSP.Items.Count<1)
+            {
+                cbTenSP.Text = null;
+                txtMaSP.Text = null;
+            }
+            else
+            {
+                cbTenSP.SelectedIndex = 0;
+            }
         }
 
         private void txtTenSP_SelectedIndexChanged(object sender, EventArgs e)
@@ -342,6 +358,58 @@ namespace QuanLyCoSoSX.GUI
         private void FormQuanLyPhieuDangKy_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.parent.Show();
+        }
+
+        private void btXoaCTP_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                MySqlConnection conn = DBConnect.GetDBConnection();
+                CTPhieuDKBAL dbCTPhieuDK = new CTPhieuDKBAL();
+                string maCT = txtMaCT.Text;
+                string spdk = txtSoPDK.Text;
+                dbCTPhieuDK.Delete(conn, maCT, spdk);
+                GetPanelThongTin(txtSoPDK.Text);
+                GetPanelThaoTac(txtSoPDK.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btThemCTP_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                MySqlConnection conn = DBConnect.GetDBConnection();
+                CTPhieuDKBAL dbCTPhieuDK = new CTPhieuDKBAL();
+                string maCT = txtMaCT.Text;
+                string spDK = txtSoPDK.Text;
+                int csDK = int.Parse(txtCSDK.Text);
+                if (csDK < 0)
+                    throw new Exception("Chỉ số đăng kí không thể là số âm");
+                dbCTPhieuDK.Insert(conn, maCT, spDK, csDK);
+                GetPanelThongTin(txtSoPDK.Text);
+                GetPanelThaoTac(txtSoPDK.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Thất bại");
+            }
+        }
+
+        private void DGVDSChiTieu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            cbTenCT.SelectedItem = DGVDSChiTieu.Rows[index].Cells[0].Value.ToString();
+        }
+
+        private void txtNgayDK_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

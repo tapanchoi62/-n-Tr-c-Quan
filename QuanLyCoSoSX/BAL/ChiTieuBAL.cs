@@ -83,7 +83,7 @@ namespace QuanLyCoSoSX.BAL
             }
             catch (Exception ex)
             {
-                Console.WriteLine("That bai," + ex.Message);
+                throw ex;
             }
       
             
@@ -130,7 +130,7 @@ namespace QuanLyCoSoSX.BAL
             }
             catch (Exception ex)
             {
-                Console.WriteLine("That bai," + ex.Message);
+                throw ex;
             }
         }
     }

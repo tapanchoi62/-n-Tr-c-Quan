@@ -50,11 +50,11 @@
             this.txtFindByID = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.DGVSanPham = new System.Windows.Forms.DataGridView();
-            this.cbMaCSSX = new System.Windows.Forms.ComboBox();
             this.dgvMasp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDVTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvCSSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbMaCSSX = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVSanPham)).BeginInit();
             this.SuspendLayout();
@@ -111,6 +111,7 @@
             // 
             // txtMasp
             // 
+            this.txtMasp.Enabled = false;
             this.txtMasp.Location = new System.Drawing.Point(120, 71);
             this.txtMasp.Name = "txtMasp";
             this.txtMasp.Size = new System.Drawing.Size(395, 20);
@@ -137,7 +138,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 221);
+            this.label4.Location = new System.Drawing.Point(23, 234);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 13;
@@ -253,9 +254,9 @@
             this.label9.ForeColor = System.Drawing.Color.Maroon;
             this.label9.Location = new System.Drawing.Point(5, 5);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(156, 24);
+            this.label9.Size = new System.Drawing.Size(179, 24);
             this.label9.TabIndex = 3;
-            this.label9.Text = "Tra cứu chỉ tiêu";
+            this.label9.Text = "Tra cứu sản phẩm";
             // 
             // DGVSanPham
             // 
@@ -276,15 +277,6 @@
             this.DGVSanPham.Size = new System.Drawing.Size(628, 497);
             this.DGVSanPham.TabIndex = 10;
             this.DGVSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVSanPham_CellClick);
-            // 
-            // cbMaCSSX
-            // 
-            this.cbMaCSSX.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMaCSSX.FormattingEnabled = true;
-            this.cbMaCSSX.Location = new System.Drawing.Point(427, 314);
-            this.cbMaCSSX.Name = "cbMaCSSX";
-            this.cbMaCSSX.Size = new System.Drawing.Size(76, 10);
-            this.cbMaCSSX.TabIndex = 40;
             // 
             // dgvMasp
             // 
@@ -313,6 +305,15 @@
             this.dgvCSSX.HeaderText = "Cơ sở sản xuất";
             this.dgvCSSX.Name = "dgvCSSX";
             this.dgvCSSX.ReadOnly = true;
+            // 
+            // cbMaCSSX
+            // 
+            this.cbMaCSSX.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMaCSSX.FormattingEnabled = true;
+            this.cbMaCSSX.Location = new System.Drawing.Point(427, 314);
+            this.cbMaCSSX.Name = "cbMaCSSX";
+            this.cbMaCSSX.Size = new System.Drawing.Size(76, 10);
+            this.cbMaCSSX.TabIndex = 40;
             // 
             // FormSanPham
             // 
