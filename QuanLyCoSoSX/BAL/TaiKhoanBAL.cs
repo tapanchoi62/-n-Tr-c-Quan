@@ -31,14 +31,12 @@ namespace QuanLyCoSoSX.BAL
                     a.Quyen = rdr.GetString("quyen");
                     a.Matkhau = rdr.GetString("matkhau");
                     a.Manv = rdr.GetInt16("manv");
-
                     list.Add(a);
                 }
             }
             conn.Close();
             return list;
         }
-
         public bool CheckUser(MySqlConnection conn,string tentk)
         {
             try
@@ -59,8 +57,7 @@ namespace QuanLyCoSoSX.BAL
             catch(Exception ex)
             {
                 throw ex;
-            }
-            
+            }           
         }
         public TaiKhoan GetByID(MySqlConnection conn, int id)
         {
@@ -78,13 +75,11 @@ namespace QuanLyCoSoSX.BAL
             {
                 while (rdr.Read())
                 {
-
                     a.Matk = rdr.GetInt16("matk");
                     a.Tentk = rdr.GetString("tentk");
                     a.Quyen = rdr.GetString("quyen");
                     a.Matkhau = rdr.GetString("matkhau");
                     a.Manv = rdr.GetInt16("manv");
-
                 }
             }
             conn.Close();

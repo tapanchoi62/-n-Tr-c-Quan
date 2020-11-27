@@ -1,10 +1,7 @@
-﻿using QuanLyCoSoSX.DAO;
-using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
+using QuanLyCoSoSX.DAO;
 
 namespace QuanLyCoSoSX.BAL
 {
@@ -27,7 +24,7 @@ namespace QuanLyCoSoSX.BAL
                     PhieuKN a = new PhieuKN();
                     a.Spkn = rdr.GetString("spkn");
                     a.Spdk = rdr.GetString("spdk");
-                    a.Ngkn = rdr.GetDateTime("ngkn");
+                    a.Ngkn = rdr.GetDateTime("ngaykn");
                     a.Manv = rdr.GetInt16("manv");
                     a.Masp = rdr.GetString("masp");
                     a.KL1 = rdr.GetString("kl");
@@ -56,7 +53,7 @@ namespace QuanLyCoSoSX.BAL
 
                     a.Spkn = rdr.GetString("spkn");
                     a.Spdk = rdr.GetString("spdk");
-                    a.Ngkn = rdr.GetDateTime("ngkn");
+                    a.Ngkn = rdr.GetDateTime("ngaykn");
                     a.Manv = rdr.GetInt16("manv");
                     a.Masp = rdr.GetString("masp");
                     a.KL1 = rdr.GetString("kl");
@@ -89,10 +86,6 @@ namespace QuanLyCoSoSX.BAL
             {
                 Console.WriteLine("That bai," + ex.Message);
             }
-
-
-
-
         }
 
         public void Update(MySqlConnection conn, string spkn, string spdk,
@@ -111,9 +104,6 @@ namespace QuanLyCoSoSX.BAL
                 cmd.Parameters.AddWithValue("@manv", manv);
                 cmd.Parameters.AddWithValue("@masp", masp);
                 cmd.Parameters.AddWithValue("@kl", kl);
-
-
-
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
@@ -131,10 +121,6 @@ namespace QuanLyCoSoSX.BAL
                 string sql = "Delete from phieukiemnghiem where spkn= @spkn";
                 var cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@spkn", spkn);
-
-
-
-
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }

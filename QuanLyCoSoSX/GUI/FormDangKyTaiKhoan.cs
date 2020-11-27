@@ -85,7 +85,6 @@ namespace QuanLyCoSoSX.GUI
             }
 
         }
-
         private void FormDangKyTaiKhoan_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.parent.Show();

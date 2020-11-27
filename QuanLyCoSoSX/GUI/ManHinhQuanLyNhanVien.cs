@@ -64,5 +64,11 @@ namespace QuanLyCoSoSX
             FormQuanLyPhieuDangKy qlpdk = new FormQuanLyPhieuDangKy(this);
             qlpdk.Show();
         }
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            FormQuanLiPhieuKiemNghiem qlpkn = new FormQuanLiPhieuKiemNghiem(this);
+            qlpkn.Show();
+            this.Hide();
+        }
     }
 }
