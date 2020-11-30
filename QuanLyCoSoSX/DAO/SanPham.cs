@@ -20,7 +20,7 @@ namespace QuanLyCoSoSX.DAO
 
         private CSSX Coso;
 
-        public CSSX get()
+        public CSSX getCS()
         {
             if(Coso == null)
             {

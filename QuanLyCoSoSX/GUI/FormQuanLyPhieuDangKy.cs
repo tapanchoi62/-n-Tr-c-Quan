@@ -11,7 +11,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Globalization;
+using System.Runtime;
 namespace QuanLyCoSoSX.GUI
 {
     public partial class FormQuanLyPhieuDangKy : Form
@@ -40,6 +41,8 @@ namespace QuanLyCoSoSX.GUI
         public FormQuanLyPhieuDangKy()
         {
             InitializeComponent();
+            txtNgayDK.Format = DateTimePickerFormat.Custom;
+            txtNgayHH.Format = DateTimePickerFormat.Custom;
             txtNgayDK.CustomFormat = "dd/MM/yyyy";
             txtNgayHH.CustomFormat = "dd/MM/yyyy";
             GetPanelThaoTac();
@@ -49,9 +52,12 @@ namespace QuanLyCoSoSX.GUI
         {
             this.parent = par;
             InitializeComponent();
+            txtNgayDK.Format = DateTimePickerFormat.Custom;
+            txtNgayHH.Format = DateTimePickerFormat.Custom;
             txtNgayDK.CustomFormat = "dd/MM/yyyy";
             txtNgayHH.CustomFormat = "dd/MM/yyyy";
             GetPanelThaoTac();
+            GetDGV();
         }
 
         bool CheckNgay()
@@ -173,22 +179,26 @@ namespace QuanLyCoSoSX.GUI
             
             try
             {
+                DGVDSPhieuDK.Rows.Clear();
                 if (txtMaPhieu.Text == "")
                     return;
                 MySqlConnection conn = DBConnect.GetDBConnection();
                 PhieuDKBAL dbPhieuDK = new PhieuDKBAL();
-                PhieuDK phieudk;
-                phieudk = dbPhieuDK.GetByID(conn, txtMaPhieu.Text);
+                List<PhieuDK> phieudk;
+                phieudk = dbPhieuDK.SearchByInfo(conn, txtMaPhieu.Text);
                 if(phieudk!=null)
                 {
-                    DGVDSPhieuDK.Rows.Clear();
-                    var row = new string[]
-                    { phieudk.Spdk,
-                  phieudk.getSanPham().Tensp,
-                  phieudk.Ngdk.ToString("dd/MM/yyyy"),
-                  phieudk.Nghh.ToString("dd/MM/yyyy")
+                    foreach(var p in phieudk)
+                    {
+                        var row = new string[]
+                    { p.Spdk,
+                      p.getSanPham().Tensp,
+                      p.Ngdk.ToString("dd/MM/yyyy"),
+                      p.Nghh.ToString("dd/MM/yyyy")
                     };
-                    DGVDSPhieuDK.Rows.Add(row);
+                        DGVDSPhieuDK.Rows.Add(row);
+                    }
+                    
                 }
                 
             }
@@ -349,7 +359,11 @@ namespace QuanLyCoSoSX.GUI
 
         private void txtMaPhieu_KeyDown(object sender, KeyEventArgs e)
         {
-            SearchByID();
+            
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchByID();
+            }
         }
 
         private void FormQuanLyPhieuDangKy_FormClosing(object sender, FormClosingEventArgs e)
@@ -406,7 +420,120 @@ namespace QuanLyCoSoSX.GUI
 
         private void txtNgayDK_ValueChanged(object sender, EventArgs e)
         {
+            
+        }
 
+        private void drawCTPhieu(Graphics g, float x, float y,string id, int chiso)
+        {
+            Font font = new Font("Times New Roman", 13);
+            Font Name =  new Font("Times New Roman", 13,FontStyle.Bold);
+            StringFormat sf = new StringFormat();
+            sf.Alignment = StringAlignment.Center;
+            MySqlConnection conn = DBConnect.GetDBConnection();
+            ChiTieuBAL CTBAL= new ChiTieuBAL();
+            ChiTieu chitieu = CTBAL.GetByID(conn, id);
+            RectangleF NameOfCollum1 = new RectangleF(x, y, 150, 25);
+            RectangleF NameOfCollum2 = new RectangleF(x + 150, y, 350, 25);
+            RectangleF NameOfCollum3 = new RectangleF(x + 150 + 350, y, 150, 25);
+            RectangleF[] NameRects = new RectangleF[] { NameOfCollum1,NameOfCollum2,NameOfCollum3 };
+            g.DrawString("Tên chỉ tiêu", Name, Brushes.Black, NameOfCollum1, sf);
+            g.DrawString("Ý nghĩa", Name, Brushes.Black,NameOfCollum2, sf);
+            g.DrawString("Chỉ số đăng ký", Name, Brushes.Black, NameOfCollum3, sf);
+            g.DrawRectangles(Pens.Black, NameRects);
+            RectangleF collum1 = new RectangleF(x,y+25,150, 130);
+            RectangleF collum2 = new RectangleF(x + 150, y+25, 350, 130);
+            RectangleF collum3 = new RectangleF(x + 150 + 350, y+25, 150, 130);
+            RectangleF[] rects = new RectangleF[] {collum1,collum2,collum3};
+            g.DrawString(chitieu.Tenchitieu, font, Brushes.Black, collum1,sf);
+            g.DrawString(chitieu.Ynghia, font, Brushes.Black, collum2,sf);
+            g.DrawString(chiso.ToString(), font, Brushes.Black, collum3,sf);
+            g.DrawRectangles(Pens.Black, rects);
+        }
+
+        private int numofitem = 0;
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+            if (txtSoPDK.Text != "")
+            {
+                MySqlConnection conn = DBConnect.GetDBConnection();
+                PhieuDKBAL PDKBAL = new PhieuDKBAL();
+                PhieuDK phieudk = PDKBAL.GetByID(conn, txtSoPDK.Text);
+                float w = e.PageBounds.Width / 2;
+                float x = e.MarginBounds.Left;
+                StringFormat sf = new StringFormat();
+                sf.Alignment = StringAlignment.Center;
+                Graphics gp = e.Graphics;
+                Font font = new Font("Times New Roman", 12, FontStyle.Bold);
+                Font font2 = new Font("Times New Roman", 12);
+                RectangleF rect1 = new RectangleF(40, x, 150, 170);
+                float yct;
+                if(numofitem ==0)
+                {
+                    gp.DrawString("CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM", new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new PointF(w, 70), sf);
+                    gp.DrawString("Độc lập - Tự do - Hạnh phúc", new Font("Times New Roman", 14, FontStyle.Bold), Brushes.Black, new PointF(w, 97), sf);
+                    gp.DrawString("PHIẾU ĐĂNG KÝ CHẤT LƯỢNG SẢN PHẨM", new Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new PointF(w, 137), sf);
+                    gp.DrawString("Số phiếu đăng ký:", font, Brushes.Black, new PointF(x, 177));
+                    gp.DrawString(phieudk.Spdk, font2, Brushes.Black, new PointF(x + 150, 177));
+                    gp.DrawString("Ngày đăng ký:", font, Brushes.Black, new PointF(x, 207));
+                    gp.DrawString(phieudk.Ngdk.ToString("dd/MM/yyyy"), font2, Brushes.Black, new PointF(x + 150, 207));
+                    gp.DrawString("Ngày hết hạn:", font, Brushes.Black, new PointF(w + 20, 207));
+                    gp.DrawString(phieudk.Nghh.ToString("dd/MM/yyyy"), font2, Brushes.Black, new PointF(w + 170, 207));
+                    gp.DrawString("Tên cơ sở sản xuất:", font, Brushes.Black, new PointF(x, 237));
+                    gp.DrawString(phieudk.getCoso().Tencs, font2, Brushes.Black, new PointF(x + 150, 237));
+                    gp.DrawString("Mã cơ sở sản xuất:", font, Brushes.Black, new PointF(w + 20, 237));
+                    gp.DrawString(phieudk.Macs.ToString(), font2, Brushes.Black, new PointF(w + 170, 237));
+                    gp.DrawString("Tên sản phẩm:", font, Brushes.Black, new PointF(x, 267));
+                    gp.DrawString(phieudk.getSanPham().Tensp, font2, Brushes.Black, new PointF(x + 150, 267));
+                    gp.DrawString("Mã sản phẩm", font, Brushes.Black, new PointF(w + 20, 267));
+                    gp.DrawString(phieudk.Masp, font2, Brushes.Black, new PointF(w + 170, 267));
+                    gp.DrawString("Số lượng", font, Brushes.Black, new PointF(x, 297));
+                    gp.DrawString(phieudk.sl.ToString(), font2, Brushes.Black, new PointF(x + 150, 297));
+                    gp.DrawString("Đăng kí chất lượng sản phậm với các tiêu chí sau:", font, Brushes.Black, new PointF(x, 327));
+                    yct = 367;
+                }
+                else
+                {
+                    yct = 70;
+                }    
+                List<CTPhieuDK> ctphieu = phieudk.get();
+                for(;numofitem<ctphieu.Count;numofitem++)
+                {
+                    if(yct <= e.MarginBounds.Height)
+                    {
+                        drawCTPhieu(gp, x, yct, ctphieu[numofitem].Mact, ctphieu[numofitem].Csdk);
+                        yct += 190;
+                    }
+                    else
+                    {
+                        e.HasMorePages = true;
+                        break;
+                    }
+                }    
+
+                if(numofitem == ctphieu.Count)
+                {
+                    float but = e.PageBounds.Height;
+                    gp.DrawString("Ngày lập phiếu: ", font, Brushes.Black, new PointF(w + 100, but - 170));
+                    gp.DrawString(DateTime.Now.ToString("dd/MM/yyyy"), font2, Brushes.Black, new PointF(w + 230, but - 170));
+                    gp.DrawString("CHI CỤC ĐO LƯỜNG CHẤT LƯỢNG THÀNH PHỐ HỒ CHÍ MINH ", new Font("Times New Roman", 11, FontStyle.Bold), Brushes.Black, new PointF(w + 150, but - 130), sf);
+                    gp.DrawString("SỞ KHOA HỌC VÀ CÔNG NGHỆ", new Font("Times New Roman", 11, FontStyle.Bold), Brushes.Black, new PointF(w + 150, but - 100), sf);
+                    numofitem = 0;
+                    e.HasMorePages = false;
+                }
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.printDocument1.Print();
         }
     }
 }

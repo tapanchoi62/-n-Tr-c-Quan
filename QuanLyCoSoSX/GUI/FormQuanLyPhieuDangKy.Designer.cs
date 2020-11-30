@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQuanLyPhieuDangKy));
             this.pnThongTin = new System.Windows.Forms.Panel();
             this.DGVDSChiTieu = new System.Windows.Forms.DataGridView();
             this.dgvTenChiTieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,6 +98,8 @@
             this.txtMaCS = new System.Windows.Forms.TextBox();
             this.cbMaSP = new System.Windows.Forms.ComboBox();
             this.cbMaCSSX = new System.Windows.Forms.ComboBox();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.pnThongTin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVDSChiTieu)).BeginInit();
             this.panel3.SuspendLayout();
@@ -379,6 +382,7 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "In";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -390,6 +394,7 @@
             this.button2.TabIndex = 13;
             this.button2.Text = "Xem trước";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label15
             // 
@@ -543,6 +548,7 @@
             // 
             // txtNgayDK
             // 
+            this.txtNgayDK.CustomFormat = "";
             this.txtNgayDK.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtNgayDK.Location = new System.Drawing.Point(115, 242);
             this.txtNgayDK.Margin = new System.Windows.Forms.Padding(2);
@@ -811,6 +817,20 @@
             this.cbMaCSSX.Size = new System.Drawing.Size(121, 21);
             this.cbMaCSSX.TabIndex = 20;
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // FormQuanLyPhieuDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -912,5 +932,7 @@
         private System.Windows.Forms.ComboBox cbCSSX;
         private System.Windows.Forms.ComboBox cbMaCSSX;
         private System.Windows.Forms.ComboBox cbMaSP;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

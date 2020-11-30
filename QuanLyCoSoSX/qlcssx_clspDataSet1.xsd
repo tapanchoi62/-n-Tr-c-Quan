@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="qlcssx_clspDataSet1" targetNamespace="http://tempuri.org/qlcssx_clspDataSet1.xsd" xmlns:mstns="http://tempuri.org/qlcssx_clspDataSet1.xsd" xmlns="http://tempuri.org/qlcssx_clspDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="qlcssx_clspConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="qlcssx_clspConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.QuanLyCoSoSX.Properties.Settings.GlobalReference.Default.qlcssx_clspConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="chitieuTableAdapter" GeneratorDataComponentClassName="chitieuTableAdapter" Name="chitieu" UserDataComponentName="chitieuTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="qlcssx_clspConnectionString (Settings)" DbObjectName="qlcssx_clsp.chitieu" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `mact`, `tenct`, `ynghia` FROM `chitieu`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="cssxTableAdapter" GeneratorDataComponentClassName="cssxTableAdapter" Name="cssx" UserDataComponentName="cssxTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="qlcssx_clspConnectionString (Settings)" DbObjectName="qlcssx_clsp.cssx" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `macs`, `tencs`, `diachi`, `tenchu`, `sodt` FROM `cssx`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ctphieudangkyTableAdapter" GeneratorDataComponentClassName="ctphieudangkyTableAdapter" Name="ctphieudangky" UserDataComponentName="ctphieudangkyTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="qlcssx_clspConnectionString (Settings)" DbObjectName="qlcssx_clsp.ctphieudangky" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `spdk`, `mact`, `csdk` FROM `ctphieudangky`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ctphieukiemnghiemTableAdapter" GeneratorDataComponentClassName="ctphieukiemnghiemTableAdapter" Name="ctphieukiemnghiem" UserDataComponentName="ctphieukiemnghiemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="qlcssx_clspConnectionString (Settings)" DbObjectName="qlcssx_clsp.ctphieukiemnghiem" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `spkn`, `mact`, `cskn`, `cskq` FROM `ctphieukiemnghiem`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="nhanvienTableAdapter" GeneratorDataComponentClassName="nhanvienTableAdapter" Name="nhanvien" UserDataComponentName="nhanvienTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="qlcssx_clspConnectionString (Settings)" DbObjectName="qlcssx_clsp.nhanvien" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `manv`, `tennv`, `ngsinh`, `gioitinh`, `mapb`, `sdt` FROM `nhanvien`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="phieudangkyTableAdapter" GeneratorDataComponentClassName="phieudangkyTableAdapter" Name="phieudangky" UserDataComponentName="phieudangkyTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="qlcssx_clspConnectionString (Settings)" DbObjectName="qlcssx_clsp.phieudangky" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `spdk`, `ngdk`, `nghh`, `macs`, `masp`, `sl` FROM `phieudangky`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="phieukiemnghiemTableAdapter" GeneratorDataComponentClassName="phieukiemnghiemTableAdapter" Name="phieukiemnghiem" UserDataComponentName="phieukiemnghiemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="qlcssx_clspConnectionString (Settings)" DbObjectName="qlcssx_clsp.phieukiemnghiem" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `spkn`, `spdk`, `ngaykn`, `manv`, `masp`, `kl` FROM `phieukiemnghiem`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="phongbanTableAdapter" GeneratorDataComponentClassName="phongbanTableAdapter" Name="phongban" UserDataComponentName="phongbanTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="qlcssx_clspConnectionString (Settings)" DbObjectName="qlcssx_clsp.phongban" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `mapb`, `tenpb` FROM `phongban`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sanphamTableAdapter" GeneratorDataComponentClassName="sanphamTableAdapter" Name="sanpham" UserDataComponentName="sanphamTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="qlcssx_clspConnectionString (Settings)" DbObjectName="qlcssx_clsp.sanpham" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `masp`, `tensp`, `donvi`, `macs` FROM `sanpham`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taikhoanTableAdapter" GeneratorDataComponentClassName="taikhoanTableAdapter" Name="taikhoan" UserDataComponentName="taikhoanTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="qlcssx_clspConnectionString (Settings)" DbObjectName="qlcssx_clsp.taikhoan" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `matk`, `tentk`, `matkhau`, `manv`, `quyen` FROM `taikhoan`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="qlcssx_clspDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="qlcssx_clspDataSet1" msprop:Generator_UserDSName="qlcssx_clspDataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="chitieu" msprop:Generator_TableClassName="chitieuDataTable" msprop:Generator_TableVarName="tablechitieu" msprop:Generator_TablePropName="chitieu" msprop:Generator_RowDeletingName="chitieuRowDeleting" msprop:Generator_RowChangingName="chitieuRowChanging" msprop:Generator_RowEvHandlerName="chitieuRowChangeEventHandler" msprop:Generator_RowDeletedName="chitieuRowDeleted" msprop:Generator_UserTableName="chitieu" msprop:Generator_RowChangedName="chitieuRowChanged" msprop:Generator_RowEvArgName="chitieuRowChangeEvent" msprop:Generator_RowClassName="chitieuRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="cssx" msprop:Generator_TableClassName="cssxDataTable" msprop:Generator_TableVarName="tablecssx" msprop:Generator_TablePropName="cssx" msprop:Generator_RowDeletingName="cssxRowDeleting" msprop:Generator_RowChangingName="cssxRowChanging" msprop:Generator_RowEvHandlerName="cssxRowChangeEventHandler" msprop:Generator_RowDeletedName="cssxRowDeleted" msprop:Generator_UserTableName="cssx" msprop:Generator_RowChangedName="cssxRowChanged" msprop:Generator_RowEvArgName="cssxRowChangeEvent" msprop:Generator_RowClassName="cssxRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ctphieudangky" msprop:Generator_TableClassName="ctphieudangkyDataTable" msprop:Generator_TableVarName="tablectphieudangky" msprop:Generator_TablePropName="ctphieudangky" msprop:Generator_RowDeletingName="ctphieudangkyRowDeleting" msprop:Generator_RowChangingName="ctphieudangkyRowChanging" msprop:Generator_RowEvHandlerName="ctphieudangkyRowChangeEventHandler" msprop:Generator_RowDeletedName="ctphieudangkyRowDeleted" msprop:Generator_UserTableName="ctphieudangky" msprop:Generator_RowChangedName="ctphieudangkyRowChanged" msprop:Generator_RowEvArgName="ctphieudangkyRowChangeEvent" msprop:Generator_RowClassName="ctphieudangkyRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ctphieukiemnghiem" msprop:Generator_TableClassName="ctphieukiemnghiemDataTable" msprop:Generator_TableVarName="tablectphieukiemnghiem" msprop:Generator_TablePropName="ctphieukiemnghiem" msprop:Generator_RowDeletingName="ctphieukiemnghiemRowDeleting" msprop:Generator_RowChangingName="ctphieukiemnghiemRowChanging" msprop:Generator_RowEvHandlerName="ctphieukiemnghiemRowChangeEventHandler" msprop:Generator_RowDeletedName="ctphieukiemnghiemRowDeleted" msprop:Generator_UserTableName="ctphieukiemnghiem" msprop:Generator_RowChangedName="ctphieukiemnghiemRowChanged" msprop:Generator_RowEvArgName="ctphieukiemnghiemRowChangeEvent" msprop:Generator_RowClassName="ctphieukiemnghiemRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="nhanvien" msprop:Generator_TableClassName="nhanvienDataTable" msprop:Generator_TableVarName="tablenhanvien" msprop:Generator_TablePropName="nhanvien" msprop:Generator_RowDeletingName="nhanvienRowDeleting" msprop:Generator_RowChangingName="nhanvienRowChanging" msprop:Generator_RowEvHandlerName="nhanvienRowChangeEventHandler" msprop:Generator_RowDeletedName="nhanvienRowDeleted" msprop:Generator_UserTableName="nhanvien" msprop:Generator_RowChangedName="nhanvienRowChanged" msprop:Generator_RowEvArgName="nhanvienRowChangeEvent" msprop:Generator_RowClassName="nhanvienRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="phieudangky" msprop:Generator_TableClassName="phieudangkyDataTable" msprop:Generator_TableVarName="tablephieudangky" msprop:Generator_TablePropName="phieudangky" msprop:Generator_RowDeletingName="phieudangkyRowDeleting" msprop:Generator_RowChangingName="phieudangkyRowChanging" msprop:Generator_RowEvHandlerName="phieudangkyRowChangeEventHandler" msprop:Generator_RowDeletedName="phieudangkyRowDeleted" msprop:Generator_UserTableName="phieudangky" msprop:Generator_RowChangedName="phieudangkyRowChanged" msprop:Generator_RowEvArgName="phieudangkyRowChangeEvent" msprop:Generator_RowClassName="phieudangkyRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="phieukiemnghiem" msprop:Generator_TableClassName="phieukiemnghiemDataTable" msprop:Generator_TableVarName="tablephieukiemnghiem" msprop:Generator_TablePropName="phieukiemnghiem" msprop:Generator_RowDeletingName="phieukiemnghiemRowDeleting" msprop:Generator_RowChangingName="phieukiemnghiemRowChanging" msprop:Generator_RowEvHandlerName="phieukiemnghiemRowChangeEventHandler" msprop:Generator_RowDeletedName="phieukiemnghiemRowDeleted" msprop:Generator_UserTableName="phieukiemnghiem" msprop:Generator_RowChangedName="phieukiemnghiemRowChanged" msprop:Generator_RowEvArgName="phieukiemnghiemRowChangeEvent" msprop:Generator_RowClassName="phieukiemnghiemRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="phongban" msprop:Generator_TableClassName="phongbanDataTable" msprop:Generator_TableVarName="tablephongban" msprop:Generator_TablePropName="phongban" msprop:Generator_RowDeletingName="phongbanRowDeleting" msprop:Generator_RowChangingName="phongbanRowChanging" msprop:Generator_RowEvHandlerName="phongbanRowChangeEventHandler" msprop:Generator_RowDeletedName="phongbanRowDeleted" msprop:Generator_UserTableName="phongban" msprop:Generator_RowChangedName="phongbanRowChanged" msprop:Generator_RowEvArgName="phongbanRowChangeEvent" msprop:Generator_RowClassName="phongbanRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="sanpham" msprop:Generator_TableClassName="sanphamDataTable" msprop:Generator_TableVarName="tablesanpham" msprop:Generator_TablePropName="sanpham" msprop:Generator_RowDeletingName="sanphamRowDeleting" msprop:Generator_RowChangingName="sanphamRowChanging" msprop:Generator_RowEvHandlerName="sanphamRowChangeEventHandler" msprop:Generator_RowDeletedName="sanphamRowDeleted" msprop:Generator_UserTableName="sanpham" msprop:Generator_RowChangedName="sanphamRowChanged" msprop:Generator_RowEvArgName="sanphamRowChangeEvent" msprop:Generator_RowClassName="sanphamRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="taikhoan" msprop:Generator_TableClassName="taikhoanDataTable" msprop:Generator_TableVarName="tabletaikhoan" msprop:Generator_TablePropName="taikhoan" msprop:Generator_RowDeletingName="taikhoanRowDeleting" msprop:Generator_RowChangingName="taikhoanRowChanging" msprop:Generator_RowEvHandlerName="taikhoanRowChangeEventHandler" msprop:Generator_RowDeletedName="taikhoanRowDeleted" msprop:Generator_UserTableName="taikhoan" msprop:Generator_RowChangedName="taikhoanRowChanged" msprop:Generator_RowEvArgName="taikhoanRowChangeEvent" msprop:Generator_RowClassName="taikhoanRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

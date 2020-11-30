@@ -50,7 +50,7 @@ namespace QuanLyCoSoSX.GUI
                 List<SanPham> lSanPham = sp.GetAll(conn);
                 foreach (SanPham spp in lSanPham)
                 {
-                    DGVSanPham.Rows.Add(spp.Masp, spp.Tensp, spp.Donvi, spp.get().Tencs);
+                    DGVSanPham.Rows.Add(spp.Masp, spp.Tensp, spp.Donvi, spp.getCS().Tencs);
                 }
 
             }
@@ -118,14 +118,13 @@ namespace QuanLyCoSoSX.GUI
             SanPhamBAL sanpham = new SanPhamBAL();                
             try
             {
-                SanPham sp = sanpham.GetByID(conn, txtFindByID.Text);
                 DGVSanPham.Rows.Clear();
-                if (sp != null)
-                {   
-                    DGVSanPham.Rows.Add(sp.Masp, sp.Tensp, sp.Donvi, sp.get().Tencs);
+                List<SanPham> lstSanPham = sanpham.SearchByInfo(conn, txtFindByID.Text);
+                foreach(var sp in lstSanPham)
+                {
+                    DGVSanPham.Rows.Add(sp.Masp, sp.Tensp, sp.Donvi, sp.getCS().Tencs);
                 }
-
-
+           
             }
             catch (Exception ex)
             {

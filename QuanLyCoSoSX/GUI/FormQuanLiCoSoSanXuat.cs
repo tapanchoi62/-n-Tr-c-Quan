@@ -110,14 +110,17 @@ namespace QuanLyCoSoSX.GUI
 
             try
             {
+                DGV.Rows.Clear();
                 if (SearchCSSX.Text != "")
                 {
                     MySqlConnection conn = DBConnect.GetDBConnection();
                     CSSXBAL CSSX = new CSSXBAL();
-                    var cs = CSSX.GetByID(conn, int.Parse(SearchCSSX.Text));
-                    DGV.Rows.Clear();
-                    if (cs != null)
+                    var lstCSSX = CSSX.SearchByInfo(conn,SearchCSSX.Text);        
+                    foreach(var cs in lstCSSX)
+                    {
                         DGV.Rows.Add(cs.Macs, cs.Tencs, cs.Diachi, cs.Tenchu, cs.Sodt);
+                    }
+                        
                 }
             }
             catch (Exception ex)
