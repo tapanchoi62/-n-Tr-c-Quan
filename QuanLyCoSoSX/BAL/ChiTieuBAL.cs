@@ -65,6 +65,28 @@ namespace QuanLyCoSoSX.BAL
             conn.Close();
             return a;
         }
+
+        public List<ChiTieu> SearchByInfo(MySqlConnection conn, string info)
+        {
+           
+            conn.Open();
+            string sqlcommand = "select * from chitieu where mact like '%"+  info +"%'" + " or tenct like '%" +  info + "%' or ynghia like '%" + info + "%'";
+            MySqlCommand cmd = new MySqlCommand(sqlcommand, conn);
+            MySqlDataReader data = cmd.ExecuteReader();
+            List<ChiTieu> lstChiTieu = new List<ChiTieu>();
+            if(data.HasRows)
+            {
+                while(data.Read())
+                {
+                    ChiTieu ct = new ChiTieu();
+                    ct.Mact = data.GetString("mact");
+                    ct.Tenchitieu = data.GetString("tenct");
+                    ct.Ynghia = data.GetString("ynghia");
+                    lstChiTieu.Add(ct);
+                }
+            }
+            return lstChiTieu;
+        }
         public void Insert(MySqlConnection conn,string mact,string tenct,string ynghia)
         {
             try

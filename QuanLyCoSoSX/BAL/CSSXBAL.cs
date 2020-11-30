@@ -40,6 +40,30 @@ namespace QuanLyCoSoSX.BAL
             conn.Close();
             return list;
         }
+
+        public int GetIDByName(MySqlConnection conn, string name)
+        {
+            conn.Open();
+            string sqlcommand = "SELECT * FROM CSSX WHERE tencs LIKE '%" + name + "%'";
+            MySqlCommand cmd = new MySqlCommand(sqlcommand, conn);
+            MySqlDataReader data = cmd.ExecuteReader();
+            if(data.HasRows)
+            {
+                int macs = -1;
+                while (data.Read())
+                {
+                    macs = data.GetInt16("macs");
+                        
+                }
+                conn.Close();
+                return macs;
+            }
+            else
+            {
+                conn.Close();
+                return -1;
+            }
+        }
         public CSSX GetByID(MySqlConnection conn, int id)
         {
             conn.Open();
@@ -72,6 +96,33 @@ namespace QuanLyCoSoSX.BAL
             }
             conn.Close();
             return a;
+        }
+
+
+        public List<CSSX> SearchByInfo(MySqlConnection conn, string info)
+        {
+            conn.Open();
+            string sqlcommand = "select * from CSSX where macs like '%" + info +"%' or tenchu like '%"+ info + "%' or tencs like '%" + info +"%' or diachi like '%" + info +"%' or sodt like '" + info + "'";
+            MySqlCommand cmd = new MySqlCommand(sqlcommand, conn);
+            
+            MySqlDataReader data = cmd.ExecuteReader();
+            List<CSSX> lstCSSX = new List<CSSX>();
+            if (data.HasRows)
+            {
+                while(data.Read())
+                {
+                    CSSX cssx = new CSSX();
+                    cssx.Macs = data.GetInt16("macs");
+                    cssx.Tenchu = data.GetString("tenchu");
+                    cssx.Tencs = data.GetString("tencs");
+                    cssx.Diachi = data.GetString("diachi");
+                    cssx.Sodt = data.GetString("sodt");
+                    lstCSSX.Add(cssx);
+                }
+            }
+
+            return lstCSSX;
+            
         }
         public void Insert(MySqlConnection conn, string tencs, string diachi, string tenchu, string sodt)
         {

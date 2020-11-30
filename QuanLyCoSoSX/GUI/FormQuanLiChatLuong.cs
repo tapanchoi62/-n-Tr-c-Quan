@@ -116,9 +116,10 @@ namespace QuanLyCoSoSX.GUI
             }
             MySqlConnection conn = DBConnect.GetDBConnection();
             ChiTieuBAL ChiTieu = new ChiTieuBAL();
-            var ct = ChiTieu.GetByID(conn, txtSearchChiTieu.Text);
+            var lstChiTieu = ChiTieu.SearchByInfo(conn, txtSearchChiTieu.Text);
             DGVChiTieu.Rows.Clear();
-            DGVChiTieu.Rows.Add(ct.Mact, ct.Tenchitieu, ct.Ynghia);
+            foreach(var ct in lstChiTieu)
+                DGVChiTieu.Rows.Add(ct.Mact, ct.Tenchitieu, ct.Ynghia);
         }
         private void SearchChiTieubt_Click(object sender, EventArgs e)
         {

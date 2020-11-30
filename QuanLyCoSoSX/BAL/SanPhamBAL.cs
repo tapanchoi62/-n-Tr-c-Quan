@@ -40,6 +40,56 @@ namespace QuanLyCoSoSX.BAL
             conn.Close();
             return list;
         }
+
+        public List<string> GetIDByName(MySqlConnection conn, string name)
+        {
+            conn.Open();
+            string sqlcommand = "select masp from sanpham where tensp like '%" + name + "%'";
+            MySqlCommand cmd = new MySqlCommand(sqlcommand, conn);
+            MySqlDataReader data = cmd.ExecuteReader();
+            List<string> lstID = new List<string>();
+            if(data.HasRows)
+            {
+                while(data.Read())
+                {
+                    string id = data.GetString("masp");
+                    lstID.Add(id);
+                }
+            }
+            conn.Close();
+            return lstID;
+        }
+        public List<SanPham> SearchByInfo(MySqlConnection conn, string info)
+        {
+            CSSXBAL cssx = new CSSXBAL();
+            int macs = cssx.GetIDByName(conn, info);
+            conn.Open();
+            string sqlcommand = "SELECT * FROM sanpham WHERE masp LIKE '%" + info +"%' OR tensp LIKE '%" + info +"%' OR donvi LIKE '%" + info+ "%' OR macs LIKE '%" + macs+ "%' OR macs = @info";
+            MySqlCommand cmd = new MySqlCommand(sqlcommand,conn);
+            cmd.Parameters.AddWithValue("@info", info);
+            cmd.Parameters.AddWithValue("@macs",macs);
+            MySqlDataReader data = cmd.ExecuteReader();
+            //if (data.HasRows)
+            {
+                List<SanPham> lstSanPham = new List<SanPham>();
+                while(data.Read())
+                {
+                    SanPham sp = new SanPham();
+                    sp.Masp = data.GetString("masp");
+                    sp.Tensp = data.GetString("tensp");
+                    sp.Donvi = data.GetString("donvi");
+                    sp.Macs = data.GetInt16("macs");
+                    lstSanPham.Add(sp);
+                }
+                conn.Close();
+                return lstSanPham;
+            }
+            //else
+            //{
+            //    conn.Close();
+            //    return null;
+            //}
+        }
         public SanPham GetByID(MySqlConnection conn, string id)
         {
             conn.Open();

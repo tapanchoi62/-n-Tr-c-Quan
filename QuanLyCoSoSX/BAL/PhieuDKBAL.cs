@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace QuanLyCoSoSX.BAL
 {
@@ -37,12 +38,11 @@ namespace QuanLyCoSoSX.BAL
             conn.Close();
             return list;
         }
-        public PhieuDK GetByID(MySqlConnection conn, string id)
+
+        public PhieuDK GetByID(MySqlConnection conn,string id)
         {
             conn.Open();
-            PhieuDK a = new PhieuDK();
-            string sql = "SELECT * FROM phieudangky where spdk= @id";
-
+            string sql = "SELECT * FROM phieudangky where spdk= @id";;
             var cmd = new MySqlCommand(sql, conn);
 
             cmd.Parameters.AddWithValue("@id", id);
@@ -51,24 +51,118 @@ namespace QuanLyCoSoSX.BAL
 
             if (rdr.HasRows)
             {
+
+                PhieuDK a = new PhieuDK();
                 while (rdr.Read())
                 {
-
                     a.Macs = rdr.GetInt16("macs");
                     a.Masp = rdr.GetString("masp");
                     a.Ngdk = rdr.GetDateTime("ngdk");
                     a.Nghh = rdr.GetDateTime("nghh");
                     a.sl = rdr.GetInt32("SL");
                     a.Spdk = rdr.GetString("spdk");
+                    
+                    
                 }
+                conn.Close();
+                return a;
             }
             else
             {
                 conn.Close();
                 return null;
             }
-            conn.Close();
-            return a;
+
+        }
+        public List<PhieuDK> SearchByInfo(MySqlConnection conn, string id)
+        {
+            
+            string sql= null;
+            List<PhieuDK> lstPhieuDK = new List<PhieuDK>();
+            MySqlCommand cmd;
+            DateTime dateValue;
+           
+            if (DateTime.TryParseExact(id, "d/M/yyyy",CultureInfo.InvariantCulture, DateTimeStyles.None, out dateValue))
+            {
+                conn.Open();
+                string strdate = dateValue.ToString("yyyy/MM/dd");
+                sql = "SELECT * FROM phieudangky WHERE ngdk = @id OR nghh = @id";
+                cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", strdate);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                if (rdr.HasRows)
+                {
+                    
+                    while (rdr.Read())
+                    {
+                        PhieuDK a = new PhieuDK();
+                        a.Macs = rdr.GetInt16("macs");
+                        a.Masp = rdr.GetString("masp");
+                        a.Ngdk = rdr.GetDateTime("ngdk");
+                        a.Nghh = rdr.GetDateTime("nghh");
+                        a.sl = rdr.GetInt32("SL");
+                        a.Spdk = rdr.GetString("spdk");
+                        lstPhieuDK.Add(a);
+                    }
+                }
+                conn.Close();
+            }
+            else
+            {
+                SanPhamBAL sanpham = new SanPhamBAL();
+                List<string> lstid = sanpham.GetIDByName(conn, id);
+                if(lstid.Count<=0)
+                {
+
+                    conn.Open();
+                    sql = "SELECT * FROM phieudangky WHERE spdk LIKE '%" + id + "%' OR macs LIKE '%" + id+ "%'";
+                    cmd = new MySqlCommand(sql, conn);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    if (rdr.HasRows)
+                    {
+                        while (rdr.Read())
+                        {
+                            PhieuDK a = new PhieuDK();
+                            a.Macs = rdr.GetInt16("macs");
+                            a.Masp = rdr.GetString("masp");
+                            a.Ngdk = rdr.GetDateTime("ngdk");
+                            a.Nghh = rdr.GetDateTime("nghh");
+                            a.sl = rdr.GetInt32("SL");
+                            a.Spdk = rdr.GetString("spdk");
+                            lstPhieuDK.Add(a);
+                        }
+                    }
+                    conn.Close();
+                }
+                else
+                    foreach (var idsp in lstid)
+                    {
+                        conn.Open();
+                        sql = "SELECT * FROM phieudangky WHERE spdk LIKE '% " +id +"%' OR macs LIKE '%" + id + "%' OR masp = @id";
+                        cmd = new MySqlCommand(sql, conn);
+                        cmd.Parameters.AddWithValue("@id", idsp);
+                        MySqlDataReader rdr = cmd.ExecuteReader();
+                        if (rdr.HasRows)
+                        {
+                            while (rdr.Read())
+                            {
+                                PhieuDK a = new PhieuDK();
+                                a.Macs = rdr.GetInt16("macs");
+                                a.Masp = rdr.GetString("masp");
+                                a.Ngdk = rdr.GetDateTime("ngdk");
+                                a.Nghh = rdr.GetDateTime("nghh");
+                                a.sl = rdr.GetInt32("SL");
+                                a.Spdk = rdr.GetString("spdk");
+                                lstPhieuDK.Add(a);
+                            }
+                        }
+                        conn.Close();
+                    }
+            }
+            
+            
+            return lstPhieuDK;
         }
         public void Insert(MySqlConnection conn, int macs, 
             string masp,string ngdk,string nghh,int sl)
