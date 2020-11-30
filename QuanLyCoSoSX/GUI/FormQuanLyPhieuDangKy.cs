@@ -97,9 +97,7 @@ namespace QuanLyCoSoSX.GUI
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Thất bại");
-            }
-           
-            
+            }                     
         }
 
         private void btXoa_Click(object sender, EventArgs e)
@@ -116,8 +114,7 @@ namespace QuanLyCoSoSX.GUI
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Thất bại");
-            }
-           
+            }          
         }
 
         private void btSua_Click(object sender, EventArgs e)
@@ -174,7 +171,6 @@ namespace QuanLyCoSoSX.GUI
 
         private void btGetTT_Click(object sender, EventArgs e)
         {
-
             GetDGV();
         }
 

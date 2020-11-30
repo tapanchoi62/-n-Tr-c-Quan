@@ -17,7 +17,6 @@ namespace QuanLyCoSoSX.DTO
             string database = "qlcssx_clsp";
             string username = "root";
             string password = "";
-
             return DBMySQLUtils.GetDBConnection(host, database, username, password);
         }
     } 
