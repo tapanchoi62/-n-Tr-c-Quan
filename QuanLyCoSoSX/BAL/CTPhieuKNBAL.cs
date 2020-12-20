@@ -59,13 +59,18 @@ namespace QuanLyCoSoSX.BAL
                     a.Cskq = rdr.GetInt16("cskq");
                 }
             }
+            else
+            {
+                conn.Close();
+                return null;
+            }
             conn.Close();
             return a;
         }
-        public CTPhieuKN GetByspkn(MySqlConnection conn,string spkn)
+        public List<CTPhieuKN> GetByspkn(MySqlConnection conn,string spkn)
         {
             conn.Open();
-            CTPhieuKN a = new CTPhieuKN();
+            List<CTPhieuKN> ctpkn = new List<CTPhieuKN>();
             string sql = "SELECT * FROM ctphieukiemnghiem where spkn = @spkn";
 
             var cmd = new MySqlCommand(sql, conn);
@@ -78,15 +83,16 @@ namespace QuanLyCoSoSX.BAL
             {
                 while (rdr.Read())
                 {
-
+                    CTPhieuKN a = new CTPhieuKN();
                     a.Mact = rdr.GetString("mact");
                     a.Spkn = rdr.GetString("spkn");
                     a.Cskn = rdr.GetInt16("cskn");
+                    ctpkn.Add(a);
                     a.Cskq = rdr.GetInt16("cskq");
                 }
             }
             conn.Close();
-            return a;
+            return ctpkn;
         }
 
         public void Insert(MySqlConnection conn, string spkn, string mact, int cskn,int cskq)

@@ -535,5 +535,14 @@ namespace QuanLyCoSoSX.GUI
         {
             this.printDocument1.Print();
         }
+
+        private void FormQuanLyPhieuDangKy_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F5)
+            {
+                GetDGV();
+            }
+            
+        }
     }
 }

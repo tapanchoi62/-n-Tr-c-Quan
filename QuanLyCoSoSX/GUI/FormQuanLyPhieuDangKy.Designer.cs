@@ -844,6 +844,7 @@
             this.Name = "FormQuanLyPhieuDangKy";
             this.Text = "FormQuanLyPhieuDangKy";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormQuanLyPhieuDangKy_FormClosing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormQuanLyPhieuDangKy_KeyDown);
             this.pnThongTin.ResumeLayout(false);
             this.pnThongTin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVDSChiTieu)).EndInit();

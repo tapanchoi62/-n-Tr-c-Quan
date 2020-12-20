@@ -17,7 +17,7 @@ namespace QuanLyCoSoSX
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormDangNhap() /*FormQuanLyPhieuDangKy()*/);
+            Application.Run(new FormDangNhap());
         }
     }
 }
