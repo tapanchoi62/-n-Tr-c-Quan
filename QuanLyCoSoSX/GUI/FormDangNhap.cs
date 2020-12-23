@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace QuanLyCoSoSX.GUI
 {
@@ -42,7 +43,7 @@ namespace QuanLyCoSoSX.GUI
                     manhinh.Show();
                     this.Hide();
                 }
-                else
+                else 
                 if(tk.Quyen == ("quanly"))
                 {
                     ManHinhQuanLy manhinh = new ManHinhQuanLy(this);

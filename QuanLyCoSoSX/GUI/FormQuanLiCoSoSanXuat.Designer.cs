@@ -73,7 +73,7 @@
             // txtSoDienThoai
             // 
             this.txtSoDienThoai.Location = new System.Drawing.Point(148, 418);
-            this.txtSoDienThoai.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSoDienThoai.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoDienThoai.Name = "txtSoDienThoai";
             this.txtSoDienThoai.Size = new System.Drawing.Size(429, 22);
             this.txtSoDienThoai.TabIndex = 3;
@@ -83,7 +83,7 @@
             this.Them.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Them.Image = ((System.Drawing.Image)(resources.GetObject("Them.Image")));
             this.Them.Location = new System.Drawing.Point(21, 510);
-            this.Them.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Them.Margin = new System.Windows.Forms.Padding(4);
             this.Them.Name = "Them";
             this.Them.Size = new System.Drawing.Size(140, 39);
             this.Them.TabIndex = 4;
@@ -108,7 +108,7 @@
             this.LayThongTin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LayThongTin.Image = ((System.Drawing.Image)(resources.GetObject("LayThongTin.Image")));
             this.LayThongTin.Location = new System.Drawing.Point(461, 510);
-            this.LayThongTin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LayThongTin.Margin = new System.Windows.Forms.Padding(4);
             this.LayThongTin.Name = "LayThongTin";
             this.LayThongTin.Size = new System.Drawing.Size(140, 39);
             this.LayThongTin.TabIndex = 7;
@@ -120,7 +120,7 @@
             // txtChuCoSo
             // 
             this.txtChuCoSo.Location = new System.Drawing.Point(148, 235);
-            this.txtChuCoSo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtChuCoSo.Margin = new System.Windows.Forms.Padding(4);
             this.txtChuCoSo.Name = "txtChuCoSo";
             this.txtChuCoSo.Size = new System.Drawing.Size(429, 22);
             this.txtChuCoSo.TabIndex = 1;
@@ -130,7 +130,7 @@
             this.Xoa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Xoa.Image = ((System.Drawing.Image)(resources.GetObject("Xoa.Image")));
             this.Xoa.Location = new System.Drawing.Point(168, 510);
-            this.Xoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Xoa.Margin = new System.Windows.Forms.Padding(4);
             this.Xoa.Name = "Xoa";
             this.Xoa.Size = new System.Drawing.Size(140, 39);
             this.Xoa.TabIndex = 5;
@@ -154,7 +154,7 @@
             this.Sua.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Sua.Image = ((System.Drawing.Image)(resources.GetObject("Sua.Image")));
             this.Sua.Location = new System.Drawing.Point(315, 510);
-            this.Sua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Sua.Margin = new System.Windows.Forms.Padding(4);
             this.Sua.Name = "Sua";
             this.Sua.Size = new System.Drawing.Size(140, 39);
             this.Sua.TabIndex = 6;
@@ -166,7 +166,7 @@
             // txtCoSoSanXuat
             // 
             this.txtCoSoSanXuat.Location = new System.Drawing.Point(148, 140);
-            this.txtCoSoSanXuat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCoSoSanXuat.Margin = new System.Windows.Forms.Padding(4);
             this.txtCoSoSanXuat.Name = "txtCoSoSanXuat";
             this.txtCoSoSanXuat.Size = new System.Drawing.Size(429, 22);
             this.txtCoSoSanXuat.TabIndex = 0;
@@ -184,18 +184,19 @@
             // txtDiaChi
             // 
             this.txtDiaChi.Location = new System.Drawing.Point(148, 326);
-            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(429, 22);
             this.txtDiaChi.TabIndex = 2;
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.groupBox3.Location = new System.Drawing.Point(679, 559);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(0, 0);
             this.groupBox3.TabIndex = 32;
             this.groupBox3.TabStop = false;
@@ -203,6 +204,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.Controls.Add(this.txtMaCSSX);
             this.panel1.Controls.Add(this.label1);
@@ -219,7 +221,7 @@
             this.panel1.Controls.Add(this.LayThongTin);
             this.panel1.Controls.Add(this.LChuCoSo);
             this.panel1.Location = new System.Drawing.Point(40, 92);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(625, 602);
             this.panel1.TabIndex = 33;
@@ -229,7 +231,7 @@
             // 
             this.txtMaCSSX.Enabled = false;
             this.txtMaCSSX.Location = new System.Drawing.Point(148, 48);
-            this.txtMaCSSX.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaCSSX.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaCSSX.Name = "txtMaCSSX";
             this.txtMaCSSX.ReadOnly = true;
             this.txtMaCSSX.Size = new System.Drawing.Size(429, 22);
@@ -247,12 +249,13 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Controls.Add(this.SearchCSSXbt);
             this.panel2.Controls.Add(this.SearchCSSX);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Location = new System.Drawing.Point(679, 559);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(865, 135);
             this.panel2.TabIndex = 37;
@@ -262,7 +265,7 @@
             this.SearchCSSXbt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SearchCSSXbt.Image = ((System.Drawing.Image)(resources.GetObject("SearchCSSXbt.Image")));
             this.SearchCSSXbt.Location = new System.Drawing.Point(672, 39);
-            this.SearchCSSXbt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SearchCSSXbt.Margin = new System.Windows.Forms.Padding(4);
             this.SearchCSSXbt.Name = "SearchCSSXbt";
             this.SearchCSSXbt.Size = new System.Drawing.Size(147, 43);
             this.SearchCSSXbt.TabIndex = 9;
@@ -274,7 +277,7 @@
             // SearchCSSX
             // 
             this.SearchCSSX.Location = new System.Drawing.Point(59, 50);
-            this.SearchCSSX.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SearchCSSX.Margin = new System.Windows.Forms.Padding(4);
             this.SearchCSSX.Name = "SearchCSSX";
             this.SearchCSSX.Size = new System.Drawing.Size(559, 22);
             this.SearchCSSX.TabIndex = 8;
@@ -297,6 +300,7 @@
             this.DGV.AllowUserToAddRows = false;
             this.DGV.AllowUserToDeleteRows = false;
             this.DGV.AllowUserToResizeRows = false;
+            this.DGV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaCSSX,
@@ -305,7 +309,7 @@
             this.ChuCSSX,
             this.SDTChu});
             this.DGV.Location = new System.Drawing.Point(679, 92);
-            this.DGV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DGV.Margin = new System.Windows.Forms.Padding(4);
             this.DGV.MultiSelect = false;
             this.DGV.Name = "DGV";
             this.DGV.ReadOnly = true;
@@ -360,15 +364,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1559, 783);
             this.Controls.Add(this.DGV);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox3);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormQuanLiCoSoSanXuat";
-            this.Text = "FormQuanLiCoSoSanXuat";
+            this.ShowIcon = false;
+            this.Text = "QUẢN LÝ CƠ SỞ SẢN XUẤT";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormQuanLiCoSoSanXuat_FormClosed);
             this.Load += new System.EventHandler(this.FormQuanLiCoSoSanXuat_Load);
             this.panel1.ResumeLayout(false);
