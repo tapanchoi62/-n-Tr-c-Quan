@@ -56,6 +56,7 @@
             // 
             // panel3
             // 
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.label2);
@@ -194,6 +195,7 @@
             this.panel1.Controls.Add(this.SearchChiTieubt);
             this.panel1.Controls.Add(this.txtSearchChiTieu);
             this.panel1.Location = new System.Drawing.Point(12, 379);
+
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(413, 100);
             this.panel1.TabIndex = 41;
@@ -235,6 +237,7 @@
             this.DGVChiTieu.AllowUserToAddRows = false;
             this.DGVChiTieu.AllowUserToDeleteRows = false;
             this.DGVChiTieu.AllowUserToResizeRows = false;
+            this.DGVChiTieu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DGVChiTieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVChiTieu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaChiTieu,
@@ -295,7 +298,8 @@
             this.Controls.Add(this.DGVChiTieu);
             this.Controls.Add(this.panel3);
             this.Name = "FormQuanLiChatLuong";
-            this.Text = "Quản lí chỉ tiêu";
+            this.ShowIcon = false;
+            this.Text = "QUẢN LÝ CHỈ TIÊU";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormQuanLiChatLuong_FormClosed);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
