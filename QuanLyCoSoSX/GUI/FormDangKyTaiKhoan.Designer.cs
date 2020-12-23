@@ -44,9 +44,8 @@
             // 
             // button1
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(203, 262);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Location = new System.Drawing.Point(152, 213);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(117, 41);
             this.button1.TabIndex = 5;
@@ -61,17 +60,16 @@
             this.cbQuyen.Items.AddRange(new object[] {
             "Nhân viên",
             "Quản lí"});
-            this.cbQuyen.Location = new System.Drawing.Point(225, 217);
-            this.cbQuyen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbQuyen.Location = new System.Drawing.Point(169, 176);
+            this.cbQuyen.Margin = new System.Windows.Forms.Padding(2);
             this.cbQuyen.Name = "cbQuyen";
             this.cbQuyen.Size = new System.Drawing.Size(337, 24);
             this.cbQuyen.TabIndex = 4;
             // 
             // txtRePass
             // 
-            this.txtRePass.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtRePass.Location = new System.Drawing.Point(225, 177);
-            this.txtRePass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtRePass.Location = new System.Drawing.Point(169, 144);
+            this.txtRePass.Margin = new System.Windows.Forms.Padding(2);
             this.txtRePass.Name = "txtRePass";
             this.txtRePass.PasswordChar = '*';
             this.txtRePass.Size = new System.Drawing.Size(337, 22);
@@ -79,9 +77,8 @@
             // 
             // txtPass
             // 
-            this.txtPass.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPass.Location = new System.Drawing.Point(225, 135);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPass.Location = new System.Drawing.Point(169, 110);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(2);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(337, 22);
@@ -89,9 +86,8 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtUsername.Location = new System.Drawing.Point(225, 94);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtUsername.Location = new System.Drawing.Point(169, 76);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(337, 22);
             this.txtUsername.TabIndex = 1;
@@ -175,8 +171,7 @@
             // 
             // FormDangKyTaiKhoan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(613, 322);
             this.Controls.Add(this.txtMaNhanVien);
@@ -191,10 +186,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "FormDangKyTaiKhoan";
-            this.ShowIcon = false;
-            this.Text = "ĐĂNG KÝ TÀI KHOẢN";
+            this.Text = "Đăng ký tài khoản";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormDangKyTaiKhoan_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

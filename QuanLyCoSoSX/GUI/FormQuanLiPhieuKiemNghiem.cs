@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Drawing.Drawing2D;
-using System.Drawing;
+
 
 namespace QuanLyCoSoSX.GUI
 {
@@ -147,13 +147,8 @@ namespace QuanLyCoSoSX.GUI
                 textBox10.Text = "";
             }    
         }
-        private void TraCuuDangKi_Click(object sender, EventArgs e)
-        {
-
-            SearchPhieuDK(textBox1.Text);
-        }
-
-        private void TraCuuKiemNghiem_Click(object sender, EventArgs e)
+       
+        private void TraCuuPhieuKiemNghiem()
         {
             MySqlConnection conn = DBConnect.GetDBConnection();
             PhieuKNBAL PKNBAL = new PhieuKNBAL();
@@ -161,8 +156,12 @@ namespace QuanLyCoSoSX.GUI
             DGV2.Rows.Clear();
             SanPhamBAL SPBAL = new SanPhamBAL();
             NhanVienBAL NVBAL = new NhanVienBAL();
-            string[] row = new string[] { phieuKN.Spkn, phieuKN.Ngkn.ToString("dd/MM/yyyy"), SPBAL.GetByID(conn, phieuKN.Masp).Tensp, NVBAL.GetByID(conn, phieuKN.Manv).Tennv ,phieuKN.KL1};
+            string[] row = new string[] { phieuKN.Spkn, phieuKN.Ngkn.ToString("dd/MM/yyyy"), SPBAL.GetByID(conn, phieuKN.Masp).Tensp, NVBAL.GetByID(conn, phieuKN.Manv).Tennv, phieuKN.KL1 };
             DGV2.Rows.Add(row);
+        }
+        private void TraCuuKiemNghiem_Click(object sender, EventArgs e)
+        {
+            TraCuuPhieuKiemNghiem();
         }
 
         private void DGV2_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -174,7 +173,7 @@ namespace QuanLyCoSoSX.GUI
             PhieuKNBAL PKNBAL = new PhieuKNBAL();
             string soPKN = DGV2.Rows[e.RowIndex].Cells[0].Value.ToString();
             PhieuKN phieuKN = PKNBAL.GetByID(conn, soPKN);
-            
+
             SoPhieuKiemNghiem.Text = phieuKN.Spkn;
             TxTSoPhieuKN.Text = phieuKN.Spkn;
             //cap nhat so phieu dang ki
@@ -186,7 +185,7 @@ namespace QuanLyCoSoSX.GUI
             TxtCSXX.Text = tbCSXX.Text;
             //cap nhat ngay kiem nghiem
             NgayKiemNghiem.Text = phieuKN.Ngkn.ToString();
-          
+
             //Cap nhat san pham
             tbSanPham.SelectedValue = phieuKN.Masp;
             txtSanPham.Text = tbSanPham.Text;
@@ -201,7 +200,7 @@ namespace QuanLyCoSoSX.GUI
             KetLuan.Text = phieuKN.KL1;
             //Cap nhat DGV3
             GetDGV3(soPKN);
-            
+
 
         }
 
@@ -213,7 +212,7 @@ namespace QuanLyCoSoSX.GUI
             DGV3.Rows.Clear();
             foreach (var ctpkn in CTPKNBAL.GetByspkn(conn, soPKN))
             {
-                string[] rows = new string[] { CTBAL.GetByID(conn, ctpkn.Mact).Tenchitieu, "", ctpkn.Cskn.ToString(), ctpkn.Cskq.ToString() };
+                string[] rows = new string[] { CTBAL.GetByID(conn, ctpkn.Mact).Mact , CTBAL.GetByID(conn, ctpkn.Mact).Tenchitieu, "", ctpkn.Cskn.ToString(), ctpkn.Cskq.ToString() };
                 DGV3.Rows.Add(rows);
             }
         }
@@ -484,6 +483,60 @@ namespace QuanLyCoSoSX.GUI
                     numofitem = 0;
                     e.HasMorePages = false;
                 }
+            }
+        }
+
+        private void DGV2_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            MySqlConnection conn = DBConnect.GetDBConnection();
+            PhieuKNBAL PKNBAL = new PhieuKNBAL();
+            string soPKN = DGV2.Rows[e.RowIndex].Cells[0].Value.ToString();
+            PhieuKN phieuKN = PKNBAL.GetByID(conn, soPKN);
+
+            SoPhieuKiemNghiem.Text = phieuKN.Spkn;
+            TxTSoPhieuKN.Text = phieuKN.Spkn;
+            //cap nhat so phieu dang ki
+            SPDK.Text = phieuKN.Spdk;
+            TxTSoPhieuDK.Text = phieuKN.Spdk;
+
+            //Cap nhat co so san xuat
+            tbCSXX.Text = phieuKN.getSanPham().getCS().Tencs;
+            TxtCSXX.Text = tbCSXX.Text;
+            //cap nhat ngay kiem nghiem
+            NgayKiemNghiem.Text = phieuKN.Ngkn.ToString();
+
+            //Cap nhat san pham
+            tbSanPham.SelectedValue = phieuKN.Masp;
+            txtSanPham.Text = tbSanPham.Text;
+            //Cap nhat nhan vien thuc hien
+            NhanVienThucHien.SelectedValue = phieuKN.Manv;
+            //Cap nhat don vi
+            TxtDonVi.Text = textBox9.Text;
+
+            TxTSoLuong.Text = textBox10.Text;
+            //Cap nhat ket luan
+            TxtKetLuan2.Text = phieuKN.KL1;
+            KetLuan.Text = phieuKN.KL1;
+            //Cap nhat DGV3
+            GetDGV3(soPKN);
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                TraCuuPhieuKiemNghiem();
+            }    
+        }
+
+        private void DGV3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex>=0)
+            {
+                ChiTieu.SelectedValue = DGV3.Rows[e.RowIndex].Cells[0].Value.ToString();
             }
         }
     }

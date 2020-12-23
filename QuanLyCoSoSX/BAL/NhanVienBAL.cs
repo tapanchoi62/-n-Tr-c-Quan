@@ -43,6 +43,36 @@ namespace QuanLyCoSoSX.BAL
             return list;
         }
 
+        public List<NhanVien> GetByMaPB(MySqlConnection conn , string mapb)
+        {
+            conn.Open();
+            string sqlcommand = "SELECT * FROM nhanvien WHERE mapb = @mapb";
+            MySqlCommand cmd = new MySqlCommand(sqlcommand, conn);
+            cmd.Parameters.AddWithValue("@mapb", mapb);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            List<NhanVien> lstNhanVien = new List<NhanVien>();
+            if (rdr.HasRows)
+            {
+                
+                while(rdr.Read())
+                {
+                    NhanVien a = new NhanVien();
+                    a.Manv = rdr.GetInt16("manv");
+                    a.Tennv = rdr.GetString("tennv");
+                    a.Ngsinh = rdr.GetDateTime("ngsinh");
+                    a.Gioitinh = rdr.GetString("gioitinh");
+                    a.Mapb = rdr.GetString("mapb");
+                    a.Sdt = rdr.GetString("sdt");
+                    lstNhanVien.Add(a);
+                }
+                
+            }
+            conn.Close();
+            return lstNhanVien;
+
+
+        }
+
         public bool CheackMaNV(MySqlConnection conn, int manv)
         {
             conn.Open();
@@ -92,29 +122,64 @@ namespace QuanLyCoSoSX.BAL
             conn.Close();
             return a;
         }
+
+        public bool IsExist(MySqlConnection conn, string tennv, string ngsinh, string gioitinh,string mapb)
+        {
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM NhanVien WHERE tennv=@tennv AND ngsinh=@ngsinh AND gioitinh=@gioitinh AND mapb = @mapb";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@tennv", tennv);
+                cmd.Parameters.AddWithValue("@ngsinh", ngsinh);
+                cmd.Parameters.AddWithValue("@gioitinh", gioitinh);
+                cmd.Parameters.AddWithValue("@mapb", mapb);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.HasRows)
+                {
+                    conn.Close();
+                    return true;
+                }
+                else
+                {
+                    conn.Close();
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         public void Insert(MySqlConnection conn, string tennv, string ngsinh, 
             string gioitinh, string mapb,string sdt)
         {
             try
             {
-                conn.Open();
-                string sql = "INSERT INTO `NhanVien` (`tennv`, `ngsinh`, `gioitinh`, `mapb`,`sdt`)" +
-                    " VALUES (@tennv, @ngsinh, @gioitinh,@mapb,@sdt);";
-                var cmd = new MySqlCommand(sql, conn);
-              
-                cmd.Parameters.AddWithValue("@tennv", tennv);
-                cmd.Parameters.AddWithValue("@ngsinh", ngsinh);
-                cmd.Parameters.AddWithValue("@gioitinh", gioitinh);
-                cmd.Parameters.AddWithValue("@mapb", mapb);
-                cmd.Parameters.AddWithValue("@sdt", sdt);
-                cmd.Prepare();
+                if (IsExist(conn, tennv, ngsinh, gioitinh,mapb))
+                    throw new Exception("Thông tin nhân viên đã tồn tại");
+                else
+                {
+                    conn.Open();
+                    string sql = "INSERT INTO `NhanVien` (`tennv`, `ngsinh`, `gioitinh`, `mapb`,`sdt`)" +
+                        " VALUES (@tennv, @ngsinh, @gioitinh,@mapb,@sdt);";
+                    var cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@tennv", tennv);
+                    cmd.Parameters.AddWithValue("@ngsinh", ngsinh);
+                    cmd.Parameters.AddWithValue("@gioitinh", gioitinh);
+                    cmd.Parameters.AddWithValue("@mapb", mapb);
+                    cmd.Parameters.AddWithValue("@sdt", sdt);
+                    cmd.Prepare();
 
-                cmd.ExecuteNonQuery();
-                conn.Close();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }           
             }
             catch (Exception ex)
             {
-                Console.WriteLine("That bai," + ex.Message);
+                throw ex;
             }
 
 
@@ -145,7 +210,7 @@ namespace QuanLyCoSoSX.BAL
             }
             catch (Exception ex)
             {
-                Console.WriteLine("That bai," + ex.Message);
+                throw ex;
             }
         }
 
@@ -163,28 +228,20 @@ namespace QuanLyCoSoSX.BAL
             }
             catch (Exception ex)
             {
-                Console.WriteLine("That bai," + ex.Message);
+                throw ex;
             }
         }
 
         public List<NhanVien> FindNV(MySqlConnection conn,string key)
         {
             conn.Open();
-            string sql = "Select manv,tennv,ngsinh,gioitinh,phongban.mapb,sdt from nhanvien,phongban where nhanvien.mapb=phongban.mapb";
-            if (key.Length > 0)
-            {
-                sql = sql + " AND (manv LIKE '%" + key + "%' OR tennv LIKE '%" + key + "%'"
-                + "OR CAST(ngsinh AS CHAR) LIKE '%" + key + "%' OR gioitinh LIKE '%" + key + "%'"
-                + "OR sdt LIKE '%" + key + "%' OR tenpb LIKE '%" + key + "%')";
-            }
-            else
-            {
-                return null;
-            }
+            List<NhanVien> list = new List<NhanVien>();
+            string sql = " Select manv,tennv,ngsinh,gioitinh,mapb,sdt from nhanvien where manv LIKE '%" + key + "%' OR tennv LIKE '%" + key + "%'"
+                + "OR CAST(ngsinh AS CHAR) = " + key + " OR gioitinh LIKE '%" + key + "%'"
+                + "OR sdt LIKE '%" + key + "%' OR mapb LIKE '%" + key + "%'";
             var cmd = new MySqlCommand(sql, conn);
 
             MySqlDataReader rdr = cmd.ExecuteReader();
-            List<NhanVien> list = new List<NhanVien>();
             if (rdr.HasRows)
             {
                 while (rdr.Read())

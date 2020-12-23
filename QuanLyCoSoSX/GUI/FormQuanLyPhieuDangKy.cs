@@ -64,7 +64,7 @@ namespace QuanLyCoSoSX.GUI
         {
             DateTime day1 = DateTime.Parse(txtNgayDK.Value.ToString("yyyy/MM/dd"));
             DateTime day2 = DateTime.Parse(txtNgayHH.Value.ToString("yyyy/MM/dd"));
-            if (day1 < day2)
+            if (day1 <= day2)
                 return true;
             else
                 return false;
@@ -246,24 +246,21 @@ namespace QuanLyCoSoSX.GUI
             ChiTieuBAL ChiTieu = new ChiTieuBAL();
             CSSXBAL CoSoSanXuat = new CSSXBAL();
             SanPhamBAL SanPham = new SanPhamBAL();
-            foreach(var cssx in CoSoSanXuat.GetAll(conn))
-            {
-                cbCSSX.Items.Add(cssx.Tencs);
-                cbMaCSSX.Items.Add(cssx.Macs);
-            }
-            
-            foreach(var sp in SanPham.GetAll(conn) )
-            {
+            //COMBOBOX CSSX
+            cbCSSX.DisplayMember = "Tencs";
+            cbCSSX.ValueMember = "Macs";
+            cbCSSX.DataSource = CoSoSanXuat.GetAll(conn);
 
-                cbTenSP.Items.Add(sp.Tensp);
-                cbMaSP.Items.Add(sp.Masp);
-            }
-            foreach(var ct in ChiTieu.GetAll(conn))
-            {
-                cbTenCT.Items.Add(ct.Tenchitieu);
-                cbMaCT.Items.Add(ct.Mact);
-            }
+            //COMBOBOX SP
+            //cbTenSP.DisplayMember = "Tensp";
+            //cbTenSP.ValueMember = "Masp";
+            //cbTenSP.DataSource = SanPham.GetAll(conn);
 
+
+            //COMBOBOX CT
+            cbTenCT.DisplayMember = "Tenchitieu";
+            cbTenCT.ValueMember = "Mact";
+            cbTenCT.DataSource = ChiTieu.GetAll(conn);
             
         }
         private void GetPanelThaoTac(String ID)
@@ -273,9 +270,9 @@ namespace QuanLyCoSoSX.GUI
             PhieuDK phieudk = dbPhieuDK.GetByID(conn, ID);
             txtSoPDK.Text = phieudk.Spdk;
             var CSSX = phieudk.getCoso();
-            cbCSSX.SelectedItem = CSSX.Tencs;
+            cbCSSX.SelectedValue = CSSX.Macs;
             var SanPham = phieudk.getSanPham();
-            cbTenSP.SelectedItem = SanPham.Tensp;
+            cbTenSP.SelectedValue = SanPham.Masp;
             txtNgayDK.Value = phieudk.Ngdk;
             txtNgayHH.Value = phieudk.Nghh;
             txtSoLuong.Text = phieudk.sl.ToString();
@@ -303,13 +300,16 @@ namespace QuanLyCoSoSX.GUI
             MySqlConnection conn = DBConnect.GetDBConnection();
             try
             {
-                txtMaCT.Text = cbMaCT.Items[cbTenCT.SelectedIndex].ToString();
+                txtMaCT.Text = cbTenCT.SelectedValue.ToString();
                 PhieuDKBAL dbPhieuDK = new PhieuDKBAL();
                 var phieuDK = dbPhieuDK.GetByID(conn, txtSoPDK.Text);
+                if (phieuDK == null)
+                    return;
+
                 var lstCTPhieu = phieuDK.get();
                 foreach (var CTPhieu in lstCTPhieu)
                 {
-                    if (CTPhieu.get().Mact == cbMaCT.Items[cbTenCT.SelectedIndex].ToString())
+                    if (CTPhieu.get().Mact == cbTenCT.SelectedValue.ToString())
                     {
                         txtCSDK.Text = CTPhieu.Csdk.ToString();
                         break;
@@ -330,31 +330,18 @@ namespace QuanLyCoSoSX.GUI
         private void cbCSSX_SelectedIndexChanged(object sender, EventArgs e)
         {
             MySqlConnection conn = DBConnect.GetDBConnection();
-            txtMaCS.Text = cbMaCSSX.Items[cbCSSX.SelectedIndex].ToString();
+            txtMaCS.Text = cbCSSX.SelectedValue.ToString();
             CSSXBAL dbCSSX = new CSSXBAL();
             var cssx = dbCSSX.GetByID(conn,int.Parse(txtMaCS.Text));
             var lstSanPham = cssx.get();
-            cbTenSP.Items.Clear();
-            cbMaSP.Items.Clear();
-            foreach(var sanpham in lstSanPham)
-            {
-                cbTenSP.Items.Add(sanpham.Tensp);
-                cbMaSP.Items.Add(sanpham.Masp);
-            }
-            if(cbTenSP.Items.Count<1)
-            {
-                cbTenSP.Text = null;
-                txtMaSP.Text = null;
-            }
-            else
-            {
-                cbTenSP.SelectedIndex = 0;
-            }
+            cbTenSP.DisplayMember = "Tensp";
+            cbTenSP.ValueMember = "Masp";
+            cbTenSP.DataSource = lstSanPham;
         }
 
         private void txtTenSP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtMaSP.Text = cbMaSP.Items[cbTenSP.SelectedIndex].ToString();
+            txtMaSP.Text = cbTenSP.SelectedValue.ToString();
         }
 
         private void txtMaPhieu_KeyDown(object sender, KeyEventArgs e)
@@ -414,8 +401,13 @@ namespace QuanLyCoSoSX.GUI
 
         private void DGVDSChiTieu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            cbTenCT.SelectedItem = DGVDSChiTieu.Rows[index].Cells[0].Value.ToString();
+            if(e.RowIndex>=0)
+            {
+
+                MySqlConnection conn = DBConnect.GetDBConnection();
+                ChiTieuBAL CTBAL = new ChiTieuBAL();
+                cbTenCT.SelectedValue = CTBAL.GetIDByTenCT(conn, DGVDSChiTieu.Rows[e.RowIndex].Cells[0].Value.ToString());
+            }
         }
 
         private void txtNgayDK_ValueChanged(object sender, EventArgs e)

@@ -42,5 +42,12 @@ namespace QuanLyCoSoSX.GUI
         {
             this.parent.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormThongKe form = new FormThongKe(this);
+            form.Show();
+            this.Hide();
+        }
     }
 }

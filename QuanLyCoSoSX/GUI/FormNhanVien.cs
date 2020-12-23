@@ -24,72 +24,33 @@ namespace QuanLyCoSoSX.GUI
 
             InitializeComponent();
             LoadCBPB();
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            this.DtNgSinh.CustomFormat = "dd/MM/yyyy";
+            DtNgSinh.Format = DateTimePickerFormat.Custom;
+            GetDGV();
         }
 
 
-
+        private void GetDGV()
+        {
+            //listView1.Items.Clear();
+            DGVNhanvien.Rows.Clear();
+            NhanVienBAL db = new NhanVienBAL();
+            foreach (var item in db.GetAll(conn))
+            {
+                DGVNhanvien.Rows.Add(item.Manv.ToString(),
+                   item.Tennv,
+                   item.Ngsinh.ToString("yyyy/MM/dd"),
+                   item.Gioitinh,
+                   item.getpb().Tenpb,
+                   item.Sdt);
+            }
+        }
         private void GetThongTinbt_Click(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
-            NhanVienBAL db = new NhanVienBAL();
-            foreach (var item in db.GetAll(conn))
-            {
-                var row = new String[]
-                {
-                   item.Manv.ToString(),
-                   item.Tennv,
-                   item.Ngsinh.ToString("yyyy/MM/dd"),
-                   item.Gioitinh,
-                   item.getpb().Tenpb,
-                   item.Sdt
-                };
-                var lvi = new ListViewItem(row);
-
-                listView1.Items.Add(lvi);
-            }
+            GetDGV();
 
         }
-
-        private void getThongTin()
-        {
-            listView1.Items.Clear();
-            NhanVienBAL db = new NhanVienBAL();
-            foreach (var item in db.GetAll(conn))
-            {
-                var row = new String[]
-                {
-                   item.Manv.ToString(),
-                   item.Tennv,
-                   item.Ngsinh.ToString("yyyy/MM/dd"),
-                   item.Gioitinh,
-                   item.getpb().Tenpb,
-                   item.Sdt
-                };
-                var lvi = new ListViewItem(row);
-
-                listView1.Items.Add(lvi);
-            }
-        }
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listView1.SelectedItems.Count == 0)
-            {
-
-                return;
-            }
-            else
-            {
-                ListViewItem item = listView1.SelectedItems[0];
-                textBox1.Text = item.SubItems[1].Text;
-                dateTimePicker1.Value = DateTime.ParseExact(item.SubItems[2].Text, "yyyy/MM/dd", CultureInfo.InvariantCulture);
-                comboBox2.Text = item.SubItems[4].Text;
-                comboBox1.Text = item.SubItems[3].Text;
-                textBox2.Text = item.SubItems[5].Text;
-
-            }
-        }
+        
 
         private void LoadCBPB()
         {
@@ -97,7 +58,7 @@ namespace QuanLyCoSoSX.GUI
             foreach (var item in db.GetAll(conn))
             {
 
-                comboBox2.Items.Add(item.Tenpb);
+                cbPhongBan.Items.Add(item.Tenpb);
             }
 
         }
@@ -109,14 +70,13 @@ namespace QuanLyCoSoSX.GUI
             NhanVienBAL dbnv = new NhanVienBAL();
             try
             {
-                dbnv.Insert(conn, textBox1.Text, dateTimePicker1.Value.ToString("yyyy/MM/dd"), comboBox1.Text,
-                                db.GetByName(conn, comboBox2.Text).Mapb, textBox2.Text);
-                MessageBox.Show("Them thanh cong");
-                getThongTin();
+                dbnv.Insert(conn, txtTenNv.Text, DtNgSinh.Value.ToString("yyyy/MM/dd"), cbGioiTinh.Text,
+                                db.GetByName(conn, cbPhongBan.Text).Mapb, txtSDT.Text);
+                GetDGV();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Them that bai");
+                MessageBox.Show(ex.Message,"Lỗi");
             }
 
         }
@@ -127,62 +87,72 @@ namespace QuanLyCoSoSX.GUI
             NhanVienBAL dbnv = new NhanVienBAL();
             try
             {
-                ListViewItem item = listView1.SelectedItems[0];
-                int manv = int.Parse(item.SubItems[0].Text);
-                dbnv.Update(conn, manv, textBox1.Text, dateTimePicker1.Value.ToString("yyyy/MM/dd"), comboBox1.Text,
-                                db.GetByName(conn, comboBox2.Text).Mapb, textBox2.Text);
-                MessageBox.Show("Cap nhat thanh cong");
-                getThongTin();
+                //ListViewItem item = listView1.SelectedItems[0];
+                //int manv = int.Parse(item.SubItems[0].Text);
+                int manv = int.Parse(DGVNhanvien.SelectedRows[0].Cells[0].Value.ToString());
+                dbnv.Update(conn, manv, txtTenNv.Text, DtNgSinh.Value.ToString("yyyy/MM/dd"), cbGioiTinh.Text,
+                                db.GetByName(conn, cbPhongBan.Text).Mapb, txtSDT.Text);
+                GetDGV();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                MessageBox.Show("Cap nhat khong thanh cong");
+                MessageBox.Show(ex.Message,"Lỗi");
             }
         }
 
         private void Xoabt_Click(object sender, EventArgs e)
         {
-            PhongBanBAL db = new PhongBanBAL();
             NhanVienBAL dbnv = new NhanVienBAL();
             try
             {
-                ListViewItem item = listView1.SelectedItems[0];
-                int manv = int.Parse(item.SubItems[0].Text);
+                int manv = int.Parse(DGVNhanvien.SelectedRows[0].Cells[0].Value.ToString());
                 dbnv.Delete(conn, manv);
-                getThongTin();
-                MessageBox.Show("Xóa Thành công");
+                GetDGV();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                MessageBox.Show("Xóa không Thành công");
+                MessageBox.Show(ex.Message,"Lỗi");
             }
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Search()
         {
-         
             NhanVienBAL dbnv = new NhanVienBAL();
-            listView1.Items.Clear();
-            
+            DGVNhanvien.Rows.Clear();
             foreach (var item in dbnv.FindNV(conn, FindNhanVien.Text))
             {
-                var row = new String[]
-                {
-                   item.Manv.ToString(),
+                DGVNhanvien.Rows.Add(item.Manv.ToString(),
                    item.Tennv,
                    item.Ngsinh.ToString("yyyy/MM/dd"),
                    item.Gioitinh,
                    item.getpb().Tenpb,
-                   item.Sdt
-                };
-                var lvi = new ListViewItem(row);
-
-                listView1.Items.Add(lvi);
+                   item.Sdt);
             }
-            
+        }
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Search();
+        }
+
+        private void DGVNhanvien_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex>=0)
+            {
+                txtTenNv.Text = DGVNhanvien.SelectedRows[0].Cells[1].Value.ToString();
+                DtNgSinh.Text = DGVNhanvien.SelectedRows[0].Cells[2].Value.ToString();
+                cbGioiTinh.SelectedItem = DGVNhanvien.SelectedRows[0].Cells[3].Value.ToString();
+                cbPhongBan.SelectedItem = DGVNhanvien.SelectedRows[0].Cells[4].Value.ToString();
+                txtSDT.Text = DGVNhanvien.SelectedRows[0].Cells[5].Value.ToString();
+            }    
+        }
+
+        private void FindNhanVien_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Search();
         }
     }
 }

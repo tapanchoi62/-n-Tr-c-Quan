@@ -40,11 +40,10 @@
             this.button3.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = global::QuanLyCoSoSX.Properties.Resources.pb;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(16, 272);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Location = new System.Drawing.Point(12, 221);
             this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(53, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(507, 256);
+            this.button3.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.button3.Size = new System.Drawing.Size(380, 208);
             this.button3.TabIndex = 2;
             this.button3.Text = "QUẢN LÝ PHÒNG BAN               ";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -58,11 +57,10 @@
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = global::QuanLyCoSoSX.Properties.Resources.emp;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(16, 15);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(53, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(507, 250);
+            this.button1.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(380, 203);
             this.button1.TabIndex = 0;
             this.button1.Text = "QUẢN LÝ NHÂN VIÊN            ";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -76,28 +74,27 @@
             this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::QuanLyCoSoSX.Properties.Resources.thongk1;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(531, 14);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(398, 11);
             this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(53, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(507, 514);
+            this.button2.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(380, 418);
             this.button2.TabIndex = 3;
             this.button2.Text = "THỐNG KÊ";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ManHinhQuanLy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ManHinhQuanLy";
-            this.ShowIcon = false;
-            this.Text = "MÀN HÌNH QUẢN LÝ";
+            this.Text = "Màn hình quản lý";
+
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ManHinhQuanLy_FormClosed);
             this.ResumeLayout(false);
 

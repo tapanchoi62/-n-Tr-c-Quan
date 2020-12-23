@@ -202,6 +202,12 @@
     <Compile Include="GUI\FormSanPham.Designer.cs">
       <DependentUpon>FormSanPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormThongKe.Designer.cs">
+      <DependentUpon>FormThongKe.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ManHinhQuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormSanPham.resx">
       <DependentUpon>FormSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormThongKe.resx">
+      <DependentUpon>FormThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ManHinhQuanLy.resx">
       <DependentUpon>ManHinhQuanLy.cs</DependentUpon>
