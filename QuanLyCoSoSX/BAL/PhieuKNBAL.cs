@@ -27,7 +27,8 @@ namespace QuanLyCoSoSX.BAL
                     a.Ngkn = rdr.GetDateTime("ngaykn");
                     a.Manv = rdr.GetInt16("manv");
                     a.Masp = rdr.GetString("masp");
-                    a.KL1 = rdr.GetString("kl");
+                    if(!rdr.IsDBNull(rdr.GetOrdinal("kl")))
+                        a.KL1 = rdr.GetString("kl");
                     list.Add(a);
                 }
             }
@@ -56,22 +57,44 @@ namespace QuanLyCoSoSX.BAL
                     a.Ngkn = rdr.GetDateTime("ngaykn");
                     a.Manv = rdr.GetInt16("manv");
                     a.Masp = rdr.GetString("masp");
-                    a.KL1 = rdr.GetString("kl");
+                    if (!rdr.IsDBNull(rdr.GetOrdinal("kl")))
+                        a.KL1 = rdr.GetString("kl");
                 }
             }
             conn.Close();
             return a;
         }
-        public void Insert(MySqlConnection conn, string spkn, string spdk,
+        public void Insert(MySqlConnection conn, string spdk,
             string ngaykn, int manv, string masp, string kl)
         {
             try
             {
                 conn.Open();
+                string sophieukn ="PKN0001";
+                string sql1 = "SELECT MAX(RIGHT(spkn,length(spkn)-3)) FROM phieukiemnghiem";
+                var cmd1 = new MySqlCommand(sql1, conn);
+                MySqlDataReader mrd = cmd1.ExecuteReader();
+                if(mrd.HasRows)
+                {
+                    while(mrd.Read())
+                    {
+                        string pkn = "PKN";
+                        string sophieu = (mrd.GetInt16("MAX(RIGHT(spkn,length(spkn)-3))")+1).ToString();
+                        for(int i=0;i<4-(sophieu.Length);i++)
+                        {
+                            pkn += "0";
+                        }
+                        pkn += sophieu;
+                        sophieukn = pkn;
+                    }
+                        
+                }
+                mrd.Close();
+
                 string sql = "INSERT INTO `phieukiemnghiem` (`spkn`, `spdk`, `ngaykn`, `manv`, `masp`, `kl`)" +
-                    " VALUES ('PKN10001', 'PDK0002', '2020-09-30', '2', 'sp004', 'Khong ');";
+                    " VALUES (@spkn, @spdk, @ngaykn, @manv, @masp, @kl);";
                 var cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@spkn", spkn);
+                cmd.Parameters.AddWithValue("@spkn", sophieukn);
                 cmd.Parameters.AddWithValue("@spdk", spdk);
                 cmd.Parameters.AddWithValue("@ngaykn", ngaykn);
                 cmd.Parameters.AddWithValue("@manv", manv);
@@ -84,7 +107,7 @@ namespace QuanLyCoSoSX.BAL
             }
             catch (Exception ex)
             {
-                Console.WriteLine("That bai," + ex.Message);
+                throw ex;
             }
         }
 
@@ -109,7 +132,7 @@ namespace QuanLyCoSoSX.BAL
             }
             catch (Exception ex)
             {
-                Console.WriteLine("That bai," + ex.Message);
+                throw ex;
             }
         }
 
@@ -126,7 +149,7 @@ namespace QuanLyCoSoSX.BAL
             }
             catch (Exception ex)
             {
-                Console.WriteLine("That bai," + ex.Message);
+                throw ex;
             }
         }
     }

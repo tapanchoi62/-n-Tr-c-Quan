@@ -52,6 +52,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.Controls.Add(this.GetThongTinbt);
             this.panel1.Controls.Add(this.Xoabt);
@@ -157,6 +158,7 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Controls.Add(this.textBoxSearchPhongBan);
             this.panel2.Controls.Add(this.SearchPhongBan);
@@ -203,6 +205,7 @@
             this.DGVPhongBan.AllowUserToAddRows = false;
             this.DGVPhongBan.AllowUserToDeleteRows = false;
             this.DGVPhongBan.AllowUserToResizeRows = false;
+            this.DGVPhongBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.DGVPhongBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVPhongBan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaPhongBan,
@@ -240,12 +243,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1168, 355);
             this.Controls.Add(this.DGVPhongBan);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FormPhongBan";
-            this.Text = "FormPhongBan";
+            this.ShowIcon = false;
+            this.Text = "PHÒNG BAN";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormPhongBan_FormClosed);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace QuanLyCoSoSX.GUI
 {
@@ -70,8 +71,16 @@ namespace QuanLyCoSoSX.GUI
             }
             try
             {
+                byte[] temp = ASCIIEncoding.ASCII.GetBytes(txtPass.Text);
+                byte[] hasData = new MD5CryptoServiceProvider().ComputeHash(temp);
+                string hasPass = "";
+                foreach (byte item in hasData)
+                {
+                    hasPass += item;
+                }
+
                 string username = txtUsername.Text;
-                string pass = txtPass.Text;
+                string pass = hasPass;
                 string quyen = cbQuyen.SelectedIndex == 0 ? "nhanvien" : "quanly";
                 int manv = int.Parse(txtMaNhanVien.Text);
 

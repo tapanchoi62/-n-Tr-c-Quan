@@ -34,32 +34,33 @@ namespace QuanLyCoSoSX.BAL
             conn.Close();
             return list;
         }
-        public List<CTPhieuDK> GetByID(MySqlConnection conn, string mact,string spdk)
+        public CTPhieuDK GetByID(MySqlConnection conn, string mact,string spdk)
         {
             conn.Open();
-            List<CTPhieuDK> list = new List<CTPhieuDK>();
             string sql = "SELECT * FROM ctphieudangky where mact= @mact and spdk = @spdk";
 
             var cmd = new MySqlCommand(sql, conn);
-
             cmd.Parameters.AddWithValue("@mact", mact);
             cmd.Parameters.AddWithValue("@spdk", spdk);
 
             MySqlDataReader rdr = cmd.ExecuteReader();
-
+            CTPhieuDK CTPDK = null;
             if (rdr.HasRows)
             {
+               
                 while (rdr.Read())
                 {
-                    CTPhieuDK a = new CTPhieuDK();
-                    a.Spdk = rdr.GetString("spdk");
-                    a.Mact = rdr.GetString("mact");
-                    a.Csdk = rdr.GetInt16("csdk");
-                    list.Add(a);
+                    CTPDK = new CTPhieuDK();
+                    CTPDK.Spdk = rdr.GetString("spdk");
+                    CTPDK.Mact = rdr.GetString("mact");
+                    CTPDK.Csdk = rdr.GetInt16("csdk");
+                    
                 }
             }
             conn.Close();
-            return list;
+            return CTPDK;
+           
+            
         }
 
         public List<CTPhieuDK> GetByspdk(MySqlConnection conn, string spdk)
