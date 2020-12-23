@@ -21,12 +21,14 @@ namespace QuanLyCoSoSX.GUI
         public FormQuanLiChatLuong()
         {
             InitializeComponent();
+            GetDGVChiTieu();
         }
 
         public FormQuanLiChatLuong(Form par)
         {
             this.parent = par;
             InitializeComponent();
+            GetDGVChiTieu();
         }
         void GetDGVChiTieu()
         {
@@ -64,6 +66,8 @@ namespace QuanLyCoSoSX.GUI
         {
             try
             {
+                if (txtTenChiTieu.Text == "" || txtYNghia.Text == "")
+                    throw new Exception("Không được để trống thông tin");
                 MySqlConnection conn = DBConnect.GetDBConnection();
                 ChiTieuBAL ChiTieu = new ChiTieuBAL();
                 ChiTieu.Update(conn, txtMaChiTieu.Text, txtTenChiTieu.Text, txtYNghia.Text);
@@ -75,13 +79,16 @@ namespace QuanLyCoSoSX.GUI
             }
         }
 
+        
         private void Thembt_Click(object sender, EventArgs e)
         {
             try
             {
+                if (txtTenChiTieu.Text == "" || txtYNghia.Text == "")
+                    throw new Exception("Không được để trống thông tin");
                 MySqlConnection conn = DBConnect.GetDBConnection();
                 ChiTieuBAL ChiTieu = new ChiTieuBAL();
-                ChiTieu.Insert(conn, txtMaChiTieu.Text, txtTenChiTieu.Text, txtYNghia.Text);
+                ChiTieu.Insert(conn, txtTenChiTieu.Text, txtYNghia.Text);
                 GetDGVChiTieu();
             }
             catch(Exception ex)

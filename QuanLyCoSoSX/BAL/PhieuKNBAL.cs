@@ -35,6 +35,120 @@ namespace QuanLyCoSoSX.BAL
             conn.Close();
             return list;
         }
+
+        public List<PhieuKN> GetBySPDK(MySqlConnection conn,string spdk)
+        {
+            conn.Open();
+
+            string sql = "SELECT * FROM phieukiemnghiem WHERE spdk = @spdk";
+            var cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@spdk", spdk);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            List<PhieuKN> list = new List<PhieuKN>();
+            if (rdr.HasRows)
+            {
+                while (rdr.Read())
+                {
+                    PhieuKN a = new PhieuKN();
+                    a.Spkn = rdr.GetString("spkn");
+                    a.Spdk = rdr.GetString("spdk");
+                    a.Ngkn = rdr.GetDateTime("ngaykn");
+                    a.Manv = rdr.GetInt16("manv");
+                    a.Masp = rdr.GetString("masp");
+                    if (!rdr.IsDBNull(rdr.GetOrdinal("kl")))
+                        a.KL1 = rdr.GetString("kl");
+                    list.Add(a);
+                }
+            }
+            conn.Close();
+            return list;
+        }
+
+
+        public List<PhieuKN> GetBYNV(MySqlConnection conn, string manv)
+        {
+            conn.Open();
+            string sql = "SELECT * FROM phieukiemnghiem WHERE manv = @manv";
+            var cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@manv", manv);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            List<PhieuKN> list = new List<PhieuKN>();
+            if (rdr.HasRows)
+            {
+                while (rdr.Read())
+                {
+                    PhieuKN a = new PhieuKN();
+                    a.Spkn = rdr.GetString("spkn");
+                    a.Spdk = rdr.GetString("spdk");
+                    a.Ngkn = rdr.GetDateTime("ngaykn");
+                    a.Manv = rdr.GetInt16("manv");
+                    a.Masp = rdr.GetString("masp");
+                    if (!rdr.IsDBNull(rdr.GetOrdinal("kl")))
+                        a.KL1 = rdr.GetString("kl");
+                    list.Add(a);
+                }
+            }
+            conn.Close();
+            return list;
+        }
+
+
+        public List<PhieuKN> GetBYSP(MySqlConnection conn, string masp)
+        {
+            conn.Open();
+            string sql = "SELECT * FROM phieukiemnghiem WHERE masp = @masp";
+            var cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@masp", masp);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            List<PhieuKN> list = new List<PhieuKN>();
+            if (rdr.HasRows)
+            {
+                while (rdr.Read())
+                {
+                    PhieuKN a = new PhieuKN();
+                    a.Spkn = rdr.GetString("spkn");
+                    a.Spdk = rdr.GetString("spdk");
+                    a.Ngkn = rdr.GetDateTime("ngaykn");
+                    a.Manv = rdr.GetInt16("manv");
+                    a.Masp = rdr.GetString("masp");
+                    if (!rdr.IsDBNull(rdr.GetOrdinal("kl")))
+                        a.KL1 = rdr.GetString("kl");
+                    list.Add(a);
+                }
+            }
+            conn.Close();
+            return list;
+        }
+
+        public List<PhieuKN> GetByNgKN(MySqlConnection conn, string tungay, string denngay)
+        {
+            conn.Open();
+
+            string sql = "SELECT * FROM phieukiemnghiem WHERE ngaykn >= @tungay AND ngkn <= @denngay";
+            var cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@tungay", tungay);
+            cmd.Parameters.AddWithValue("@denngay", denngay);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            List<PhieuKN> list = new List<PhieuKN>();
+            if (rdr.HasRows)
+            {
+                while (rdr.Read())
+                {
+                    PhieuKN a = new PhieuKN();
+                    a.Spkn = rdr.GetString("spkn");
+                    a.Spdk = rdr.GetString("spdk");
+                    a.Ngkn = rdr.GetDateTime("ngaykn");
+                    a.Manv = rdr.GetInt16("manv");
+                    a.Masp = rdr.GetString("masp");
+                    if (!rdr.IsDBNull(rdr.GetOrdinal("kl")))
+                        a.KL1 = rdr.GetString("kl");
+                    list.Add(a);
+                }
+            }
+            conn.Close();
+            return list;
+        }
+
         public PhieuKN GetByID(MySqlConnection conn, string id)
         {
             conn.Open();
@@ -64,11 +178,43 @@ namespace QuanLyCoSoSX.BAL
             conn.Close();
             return a;
         }
+
+        public bool IsExist(MySqlConnection conn, string spdk,string ngaykn,int manv,string masp)
+        {
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM phieukiemnghiem WHERE spdk=@spdk AND ngaykn=@ngaykn AND manv = @manv AND masp = @masp";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@spdk", spdk);
+                cmd.Parameters.AddWithValue("@ngaykn", ngaykn);
+                cmd.Parameters.AddWithValue("@manv", manv);
+                cmd.Parameters.AddWithValue("@masp", masp);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.HasRows)
+                {
+                    conn.Close();
+                    return true;
+                }
+                else
+                {
+                    conn.Close();
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
         public void Insert(MySqlConnection conn, string spdk,
             string ngaykn, int manv, string masp, string kl)
         {
             try
             {
+                if (IsExist(conn, spdk, ngaykn, manv, masp))
+                    throw new Exception("Phiếu kiểm nghiệm đã tồn tại");
                 conn.Open();
                 string sophieukn ="PKN0001";
                 string sql1 = "SELECT MAX(RIGHT(spkn,length(spkn)-3)) FROM phieukiemnghiem";

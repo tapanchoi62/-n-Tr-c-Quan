@@ -24,12 +24,14 @@ namespace QuanLyCoSoSX.GUI
         public FormQuanLiCoSoSanXuat()
         {
             InitializeComponent();
+            GetDGV();
         }
         
         public FormQuanLiCoSoSanXuat(Form par)
         {
             this.parent = par;
             InitializeComponent();
+            GetDGV();
         }
 
         bool CheckSDT()
@@ -146,10 +148,7 @@ namespace QuanLyCoSoSX.GUI
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+     
 
         private void Sua_Click(object sender, EventArgs e)
         {
@@ -193,8 +192,6 @@ namespace QuanLyCoSoSX.GUI
 
         private void Them_Click(object sender, EventArgs e)
         {
-           
-
             try
             {
                 CheckInsert();

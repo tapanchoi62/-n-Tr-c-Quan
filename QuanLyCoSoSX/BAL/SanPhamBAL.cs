@@ -69,26 +69,19 @@ namespace QuanLyCoSoSX.BAL
             cmd.Parameters.AddWithValue("@info", info);
             cmd.Parameters.AddWithValue("@macs",macs);
             MySqlDataReader data = cmd.ExecuteReader();
-            //if (data.HasRows)
+            List<SanPham> lstSanPham = new List<SanPham>();
+            while(data.Read())
             {
-                List<SanPham> lstSanPham = new List<SanPham>();
-                while(data.Read())
-                {
-                    SanPham sp = new SanPham();
-                    sp.Masp = data.GetString("masp");
-                    sp.Tensp = data.GetString("tensp");
-                    sp.Donvi = data.GetString("donvi");
-                    sp.Macs = data.GetInt16("macs");
-                    lstSanPham.Add(sp);
-                }
-                conn.Close();
-                return lstSanPham;
+                SanPham sp = new SanPham();
+                sp.Masp = data.GetString("masp");
+                sp.Tensp = data.GetString("tensp");
+                sp.Donvi = data.GetString("donvi");
+                sp.Macs = data.GetInt16("macs");
+                lstSanPham.Add(sp);
             }
-            //else
-            //{
-            //    conn.Close();
-            //    return null;
-            //}
+            conn.Close();
+            return lstSanPham;
+            
         }
         public SanPham GetByID(MySqlConnection conn, string id)
         {
@@ -153,35 +146,71 @@ namespace QuanLyCoSoSX.BAL
             return list;
         }
 
-        public void Insert(MySqlConnection conn, string tensp, string donvi,
-            int macs)
+        public bool IsExist(MySqlConnection conn, string tensp, string donvi, int macs)
         {
             try
             {
                 conn.Open();
-                string sqlmasp = "SELECT MAX(RIGHT(masp,length(masp)-2-length(macs)-1)) FROM sanpham where macs= @macs";
-                var cmd1 = new MySqlCommand(sqlmasp, conn);
-                cmd1.Parameters.AddWithValue("@macs", macs);
-                MySqlDataReader mdr = cmd1.ExecuteReader();
-                string masp = "sp" + macs.ToString() + "01";
-                if(mdr.HasRows)
-                {
-                    mdr.Read();
-                    masp = "sp" + macs.ToString() + "0" + (mdr.GetInt16("MAX(RIGHT(masp,length(masp)-2-length(macs)-1))")+1).ToString();
-                }
-                mdr.Close();
-                string sql = "INSERT INTO `sanpham` (`masp`, `tensp`, `donvi`, `macs`) " +
-                    "VALUES (@masp, @tensp,@donvi ,@macs);";
-                var cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@masp", masp);
+                string sql = "SELECT * FROM sanpham WHERE tensp = @tensp AND donvi = @donvi AND macs = @macs";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@tensp", tensp);
                 cmd.Parameters.AddWithValue("@donvi", donvi);
                 cmd.Parameters.AddWithValue("@macs", macs);
-                
-                cmd.Prepare();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.HasRows)
+                {
+                    conn.Close();
+                    return true;
+                }
+                else
+                {
+                    conn.Close();
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+           
+        }
+        public void Insert(MySqlConnection conn, string tensp, string donvi, int macs)
+        {
+            try
+            {
+                if (IsExist(conn, tensp, donvi, macs))
+                    throw new Exception("Thông tin sản phẩm đã tồn tại");
+                else
+                {
+                    conn.Open();
+                    string sqlmasp = "SELECT MAX(RIGHT(masp,length(masp)-2)) FROM sanpham";
+                    var cmd1 = new MySqlCommand(sqlmasp, conn);
+                    MySqlDataReader mdr = cmd1.ExecuteReader();
+                    string masp = "sp001";
+                    if (mdr.HasRows)
+                    {
+                        mdr.Read();
+                        string i = (mdr.GetInt16("MAX(RIGHT(masp,length(masp)-2))") + 1).ToString();
+                        masp = "sp";
+                        for (int t = 0; t < 3 - i.Length; t++)
+                            masp += "0";
+                        masp += i;
+                    }
+                    mdr.Close();
+                    string sql = "INSERT INTO `sanpham` (`masp`, `tensp`, `donvi`, `macs`) " +
+                        "VALUES (@masp, @tensp,@donvi ,@macs);";
+                    var cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@masp", masp);
+                    cmd.Parameters.AddWithValue("@tensp", tensp);
+                    cmd.Parameters.AddWithValue("@donvi", donvi);
+                    cmd.Parameters.AddWithValue("@macs", macs);
 
-                cmd.ExecuteNonQuery();
-                conn.Close();
+                    cmd.Prepare();
+
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }    
+                
             }
             catch (Exception ex)
             {
@@ -198,17 +227,23 @@ namespace QuanLyCoSoSX.BAL
         {
             try
             {
-                conn.Open();
-                string sql = "Update `SanPham`" +
-                    " Set `tensp`=@tensp, `donvi`=@donvi, `macs`=@macs" +
-                    " where masp =@masp";
-                var cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@masp", masp);
-                cmd.Parameters.AddWithValue("@tensp", tensp);
-                cmd.Parameters.AddWithValue("@donvi", donvi);
-                cmd.Parameters.AddWithValue("@macs", macs);
-                cmd.ExecuteNonQuery();
-                conn.Close();
+                if (IsExist(conn, tensp, donvi, macs))
+                    throw new Exception("Thông tin sản phẩm bị trùng lặp");
+                else
+                {
+
+                    conn.Open();
+                    string sql = "Update `SanPham`" +
+                        " Set `tensp`=@tensp, `donvi`=@donvi, `macs`=@macs" +
+                        " where masp =@masp";
+                    var cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@masp", masp);
+                    cmd.Parameters.AddWithValue("@tensp", tensp);
+                    cmd.Parameters.AddWithValue("@donvi", donvi);
+                    cmd.Parameters.AddWithValue("@macs", macs);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
             }
             catch (Exception ex)
             {
@@ -230,7 +265,7 @@ namespace QuanLyCoSoSX.BAL
             }
             catch (Exception ex)
             {
-                Console.WriteLine("That bai," + ex.Message);
+                throw ex;
             }
         }
     }

@@ -21,6 +21,7 @@ namespace QuanLyCoSoSX.GUI
         {
             InitializeComponent();
             GetThongTin();
+            GetDGV();
         }
 
         public FormSanPham(ManHinhQuanLyNhanVien par)
@@ -28,17 +29,16 @@ namespace QuanLyCoSoSX.GUI
             this.parent = par;
             InitializeComponent();
             GetThongTin();
+            GetDGV();
         }
         private void GetThongTin()
         {
             MySqlConnection conn = DBConnect.GetDBConnection();
             CSSXBAL cssx = new CSSXBAL();
             List<CSSX> LstCSSX = cssx.GetAll(conn);
-            foreach(var cs in LstCSSX)
-            {
-                cbCSSX.Items.Add(cs.Tencs);
-                cbMaCSSX.Items.Add(cs.Macs);
-            }
+            cbCSSX.DisplayMember = "Tencs";
+            cbCSSX.ValueMember = "Macs";
+            cbCSSX.DataSource = LstCSSX;
         }
         private void GetDGV()
         {
@@ -65,6 +65,15 @@ namespace QuanLyCoSoSX.GUI
             GetDGV();
         }
 
+        private void CheckTT()
+        {
+            if (txtTensp.Text == "")
+                throw new Exception("Tên sản phẩm không được để trống");
+            if (txtDonvitinh.Text == "")
+                throw new Exception("Đơn vị tính không được để trống");
+            if (txtMaCSSX.Text == "")
+                throw new Exception("Cơ sở sản xuất không được để trống");
+        }
         private void Thembt_Click(object sender, EventArgs e)
         {
             MySqlConnection conn = DBConnect.GetDBConnection();
@@ -87,6 +96,7 @@ namespace QuanLyCoSoSX.GUI
             SanPhamBAL sanpham = new SanPhamBAL();
             try
             {
+                CheckTT();
                 sanpham.Update(conn, txtMasp.Text, txtTensp.Text, txtDonvitinh.Text, Convert.ToInt32(txtMaCSSX.Text));
                 GetDGV();
             }
@@ -102,6 +112,7 @@ namespace QuanLyCoSoSX.GUI
             SanPhamBAL sanpham = new SanPhamBAL();
             try
             {
+                CheckTT();
                 sanpham.Delete(conn, txtMasp.Text);
                 GetDGV();
             }
@@ -145,15 +156,17 @@ namespace QuanLyCoSoSX.GUI
                 txtMasp.Text = DGVSanPham.Rows[index].Cells[0].Value.ToString();
                 txtTensp.Text = DGVSanPham.Rows[index].Cells[1].Value.ToString();
                 txtDonvitinh.Text = DGVSanPham.Rows[index].Cells[2].Value.ToString();
-                cbCSSX.SelectedItem = DGVSanPham.Rows[index].Cells[3].Value.ToString();
+                MySqlConnection conn = DBConnect.GetDBConnection();
+                CSSXBAL DBCSSX = new CSSXBAL();
+                   
+                cbCSSX.SelectedValue = DBCSSX.GetIDByName(conn, DGVSanPham.Rows[index].Cells[3].Value.ToString());
             }    
         }
 
         private void cbCSSX_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = cbCSSX.SelectedIndex;
-            cbMaCSSX.SelectedIndex = index;
-            txtMaCSSX.Text = cbMaCSSX.SelectedItem.ToString();
+
+            txtMaCSSX.Text = cbCSSX.SelectedValue.ToString();
         }
 
         private void txtFindByID_KeyDown(object sender, KeyEventArgs e)

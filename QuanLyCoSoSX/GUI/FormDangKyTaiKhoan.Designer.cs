@@ -45,7 +45,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(152, 213);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 33);
             this.button1.TabIndex = 5;
@@ -60,7 +60,7 @@
             "Nhân viên",
             "Quản lí"});
             this.cbQuyen.Location = new System.Drawing.Point(169, 176);
-            this.cbQuyen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbQuyen.Margin = new System.Windows.Forms.Padding(2);
             this.cbQuyen.Name = "cbQuyen";
             this.cbQuyen.Size = new System.Drawing.Size(254, 21);
             this.cbQuyen.TabIndex = 4;
@@ -68,7 +68,7 @@
             // txtRePass
             // 
             this.txtRePass.Location = new System.Drawing.Point(169, 144);
-            this.txtRePass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtRePass.Margin = new System.Windows.Forms.Padding(2);
             this.txtRePass.Name = "txtRePass";
             this.txtRePass.PasswordChar = '*';
             this.txtRePass.Size = new System.Drawing.Size(254, 20);
@@ -77,7 +77,7 @@
             // txtPass
             // 
             this.txtPass.Location = new System.Drawing.Point(169, 110);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(2);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(254, 20);
@@ -86,7 +86,7 @@
             // txtUsername
             // 
             this.txtUsername.Location = new System.Drawing.Point(169, 76);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(254, 20);
             this.txtUsername.TabIndex = 1;
@@ -166,8 +166,7 @@
             // 
             // FormDangKyTaiKhoan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(460, 262);
             this.Controls.Add(this.txtMaNhanVien);
@@ -182,9 +181,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "FormDangKyTaiKhoan";
-            this.Text = "FormDangKyTaiKhoan";
+            this.Text = "Đăng ký tài khoản";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormDangKyTaiKhoan_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

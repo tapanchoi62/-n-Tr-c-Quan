@@ -21,11 +21,13 @@ namespace QuanLyCoSoSX.GUI
         public FormPhongBan()
         {
             InitializeComponent();
+            GetDGVPhongBan();
         }
         public FormPhongBan(Form par)
         {
             this.parent = par;
             InitializeComponent();
+            GetDGVPhongBan();
         }
 
         private void FormPhongBan_FormClosed(object sender, FormClosedEventArgs e)
