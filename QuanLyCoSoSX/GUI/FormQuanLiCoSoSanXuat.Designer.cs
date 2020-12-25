@@ -62,7 +62,6 @@
             // 
             // LCoSoSanXuat
             // 
-            this.LCoSoSanXuat.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.LCoSoSanXuat.AutoSize = true;
             this.LCoSoSanXuat.Location = new System.Drawing.Point(16, 147);
             this.LCoSoSanXuat.Name = "LCoSoSanXuat";
@@ -72,7 +71,6 @@
             // 
             // txtSoDienThoai
             // 
-            this.txtSoDienThoai.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtSoDienThoai.Location = new System.Drawing.Point(115, 328);
             this.txtSoDienThoai.Name = "txtSoDienThoai";
             this.txtSoDienThoai.Size = new System.Drawing.Size(323, 20);
@@ -80,7 +78,6 @@
             // 
             // Them
             // 
-            this.Them.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Them.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Them.Image = ((System.Drawing.Image)(resources.GetObject("Them.Image")));
             this.Them.Location = new System.Drawing.Point(16, 389);
@@ -94,7 +91,6 @@
             // 
             // LChuCoSo
             // 
-            this.LChuCoSo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.LChuCoSo.AutoSize = true;
             this.LChuCoSo.Location = new System.Drawing.Point(15, 212);
             this.LChuCoSo.Name = "LChuCoSo";
@@ -104,7 +100,6 @@
             // 
             // LayThongTin
             // 
-            this.LayThongTin.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.LayThongTin.BackColor = System.Drawing.Color.Orange;
             this.LayThongTin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LayThongTin.Image = ((System.Drawing.Image)(resources.GetObject("LayThongTin.Image")));
@@ -119,7 +114,6 @@
             // 
             // txtChuCoSo
             // 
-            this.txtChuCoSo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtChuCoSo.Location = new System.Drawing.Point(115, 205);
             this.txtChuCoSo.Name = "txtChuCoSo";
             this.txtChuCoSo.Size = new System.Drawing.Size(323, 20);
@@ -127,7 +121,6 @@
             // 
             // Xoa
             // 
-            this.Xoa.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Xoa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Xoa.Image = ((System.Drawing.Image)(resources.GetObject("Xoa.Image")));
             this.Xoa.Location = new System.Drawing.Point(126, 389);
@@ -141,7 +134,6 @@
             // 
             // LDiaChi
             // 
-            this.LDiaChi.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.LDiaChi.AutoSize = true;
             this.LDiaChi.Location = new System.Drawing.Point(16, 272);
             this.LDiaChi.Name = "LDiaChi";
@@ -151,7 +143,6 @@
             // 
             // Sua
             // 
-            this.Sua.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Sua.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Sua.Image = ((System.Drawing.Image)(resources.GetObject("Sua.Image")));
             this.Sua.Location = new System.Drawing.Point(236, 389);
@@ -165,7 +156,6 @@
             // 
             // txtCoSoSanXuat
             // 
-            this.txtCoSoSanXuat.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtCoSoSanXuat.Location = new System.Drawing.Point(115, 144);
             this.txtCoSoSanXuat.Name = "txtCoSoSanXuat";
             this.txtCoSoSanXuat.Size = new System.Drawing.Size(323, 20);
@@ -173,7 +163,6 @@
             // 
             // LSoDienThoai
             // 
-            this.LSoDienThoai.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.LSoDienThoai.AutoSize = true;
             this.LSoDienThoai.Location = new System.Drawing.Point(16, 331);
             this.LSoDienThoai.Name = "LSoDienThoai";
@@ -183,7 +172,6 @@
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtDiaChi.Location = new System.Drawing.Point(115, 265);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(323, 20);
@@ -202,7 +190,6 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.Controls.Add(this.txtMaCSSX);
             this.panel1.Controls.Add(this.panel2);
@@ -227,7 +214,6 @@
             // 
             // txtMaCSSX
             // 
-            this.txtMaCSSX.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtMaCSSX.Enabled = false;
             this.txtMaCSSX.Location = new System.Drawing.Point(115, 82);
             this.txtMaCSSX.Name = "txtMaCSSX";
@@ -237,7 +223,6 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panel2.Controls.Add(this.SearchCSSXbt);
             this.panel2.Controls.Add(this.SearchCSSX);
@@ -281,7 +266,6 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(19, 85);
             this.label1.Name = "label1";
@@ -294,7 +278,6 @@
             this.DGV.AllowUserToAddRows = false;
             this.DGV.AllowUserToDeleteRows = false;
             this.DGV.AllowUserToResizeRows = false;
-            this.DGV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaCSSX,
@@ -365,6 +348,7 @@
             this.Controls.Add(this.groupBox3);
             this.MinimumSize = new System.Drawing.Size(1185, 675);
             this.Name = "FormQuanLiCoSoSanXuat";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý cơ sở sản xuất";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormQuanLiCoSoSanXuat_FormClosed);
             this.Load += new System.EventHandler(this.FormQuanLiCoSoSanXuat_Load);

@@ -137,7 +137,10 @@ namespace QuanLyCoSoSX.BAL
                 if (rdr1.HasRows)
                 {
                     rdr1.Read();
-                    matk = rdr1.GetInt16("Max(matk)") + 1;
+                    if (!rdr1.IsDBNull(rdr1.GetOrdinal("Max(matk)")))
+                        matk = rdr1.GetInt16("Max(matk)") + 1;
+                    else
+                        matk = 0;
                 }
                 else
                 {

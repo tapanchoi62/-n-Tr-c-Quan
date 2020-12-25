@@ -58,13 +58,13 @@ namespace QuanLyCoSoSX.GUI
                 return;
             }
 
-            if (taikhoan.CheckUser(conn,txtUsername.Text))
+            if (taikhoan.CheckUser(conn, txtUsername.Text))
             {
                 MessageBox.Show("Tài khoản đã tồn tại");
                 return;
-            }    
-           
-            if(!CheckPassword())
+            }
+
+            if (!CheckPassword())
             {
                 MessageBox.Show("Mật khẩu không trùng khớp");
                 return;
@@ -98,5 +98,6 @@ namespace QuanLyCoSoSX.GUI
         {
             this.parent.Show();
         }
+
     }
 }
