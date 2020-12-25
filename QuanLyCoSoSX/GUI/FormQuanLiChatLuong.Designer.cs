@@ -56,6 +56,7 @@
             // 
             // panel3
             // 
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.label2);
@@ -230,11 +231,57 @@
             this.Thembt.UseVisualStyleBackColor = true;
             this.Thembt.Click += new System.EventHandler(this.Thembt_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.SearchChiTieubt);
+            this.panel1.Controls.Add(this.txtSearchChiTieu);
+            this.panel1.Location = new System.Drawing.Point(12, 379);
+
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(413, 100);
+            this.panel1.TabIndex = 41;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label7.ForeColor = System.Drawing.Color.Maroon;
+            this.label7.Location = new System.Drawing.Point(4, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(156, 24);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Tra cứu chỉ tiêu";
+            // 
+            // SearchChiTieubt
+            // 
+            this.SearchChiTieubt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SearchChiTieubt.Image = ((System.Drawing.Image)(resources.GetObject("SearchChiTieubt.Image")));
+            this.SearchChiTieubt.Location = new System.Drawing.Point(287, 32);
+            this.SearchChiTieubt.Name = "SearchChiTieubt";
+            this.SearchChiTieubt.Size = new System.Drawing.Size(110, 35);
+            this.SearchChiTieubt.TabIndex = 2;
+            this.SearchChiTieubt.Text = "Tìm";
+            this.SearchChiTieubt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.SearchChiTieubt.UseVisualStyleBackColor = true;
+            this.SearchChiTieubt.Click += new System.EventHandler(this.SearchChiTieubt_Click);
+            // 
+            // txtSearchChiTieu
+            // 
+            this.txtSearchChiTieu.Location = new System.Drawing.Point(14, 40);
+            this.txtSearchChiTieu.Name = "txtSearchChiTieu";
+            this.txtSearchChiTieu.Size = new System.Drawing.Size(258, 20);
+            this.txtSearchChiTieu.TabIndex = 0;
+            this.txtSearchChiTieu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchChiTieu_KeyDown);
+            // 
             // DGVChiTieu
             // 
             this.DGVChiTieu.AllowUserToAddRows = false;
             this.DGVChiTieu.AllowUserToDeleteRows = false;
             this.DGVChiTieu.AllowUserToResizeRows = false;
+            this.DGVChiTieu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DGVChiTieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVChiTieu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaChiTieu,
@@ -296,7 +343,8 @@
             this.Controls.Add(this.panel3);
             this.MinimumSize = new System.Drawing.Size(1117, 600);
             this.Name = "FormQuanLiChatLuong";
-            this.Text = "Quản lí chỉ tiêu";
+            this.ShowIcon = false;
+            this.Text = "QUẢN LÝ CHỈ TIÊU";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormQuanLiChatLuong_FormClosed);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

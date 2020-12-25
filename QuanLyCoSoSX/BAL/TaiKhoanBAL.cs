@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Remoting.Messaging;
+using System.Security.Cryptography;
 
 namespace QuanLyCoSoSX.BAL
 {
@@ -87,14 +88,22 @@ namespace QuanLyCoSoSX.BAL
         }
         public TaiKhoan GetByTenTK(MySqlConnection conn, string tentk, string pass)
         {
+            byte[] temp = ASCIIEncoding.ASCII.GetBytes(pass);
+            byte[] hasData = new MD5CryptoServiceProvider().ComputeHash(temp);
+            string hasPass = "";
+            foreach(byte item in hasData)
+            {
+                hasPass += item;
+            }
+
             conn.Open();
             TaiKhoan a = new TaiKhoan();
-            string sql = "SELECT * FROM taikhoan where tentk= @tentk and matkhau = @pass";
+            string sql = "SELECT * FROM taikhoan where tentk= @tentk and matkhau = @hasPass";
 
             var cmd = new MySqlCommand(sql, conn);
 
             cmd.Parameters.AddWithValue("@tentk", tentk);
-            cmd.Parameters.AddWithValue("@pass", pass);
+            cmd.Parameters.AddWithValue("@hasPass", hasPass);
             MySqlDataReader rdr = cmd.ExecuteReader();
 
             if (rdr.HasRows)
