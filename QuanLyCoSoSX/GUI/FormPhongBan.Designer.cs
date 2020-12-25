@@ -273,6 +273,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.DGVPhongBan);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(892, 327);
             this.Name = "FormPhongBan";
             this.Text = "Quản lý phòng ban";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormPhongBan_FormClosed);

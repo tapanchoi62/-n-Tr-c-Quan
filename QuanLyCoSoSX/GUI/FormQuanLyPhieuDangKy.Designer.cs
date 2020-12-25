@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQuanLyPhieuDangKy));
             this.pnThongTin = new System.Windows.Forms.Panel();
             this.DGVDSChiTieu = new System.Windows.Forms.DataGridView();
@@ -339,9 +339,9 @@
             // dgvNgayHH
             // 
             this.dgvNgayHH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            this.dgvNgayHH.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dgvNgayHH.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNgayHH.HeaderText = "Ngày hết hạn";
             this.dgvNgayHH.Name = "dgvNgayHH";
             this.dgvNgayHH.ReadOnly = true;
@@ -860,6 +860,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.PanelThaoTac);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(1117, 600);
             this.Name = "FormQuanLyPhieuDangKy";
             this.Text = "Quản lý phiếu đăng ký";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormQuanLyPhieuDangKy_FormClosing);

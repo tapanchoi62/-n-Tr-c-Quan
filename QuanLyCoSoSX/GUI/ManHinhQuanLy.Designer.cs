@@ -39,10 +39,10 @@
             this.button3.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = global::QuanLyCoSoSX.Properties.Resources.pb;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(12, 221);
+            this.button3.Location = new System.Drawing.Point(12, 209);
             this.button3.Name = "button3";
             this.button3.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(380, 208);
+            this.button3.Size = new System.Drawing.Size(380, 190);
             this.button3.TabIndex = 2;
             this.button3.Text = "QUẢN LÝ PHÒNG BAN               ";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -58,7 +58,7 @@
             this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(380, 203);
+            this.button1.Size = new System.Drawing.Size(380, 191);
             this.button1.TabIndex = 0;
             this.button1.Text = "QUẢN LÝ NHÂN VIÊN            ";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -74,7 +74,7 @@
             this.button2.Location = new System.Drawing.Point(398, 11);
             this.button2.Name = "button2";
             this.button2.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(380, 418);
+            this.button2.Size = new System.Drawing.Size(374, 388);
             this.button2.TabIndex = 3;
             this.button2.Text = "THỐNG KÊ";
             this.button2.UseVisualStyleBackColor = false;
@@ -84,11 +84,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 411);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(800, 450);
             this.Name = "ManHinhQuanLy";
             this.Text = "Màn hình quản lý";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ManHinhQuanLy_FormClosed);
