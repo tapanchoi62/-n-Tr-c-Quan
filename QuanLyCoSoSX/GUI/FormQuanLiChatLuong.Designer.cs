@@ -32,6 +32,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.SearchChiTieubt = new System.Windows.Forms.Button();
+            this.txtSearchChiTieu = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.GetThongTinbt = new System.Windows.Forms.Button();
             this.txtMaChiTieu = new System.Windows.Forms.TextBox();
@@ -40,10 +44,6 @@
             this.Suabt = new System.Windows.Forms.Button();
             this.txtYNghia = new System.Windows.Forms.TextBox();
             this.Thembt = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.SearchChiTieubt = new System.Windows.Forms.Button();
-            this.txtSearchChiTieu = new System.Windows.Forms.TextBox();
             this.DGVChiTieu = new System.Windows.Forms.DataGridView();
             this.MaChiTieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenChiTieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,6 +94,50 @@
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Tên chỉ tiêu";
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.SearchChiTieubt);
+            this.panel1.Controls.Add(this.txtSearchChiTieu);
+            this.panel1.Location = new System.Drawing.Point(12, 379);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(413, 100);
+            this.panel1.TabIndex = 41;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label7.ForeColor = System.Drawing.Color.Maroon;
+            this.label7.Location = new System.Drawing.Point(4, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(156, 24);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Tra cứu chỉ tiêu";
+            // 
+            // SearchChiTieubt
+            // 
+            this.SearchChiTieubt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SearchChiTieubt.Image = ((System.Drawing.Image)(resources.GetObject("SearchChiTieubt.Image")));
+            this.SearchChiTieubt.Location = new System.Drawing.Point(287, 32);
+            this.SearchChiTieubt.Name = "SearchChiTieubt";
+            this.SearchChiTieubt.Size = new System.Drawing.Size(110, 35);
+            this.SearchChiTieubt.TabIndex = 2;
+            this.SearchChiTieubt.Text = "Tìm";
+            this.SearchChiTieubt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.SearchChiTieubt.UseVisualStyleBackColor = true;
+            this.SearchChiTieubt.Click += new System.EventHandler(this.SearchChiTieubt_Click);
+            // 
+            // txtSearchChiTieu
+            // 
+            this.txtSearchChiTieu.Location = new System.Drawing.Point(14, 40);
+            this.txtSearchChiTieu.Name = "txtSearchChiTieu";
+            this.txtSearchChiTieu.Size = new System.Drawing.Size(258, 20);
+            this.txtSearchChiTieu.TabIndex = 0;
+            this.txtSearchChiTieu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchChiTieu_KeyDown);
             // 
             // label4
             // 
@@ -297,6 +341,7 @@
             this.ClientSize = new System.Drawing.Size(1101, 561);
             this.Controls.Add(this.DGVChiTieu);
             this.Controls.Add(this.panel3);
+            this.MinimumSize = new System.Drawing.Size(1117, 600);
             this.Name = "FormQuanLiChatLuong";
             this.ShowIcon = false;
             this.Text = "QUẢN LÝ CHỈ TIÊU";

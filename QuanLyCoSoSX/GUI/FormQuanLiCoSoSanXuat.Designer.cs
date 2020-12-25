@@ -44,11 +44,11 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtMaCSSX = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.SearchCSSXbt = new System.Windows.Forms.Button();
             this.SearchCSSX = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.DGV = new System.Windows.Forms.DataGridView();
             this.MaCSSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenCSSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -235,16 +235,6 @@
             this.txtMaCSSX.Size = new System.Drawing.Size(323, 20);
             this.txtMaCSSX.TabIndex = 13;
             // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 85);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Mã CSSX";
-            // 
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -288,6 +278,16 @@
             this.label7.Size = new System.Drawing.Size(223, 24);
             this.label7.TabIndex = 3;
             this.label7.Text = "Tra cứu cơ sở sản xuất";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 85);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Mã CSSX";
             // 
             // DGV
             // 
@@ -363,6 +363,7 @@
             this.Controls.Add(this.DGV);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox3);
+            this.MinimumSize = new System.Drawing.Size(1185, 675);
             this.Name = "FormQuanLiCoSoSanXuat";
             this.Text = "Quản lý cơ sở sản xuất";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormQuanLiCoSoSanXuat_FormClosed);

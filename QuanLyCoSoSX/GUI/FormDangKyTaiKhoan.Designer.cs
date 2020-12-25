@@ -189,6 +189,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(480, 305);
             this.Name = "FormDangKyTaiKhoan";
             this.Text = "Đăng ký tài khoản";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormDangKyTaiKhoan_FormClosed);
