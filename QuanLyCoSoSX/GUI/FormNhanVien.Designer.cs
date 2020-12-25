@@ -364,7 +364,6 @@
             this.Controls.Add(this.DGVNhanvien);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(1050, 388);
             this.Name = "FormNhanVien";
             this.Text = "Quản lý nhân viên";
             this.panel1.ResumeLayout(false);

@@ -141,7 +141,7 @@ namespace QuanLyCoSoSX.GUI
             this.TabControl.Location = new System.Drawing.Point(0, 0);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(1051, 561);
+            this.TabControl.Size = new System.Drawing.Size(990, 583);
             this.TabControl.TabIndex = 15;
             // 
             // TabNhanVien
@@ -159,7 +159,7 @@ namespace QuanLyCoSoSX.GUI
             this.TabNhanVien.Location = new System.Drawing.Point(4, 22);
             this.TabNhanVien.Name = "TabNhanVien";
             this.TabNhanVien.Padding = new System.Windows.Forms.Padding(3);
-            this.TabNhanVien.Size = new System.Drawing.Size(1043, 535);
+            this.TabNhanVien.Size = new System.Drawing.Size(982, 557);
             this.TabNhanVien.TabIndex = 0;
             this.TabNhanVien.Text = "Nhân viên";
             // 
@@ -324,7 +324,7 @@ namespace QuanLyCoSoSX.GUI
             this.dgvNhanVien.ReadOnly = true;
             this.dgvNhanVien.RowHeadersVisible = false;
             this.dgvNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNhanVien.Size = new System.Drawing.Size(1029, 446);
+            this.dgvNhanVien.Size = new System.Drawing.Size(968, 468);
             this.dgvNhanVien.TabIndex = 7;
             // 
             // Manv
@@ -980,9 +980,8 @@ namespace QuanLyCoSoSX.GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1051, 561);
+            this.ClientSize = new System.Drawing.Size(990, 583);
             this.Controls.Add(this.TabControl);
-            this.MinimumSize = new System.Drawing.Size(1067, 600);
             this.Name = "FormThongKe";
             this.Text = "Thống kê";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormThongKe_FormClosed);
