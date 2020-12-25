@@ -87,16 +87,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(784, 411);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.ForeColor = System.Drawing.SystemColors.Desktop;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(800, 450);
             this.MinimumSize = new System.Drawing.Size(800, 450);
             this.Name = "ManHinhQuanLy";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Màn hình quản lý";
-
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ManHinhQuanLy_FormClosed);
             this.ResumeLayout(false);
 

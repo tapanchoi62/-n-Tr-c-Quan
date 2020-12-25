@@ -380,7 +380,7 @@ namespace QuanLyCoSoSX.GUI
             this.tabSanPham.Location = new System.Drawing.Point(4, 22);
             this.tabSanPham.Name = "tabSanPham";
             this.tabSanPham.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSanPham.Size = new System.Drawing.Size(982, 557);
+            this.tabSanPham.Size = new System.Drawing.Size(1043, 535);
             this.tabSanPham.TabIndex = 1;
             this.tabSanPham.Text = "Sản phẩm";
             // 
@@ -507,7 +507,7 @@ namespace QuanLyCoSoSX.GUI
             this.TabPhieuDK.Location = new System.Drawing.Point(4, 22);
             this.TabPhieuDK.Name = "TabPhieuDK";
             this.TabPhieuDK.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPhieuDK.Size = new System.Drawing.Size(982, 557);
+            this.TabPhieuDK.Size = new System.Drawing.Size(1043, 535);
             this.TabPhieuDK.TabIndex = 2;
             this.TabPhieuDK.Text = "Phiếu đăng ký";
             // 
@@ -764,7 +764,7 @@ namespace QuanLyCoSoSX.GUI
             this.TabPhieuKN.Location = new System.Drawing.Point(4, 22);
             this.TabPhieuKN.Name = "TabPhieuKN";
             this.TabPhieuKN.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPhieuKN.Size = new System.Drawing.Size(982, 557);
+            this.TabPhieuKN.Size = new System.Drawing.Size(1043, 535);
             this.TabPhieuKN.TabIndex = 3;
             this.TabPhieuKN.Text = "Phiếu kiểm nghiệm";
             // 
@@ -984,6 +984,7 @@ namespace QuanLyCoSoSX.GUI
             this.Controls.Add(this.TabControl);
             this.MinimumSize = new System.Drawing.Size(1067, 600);
             this.Name = "FormThongKe";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thống kê";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormThongKe_FormClosed);
             this.TabControl.ResumeLayout(false);
