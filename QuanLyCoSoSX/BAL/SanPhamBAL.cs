@@ -233,7 +233,7 @@ namespace QuanLyCoSoSX.BAL
                 {
 
                     conn.Open();
-                    string sql = "Update `SanPham`" +
+                    string sql = "Update `sanpham`" +
                         " Set `tensp`=@tensp, `donvi`=@donvi, `macs`=@macs" +
                         " where masp =@masp";
                     var cmd = new MySqlCommand(sql, conn);
@@ -251,15 +251,44 @@ namespace QuanLyCoSoSX.BAL
             }
         }
 
+        public void DeleteByCSSX(MySqlConnection conn, string macs)
+        {
+            string sql2 = "SELECT masp FROM sanpham WHERE macs = @macs";
+            var cmd2 = new MySqlCommand(sql2, conn);
+            cmd2.Parameters.AddWithValue("@macs", macs);
+            MySqlDataReader rdr = cmd2.ExecuteReader();
+            List<string> list = new List<string>();
+            if (rdr.HasRows)
+            {
+                while (rdr.Read())
+                {
+                    string a = rdr.GetString("masp");
+                    list.Add(a);
+                }
+            }
+            rdr.Close();
+            
+            foreach(var masp in list)
+            {
+                PhieuDKBAL PDKBAL = new PhieuDKBAL();
+                PDKBAL.DeleteByMasp(conn, masp);
+                string sql = "Delete from sanpham where masp= @masp";
+                var cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@masp", masp);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public void Delete(MySqlConnection conn, string masp)
         {
             try
             {
+                PhieuDKBAL PDKBAL = new PhieuDKBAL();
+                PDKBAL.DeleteByMasp(conn, masp);
                 conn.Open();
-                string sql = "Delete from SanPham where masp= @masp";
+                string sql = "Delete from sanpham where masp= @masp";
                 var cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@masp", masp);
-
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }

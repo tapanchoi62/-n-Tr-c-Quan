@@ -56,108 +56,115 @@ namespace QuanLyCoSoSX.GUI
             int index = e.RowIndex;
             if(index >= 0)
             {
-                textboxMaPhongBan.Text = DGVPhongBan.Rows[index].Cells[0].Value.ToString();
-                textboxTenPhongBan.Text = DGVPhongBan.Rows[index].Cells[1].Value.ToString();
+                txtMaPhongBan.Text = DGVPhongBan.Rows[index].Cells[0].Value.ToString();
+                txtTenPhongBan.Text = DGVPhongBan.Rows[index].Cells[1].Value.ToString();
             }
         }
-        void Search()
+        void Search(string key)
         {
-            if (textBoxSearchPhongBan.Text == "")
+            if ( key == "")
             {
                 GetDGVPhongBan();
                 return;
             }
             MySqlConnection conn = DBConnect.GetDBConnection();
             PhongBanBAL PhongBanbal = new PhongBanBAL();
-            var pb = PhongBanbal.GetByID(conn, textBoxSearchPhongBan.Text);
+            var pb = PhongBanbal.GetByID(conn, key);
             DGVPhongBan.Rows.Clear();
             DGVPhongBan.Rows.Add(pb.Mapb, pb.Tenpb);
         }
 
         private void SearchPhongBan_Click(object sender, EventArgs e)
         {
-            Search();
+            Search(txtTimPhongBan.Text);
         }
 
         private void textBoxSearchPhongBan_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode==Keys.Enter)
             {
-                Search();
+                Search(txtTimPhongBan.Text);
             }
         }
 
+
+        private void xoaPhongBan(string maPB)
+        {
+            try
+            {
+                MySqlConnection conn = DBConnect.GetDBConnection();
+                PhongBanBAL PhongBanbal = new PhongBanBAL();
+                PhongBanbal.Delete(conn, maPB);
+                GetDGVPhongBan();
+                MessageBox.Show("Xóa thành công !");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Thất bại");
+            }
+        }
         private void Xoabt_Click(object sender, EventArgs e)
         {
-            try
-            {
-                MySqlConnection conn = DBConnect.GetDBConnection();
-                PhongBanBAL PhongBanbal = new PhongBanBAL();
-                PhongBanbal.Delete(conn, textboxMaPhongBan.Text);
-                GetDGVPhongBan();
-                MessageBox.Show("xóa thành công !");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("thất bại" + ex.Message);
-            }
+            xoaPhongBan(txtMaPhongBan.Text);
         }
 
-        private void Thembt_Click(object sender, EventArgs e)
+        private void themPhongBan(string maPB,string tenPB)
         {
             try
             {
                 MySqlConnection conn = DBConnect.GetDBConnection();
                 PhongBanBAL PhongBanbal = new PhongBanBAL();
                 var pb = PhongBanbal.GetAll(conn);
+                if (maPB=="")
+                {
+                    throw new ArgumentException("mã phòng ban không được trống !");
+                }
                 foreach (var pb1 in pb)
                 {
-                    if(pb1.Mapb==textboxMaPhongBan.Text)
+                    if (pb1.Mapb == maPB)
                     {
                         throw new ArgumentException("mã phòng ban không được trùng lặp !");
                     }
                 }
-                if (textboxMaPhongBan.Text == "")
-                {
-                    throw new ArgumentException("mã phòng ban không được trống !");
-                }
-                PhongBanbal.Insert(conn, textboxMaPhongBan.Text, textboxTenPhongBan.Text);
+                
+                PhongBanbal.Insert(conn, maPB, tenPB);
                 GetDGVPhongBan();
-                MessageBox.Show("thêm thành công !");
+                MessageBox.Show("Thêm thành công !", "Thành công");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("thất bại ! " + ex.Message);
-            }      
+                MessageBox.Show(ex.Message, "Thất bại");
+            }
+        }
+        private void Thembt_Click(object sender, EventArgs e)
+        {
+            themPhongBan(txtMaPhongBan.Text,txtTenPhongBan.Text);
         }
 
-        private void Suabt_Click(object sender, EventArgs e)
-        { 
+        private void suaPhongBan(string maPB,string tenPB)
+        {
             try
             {
 
                 MySqlConnection conn = DBConnect.GetDBConnection();
                 PhongBanBAL PhongBanbal = new PhongBanBAL();
                 var pb = PhongBanbal.GetAll(conn);
-                foreach (var pb1 in pb)
+                if (maPB == "")
                 {
-                    if (pb1.Mapb == textboxMaPhongBan.Text)
-                    {
-                        throw new ArgumentException("mã phòng ban không được trùng lặp !");
-                    }
+                    throw new Exception("Mã phòng ban không được trống !");
                 }
-                if (textboxMaPhongBan.Text == "")
-                {
-                    throw new ArgumentException("mã phòng ban không được trống !");
-                }
-                PhongBanbal.Update(conn, textboxMaPhongBan.Text, textboxTenPhongBan.Text);
+                PhongBanbal.Update(conn,maPB, tenPB);
                 GetDGVPhongBan();
-                MessageBox.Show("sửa thành công !");
+                MessageBox.Show("Sửa thành công !", "Thành công");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Thất bại ! "+ ex.Message);
+                MessageBox.Show(ex.Message, "Thất bại");
             }
+        }
+        private void Suabt_Click(object sender, EventArgs e)
+        {
+            suaPhongBan(txtMaPhongBan.Text, txtTenPhongBan.Text);
         }
 
        

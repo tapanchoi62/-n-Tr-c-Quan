@@ -12,12 +12,15 @@ using QuanLyCoSoSX.BAL;
 using QuanLyCoSoSX.DAO;
 using QuanLyCoSoSX.GUI;
 using QuanLyCoSoSX.DTO;
+using System.Configuration;
 
 namespace QuanLyCoSoSX.GUI
 {
     public partial class FormThongKe : Form
     {
+
         Form parr;
+        MySqlConnection conn = DBConnect.GetDBConnection();
         public FormThongKe()
         {
             InitializeComponent();
@@ -28,14 +31,14 @@ namespace QuanLyCoSoSX.GUI
             dtTuNgay_pnpkn.CustomFormat = "dd/MM/yyyy";
             dtDenNgay_pnpkn.CustomFormat = "dd/MM/yyyy";
             pnNgayThang_pnpkn.Hide();
-            cbTieuChi_pnpdk.Hide();
             pnNgDK_pnpdk.Hide();
             pnNgHH_pnpdk.Hide();
-            cbCssx_pnsp.Hide();
-            cbTieuChi.Hide();
             cbGioiTinh_pnnv.Hide();
             pnNgaySinh_pnnv.Hide();
-            cbTieuChi_pnpkn.Hide();
+            rdbtTatCa_pnnv.Checked = true;
+            rdbtTatCa_pnsp.Checked = true;
+            rdbtTatca_pnpkn.Checked = true;
+            rdbtTatCa_pnPDK.Checked = true;
         }
         public FormThongKe(Form parent)
         {
@@ -48,25 +51,30 @@ namespace QuanLyCoSoSX.GUI
             dtTuNgay_pnpkn.CustomFormat = "dd/MM/yyyy";
             dtDenNgay_pnpkn.CustomFormat = "dd/MM/yyyy";
             pnNgayThang_pnpkn.Hide();
-            cbTieuChi_pnpdk.Hide();
             pnNgDK_pnpdk.Hide();
             pnNgHH_pnpdk.Hide();
-            cbCssx_pnsp.Hide();
-            cbTieuChi.Hide();
             cbGioiTinh_pnnv.Hide();
             pnNgaySinh_pnnv.Hide();
+            rdbtTatCa_pnnv.Checked = true;
+            rdbtTatCa_pnsp.Checked = true;
+            rdbtTatca_pnpkn.Checked = true;
+            rdbtTatCa_pnPDK.Checked = true;
         }
+
 
 //
 //CONTROL PANEL NHAN VIEN
 //
 
+        //XUAT DU LIEU RA DGV
         private void XuatKQTKNV(List<NhanVien> lstNhanVien )
         {
+
             dgvNhanVien.Rows.Clear();
             DateTime ngSinhTu = dtTuNgay.Value;
             DateTime ngSinhDen = dtDenNgay.Value;
-            
+            DataChart duLieuThongKeGioiTinh = new DataChart();
+            DataChart duLieuThongKePhongBan = new DataChart();
             if(ckbNgSinh_pnnv.Checked)
             {
                 if(ckbGioiTinh_pnnv.Checked)
@@ -75,11 +83,13 @@ namespace QuanLyCoSoSX.GUI
                     foreach (var nv in lstNhanVien)
                     {
                         if(nv.Ngsinh.Date >= ngSinhTu.Date && nv.Ngsinh.Date <=ngSinhDen.Date && nv.Gioitinh == gt)
-                        { 
+                        {
+                            duLieuThongKeGioiTinh.Add(nv.Gioitinh, 1);
+                            duLieuThongKePhongBan.Add(nv.Mapb, 1);
                             dgvNhanVien.Rows.Add(nv.Manv, nv.Tennv, nv.Ngsinh.ToString("dd/MM/yyyy"), nv.Gioitinh, nv.Mapb, nv.Sdt);
                         }
                     }
-                    txtSoNV_pnnv.Text = dgvNhanVien.Rows.Count.ToString();
+                    //txtSoNV_pnnv.Text = dgvNhanVien.Rows.Count.ToString();
                 }
                 else
                 {
@@ -87,10 +97,12 @@ namespace QuanLyCoSoSX.GUI
                     {
                         if (nv.Ngsinh.Date >= ngSinhTu.Date && nv.Ngsinh.Date <= ngSinhDen.Date)
                         {
+                            duLieuThongKeGioiTinh.Add(nv.Gioitinh, 1);
+                            duLieuThongKePhongBan.Add(nv.Mapb, 1);
                             dgvNhanVien.Rows.Add(nv.Manv, nv.Tennv, nv.Ngsinh.ToString("dd/MM/yyyy"), nv.Gioitinh, nv.Mapb, nv.Sdt);
                         }
                     }
-                    txtSoNV_pnnv.Text = dgvNhanVien.Rows.Count.ToString();
+                    //txtSoNV_pnnv.Text = dgvNhanVien.Rows.Count.ToString();
                 }
             }
             else
@@ -102,10 +114,12 @@ namespace QuanLyCoSoSX.GUI
                     {
                         if (nv.Gioitinh == gt)
                         {
+                            duLieuThongKeGioiTinh.Add(nv.Gioitinh, 1);
+                            duLieuThongKePhongBan.Add(nv.Mapb, 1);
                             dgvNhanVien.Rows.Add(nv.Manv, nv.Tennv, nv.Ngsinh.ToString("dd/MM/yyyy"), nv.Gioitinh, nv.Mapb, nv.Sdt);
                         }
                     }
-                    txtSoNV_pnnv.Text = dgvNhanVien.Rows.Count.ToString();
+                    //txtSoNV_pnnv.Text = dgvNhanVien.Rows.Count.ToString();
                 }
                 else
                 {
@@ -113,17 +127,39 @@ namespace QuanLyCoSoSX.GUI
                     {
                        
                         {
+                            duLieuThongKeGioiTinh.Add(nv.Gioitinh, 1);
+                            duLieuThongKePhongBan.Add(nv.Mapb, 1);
                             dgvNhanVien.Rows.Add(nv.Manv, nv.Tennv, nv.Ngsinh.ToString("dd/MM/yyyy"), nv.Gioitinh, nv.Mapb, nv.Sdt);
                         }
                     }
-                    txtSoNV_pnnv.Text = dgvNhanVien.Rows.Count.ToString();
+                    //txtSoNV_pnnv.Text = dgvNhanVien.Rows.Count.ToString();
                 }
+            }
+
+            XuatDuLieuChart(duLieuThongKeGioiTinh, duLieuThongKePhongBan);
+        }
+        // XUAT DU LIEU RA CHART
+        private void XuatDuLieuChart(DataChart datachart1, DataChart datachart2)
+        {
+            ChartNhanVien_GioiTinh.Series["S1"].Points.Clear();
+            foreach(var tk in datachart1.Data)
+            {
+                ChartNhanVien_GioiTinh.Series["S1"].Points.AddXY(tk.chitieu, tk.soluong);
+            }
+
+            PhongBanBAL dbPhongBan = new PhongBanBAL();
+
+            ChartNhanVien_PhongBan.Series["S1"].Points.Clear();
+            foreach (var tk in datachart2.Data)
+            {
+                ChartNhanVien_PhongBan.Series["S1"].Points.AddXY(dbPhongBan.GetByID(conn,tk.chitieu).Tenpb, tk.soluong);
             }
         }
 
+
+
         private void TKNhanvienBangPB(string mapb)
         {
-            MySqlConnection conn = DBConnect.GetDBConnection();
             NhanVienBAL NVBAL = new NhanVienBAL();
             List<NhanVien> lstNhanVien = NVBAL.GetByMaPB(conn, mapb);
             XuatKQTKNV(lstNhanVien);
@@ -131,7 +167,6 @@ namespace QuanLyCoSoSX.GUI
         }
         private void TKTatCaNV()
         {
-            MySqlConnection conn = DBConnect.GetDBConnection();
             NhanVienBAL NVBAL = new NhanVienBAL();
             dgvNhanVien.Rows.Clear();
             List<NhanVien> lstNhanVien = NVBAL.GetAll(conn);
@@ -154,7 +189,12 @@ namespace QuanLyCoSoSX.GUI
 
         private void rbbtTatCa_CheckedChanged(object sender, EventArgs e)
         {
-            TKTatCaNV();
+            if(rdbtTatCa_pnnv.Checked)
+            {
+                cbTieuChi.Hide();
+                TKTatCaNV();
+            }
+               
         }
 
         private void rdbtPhongBan_CheckedChanged(object sender, EventArgs e)
@@ -162,7 +202,6 @@ namespace QuanLyCoSoSX.GUI
             if (rdbtPhongBan_pnnv.Checked == true)
             {
                 cbTieuChi.Show();
-                MySqlConnection conn = DBConnect.GetDBConnection();
                 PhongBanBAL PBBAL = new PhongBanBAL();
                 List<PhongBan> lstPhongBan = PBBAL.GetAll(conn);
                 cbTieuChi.DisplayMember = "Tenpb";
@@ -252,17 +291,45 @@ namespace QuanLyCoSoSX.GUI
 //
 //CONTROL PANEL SAN PHAM
 //
-        private void rdbtTatCa_CheckedChanged(object sender, EventArgs e)
+
+        private void  InChartSanPham(DataChart data)
         {
-            MySqlConnection conn = DBConnect.GetDBConnection();
-            SanPhamBAL SPBAL = new SanPhamBAL();
-            List<SanPham> lstSanPham = SPBAL.GetAll(conn);
-            DGVSanPham.Rows.Clear();
-            foreach(var sp in lstSanPham)
+            ChartSanPham_CSSX.Series["S1"].Points.Clear();
+            CSSXBAL dbCSSX = new CSSXBAL();
+
+            foreach (var tk in data.Data)
             {
+                ChartSanPham_CSSX.Series["S1"].Points.AddXY(dbCSSX.GetByID(conn, int.Parse(tk.chitieu)).Tencs, tk.soluong);
+            }
+        }
+
+        private void XuatThongTinTKSP(List<SanPham> lstSanPham)
+        {
+            DataChart data = new DataChart();
+            DGVSanPham.Rows.Clear();
+            foreach (var sp in lstSanPham)
+            {
+                data.Add(sp.Macs.ToString(), 1);
                 DGVSanPham.Rows.Add(sp.Masp, sp.Tensp, sp.Donvi, sp.Macs);
             }
+            InChartSanPham(data);
             txtSLSP_pnsp.Text = lstSanPham.Count.ToString();
+        }
+
+        private void TKTatCaSP()
+        {
+            SanPhamBAL SPBAL = new SanPhamBAL();
+            List<SanPham> lstSanPham = SPBAL.GetAll(conn);
+            XuatThongTinTKSP(lstSanPham);
+        }
+        private void rdbtTatCa_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rdbtTatCa_pnsp.Checked)
+            {
+                TKTatCaSP();
+                cbCssx_pnsp.Hide();
+            }
+
         }
 
         private void rdbtCSSX_pnsp_CheckedChanged(object sender, EventArgs e)
@@ -270,7 +337,6 @@ namespace QuanLyCoSoSX.GUI
             if (rdbtCSSX_pnsp.Checked)
             {
                 cbCssx_pnsp.Show();
-                MySqlConnection conn = DBConnect.GetDBConnection();
                 CSSXBAL cssxbal = new CSSXBAL();
                 List<CSSX> lstCSSX = cssxbal.GetAll(conn);
                 cbCssx_pnsp.DisplayMember = "Tencs";
@@ -282,27 +348,39 @@ namespace QuanLyCoSoSX.GUI
             
         }
 
+        private void TKSanPhamBangCS(int macs)
+        {
+            SanPhamBAL SPBAL = new SanPhamBAL();
+            List<SanPham> lstSanPham = SPBAL.GetByMacs(conn, macs);
+            XuatThongTinTKSP(lstSanPham);
+            txtSLSP_pnsp.Text = lstSanPham.Count.ToString();
+        }
         private void cbCssx_pnsp_SelectedIndexChanged(object sender, EventArgs e)
         {
             DGVSanPham.Rows.Clear();
             if (cbCssx_pnsp.SelectedValue != null)
             {
-                MySqlConnection conn = DBConnect.GetDBConnection();
-                SanPhamBAL SPBAL = new SanPhamBAL();
-                List<SanPham> lstSanPham = SPBAL.GetByMacs(conn, int.Parse(cbCssx_pnsp.SelectedValue.ToString()));
-                foreach (var sp in lstSanPham)
-                {
-                    DGVSanPham.Rows.Add(sp.Masp, sp.Tensp, sp.Donvi, sp.Macs);
-                }
-                txtSLSP_pnsp.Text = lstSanPham.Count.ToString();
+                TKSanPhamBangCS(int.Parse(cbCssx_pnsp.SelectedValue.ToString()));
             }
         }
 //
 //CONTROL PANEL PHIEU DANG KY
 //
+
+
+        private void InChartPhieuDangKy(DataChart data)
+        {
+            ChartPDK_CSSX.Series["S1"].Points.Clear();
+            CSSXBAL dbCSSX = new CSSXBAL();
+            foreach (var tk in data.Data)
+            {
+                ChartPDK_CSSX.Series["S1"].Points.AddXY(dbCSSX.GetByID(conn, int.Parse(tk.chitieu)).Tencs, tk.soluong);
+            }
+        }
         private void XuatKQTKPDK(List<PhieuDK> lstPhieuDK)
         {
             DateTime dktungay = dtTuNgayDK_pnpdk.Value, dkdengay = dtDenNgayDK_pnpdk.Value, hhtungay = dtTuNgayHH_pnpdk.Value, hhdengay = dtDenNgayHH_pnpdk.Value;
+            DataChart data = new DataChart();
             if (ckbNgayDK_pnpdk.Checked)
             {
                 if (ckbNgayHH_pnpdk.Checked)
@@ -310,7 +388,11 @@ namespace QuanLyCoSoSX.GUI
                     foreach (var pdk in lstPhieuDK)
                     {
                         if (pdk.Ngdk.Date >= dktungay && pdk.Ngdk.Date <= dkdengay.Date && pdk.Nghh.Date >= hhtungay && pdk.Nghh.Date <= hhdengay.Date)
+                        {
                             DGVPhieuDK.Rows.Add(pdk.Spdk, pdk.Ngdk.ToString("dd/MM/yyyy"), pdk.Nghh.ToString("dd/MM/yyyy"), pdk.Macs, pdk.Masp, pdk.sl);
+                            data.Add(pdk.Macs.ToString(), 1);
+                        }
+                            
                     }
                     txtSoPDK.Text = DGVPhieuDK.Rows.Count.ToString();
                 }
@@ -319,7 +401,10 @@ namespace QuanLyCoSoSX.GUI
                     foreach (var pdk in lstPhieuDK)
                     {
                         if (pdk.Ngdk.Date >= dktungay && pdk.Ngdk.Date <= dkdengay.Date)
+                        {
                             DGVPhieuDK.Rows.Add(pdk.Spdk, pdk.Ngdk.ToString("dd/MM/yyyy"), pdk.Nghh.ToString("dd/MM/yyyy"), pdk.Macs, pdk.Masp, pdk.sl);
+                            data.Add(pdk.Macs.ToString(), 1);
+                        }
                     }
                     txtSoPDK.Text = DGVPhieuDK.Rows.Count.ToString();
                 }
@@ -332,7 +417,10 @@ namespace QuanLyCoSoSX.GUI
                     foreach (var pdk in lstPhieuDK)
                     {
                         if (pdk.Nghh.Date >= hhtungay && pdk.Nghh.Date <= hhdengay.Date)
+                        {
                             DGVPhieuDK.Rows.Add(pdk.Spdk, pdk.Ngdk.ToString("dd/MM/yyyy"), pdk.Nghh.ToString("dd/MM/yyyy"), pdk.Macs, pdk.Masp, pdk.sl);
+                            data.Add(pdk.Macs.ToString(), 1);
+                        }
                     }
                     txtSoPDK.Text = DGVPhieuDK.Rows.Count.ToString();
                 }
@@ -341,15 +429,21 @@ namespace QuanLyCoSoSX.GUI
                     foreach (var pdk in lstPhieuDK)
                     {
                         DGVPhieuDK.Rows.Add(pdk.Spdk, pdk.Ngdk.ToString("dd/MM/yyyy"), pdk.Nghh.ToString("dd/MM/yyyy"), pdk.Macs, pdk.Masp, pdk.sl);
+                        {
+                            DGVPhieuDK.Rows.Add(pdk.Spdk, pdk.Ngdk.ToString("dd/MM/yyyy"), pdk.Nghh.ToString("dd/MM/yyyy"), pdk.Macs, pdk.Masp, pdk.sl);
+                            data.Add(pdk.Macs.ToString(), 1);
+                        }
                     }
                     txtSoPDK.Text = DGVPhieuDK.Rows.Count.ToString();
                 }
             }
+
+            InChartPhieuDangKy(data);
         }
+
         private void TKTatCaPDK()
         {
             DGVPhieuDK.Rows.Clear();
-            MySqlConnection conn = DBConnect.GetDBConnection();
             PhieuDKBAL PDKBAL = new PhieuDKBAL();
             List<PhieuDK> lstPhieuDK = PDKBAL.GetAll(conn);
             XuatKQTKPDK(lstPhieuDK);
@@ -358,7 +452,6 @@ namespace QuanLyCoSoSX.GUI
         private void TKPDKBangCSXX(string cssx)
         {
             DGVPhieuDK.Rows.Clear();
-            MySqlConnection conn = DBConnect.GetDBConnection();
             PhieuDKBAL pdkBAL = new PhieuDKBAL();
             List<PhieuDK> lstPhieuDK = pdkBAL.GetByCSSX(conn, cssx);
             XuatKQTKPDK(lstPhieuDK);
@@ -380,7 +473,11 @@ namespace QuanLyCoSoSX.GUI
         private void rdbtTatCa_pnPDK_CheckedChanged(object sender, EventArgs e)
         {
             if(rdbtTatCa_pnPDK.Checked)
+            {
+                cbTieuChi_pnpkn.Hide();
                 TKTatCaPDK();
+            }
+                
         }
 
         private void rdbtCssx_pnpdk_CheckedChanged(object sender, EventArgs e)
@@ -388,7 +485,6 @@ namespace QuanLyCoSoSX.GUI
             if (rdbtCssx_pnpdk.Checked)
             {
                 cbTieuChi_pnpdk.Show();
-                MySqlConnection conn = DBConnect.GetDBConnection();
                 CSSXBAL cssxbal = new CSSXBAL();
                 List<CSSX> lstCSSX = cssxbal.GetAll(conn);
                 cbTieuChi_pnpdk.DisplayMember = "Tencs";
@@ -499,12 +595,40 @@ namespace QuanLyCoSoSX.GUI
 //
 //CONTROL PANEL PHIEU KIEM NGHIEM
 //
+
+        private void InChartPhieuKiemNghiem(DataChart datakq, DataChart datanv, DataChart datasp)
+        {
+            ChartPKN_KQ.Series["S1"].Points.Clear();
+            foreach (var tk in datakq.Data)
+            {
+                if(tk.chitieu == "Chưa hoàn tất kiểm định")
+                    ChartPKN_KQ.Series["S1"].Points.AddXY("Chưa KĐ", tk.soluong);
+                if(tk.chitieu == "Mẫu thử đạt chất lượng")
+                    ChartPKN_KQ.Series["S1"].Points.AddXY("Đạt", tk.soluong);
+                if(tk.chitieu == "Mẫu thử không đạt chất lượng")
+                    ChartPKN_KQ.Series["S1"].Points.AddXY("Không đạt", tk.soluong);
+            }
+
+            ChartPKN_NV.Series["S1"].Points.Clear();
+            NhanVienBAL DBNV = new NhanVienBAL();
+            foreach (var tk in datanv.Data)
+            { 
+                ChartPKN_NV.Series["S1"].Points.AddXY(DBNV.GetByID(conn,int.Parse(tk.chitieu)).Tennv, tk.soluong);
+            }
+
+            ChartPKN_SP.Series["S1"].Points.Clear();
+            SanPhamBAL DBSP = new SanPhamBAL();
+            foreach (var tk in datasp.Data)
+            {
+                ChartPKN_SP.Series["S1"].Points.AddXY(DBSP.GetByID(conn, tk.chitieu).Tensp, tk.soluong);
+            }
+        }
         private void TKTatCaPKN()
         {
             DGVPKN.Rows.Clear();
-            MySqlConnection conn = DBConnect.GetDBConnection();
             PhieuKNBAL PKNBAL = new PhieuKNBAL();
             List<PhieuKN> lstPhieuKN = PKNBAL.GetAll(conn);
+            DataChart datakq = new DataChart(), datanv = new DataChart(), datasp = new DataChart();
             if (ckbNgayKN.Checked == true)
             {
                 DateTime tungay, dengay;
@@ -513,7 +637,13 @@ namespace QuanLyCoSoSX.GUI
                 foreach (var pkn in lstPhieuKN)
                 {
                     if (pkn.Ngkn.Date >= tungay.Date && pkn.Ngkn.Date <= dengay.Date)
+                    {
                         DGVPKN.Rows.Add(pkn.Spkn, pkn.Spdk, pkn.Ngkn.ToString("dd/MM/yyyy"), pkn.Manv, pkn.Masp, pkn.KL1);
+                        datakq.Add(pkn.KL1, 1);
+                        datanv.Add(pkn.Manv.ToString(), 1);
+                        datasp.Add(pkn.Masp, 1);
+                    }
+
                 }
                 txtSoLuongPKN.Text = DGVPKN.Rows.Count.ToString();
             }
@@ -522,18 +652,22 @@ namespace QuanLyCoSoSX.GUI
                 foreach (var pkn in lstPhieuKN)
                 {
                     DGVPKN.Rows.Add(pkn.Spkn, pkn.Spdk, pkn.Ngkn.ToString("dd/MM/yyyy"), pkn.Manv, pkn.Masp, pkn.KL1);
+                    datakq.Add(pkn.KL1, 1);
+                    datanv.Add(pkn.Manv.ToString(), 1);
+                    datasp.Add(pkn.Masp, 1);
                 }
                 txtSoLuongPKN.Text = DGVPKN.Rows.Count.ToString();
             }
+            InChartPhieuKiemNghiem(datakq, datanv, datasp);
         }
        
 
-        private void TKPKNBangPDK(string sopdk)
+        private void TKPKNBangKQ(string kl)
         {
             DGVPKN.Rows.Clear();
-            MySqlConnection conn = DBConnect.GetDBConnection();
             PhieuKNBAL PKNBAL = new PhieuKNBAL();
-            List<PhieuKN> lstPhieuKN = PKNBAL.GetBySPDK(conn, sopdk);
+            List<PhieuKN> lstPhieuKN = PKNBAL.GetByKL(conn,kl);
+            DataChart datakq = new DataChart() , datanv = new DataChart(), datasp = new DataChart();
             if(ckbNgayKN.Checked==true)
             {
                 DateTime tungay, dengay;
@@ -542,7 +676,13 @@ namespace QuanLyCoSoSX.GUI
                 foreach (var pkn in lstPhieuKN)
                 {
                     if(pkn.Ngkn.Date >= tungay.Date && pkn.Ngkn.Date<=dengay.Date)
+                    {
                         DGVPKN.Rows.Add(pkn.Spkn, pkn.Spdk, pkn.Ngkn.ToString("dd/MM/yyyy"), pkn.Manv, pkn.Masp, pkn.KL1);
+                        datakq.Add(pkn.KL1, 1);
+                        datanv.Add(pkn.Manv.ToString(), 1);
+                        datasp.Add(pkn.Masp, 1);
+                    }
+                        
                 }
                 txtSoLuongPKN.Text = DGVPKN.Rows.Count.ToString();
             }
@@ -551,17 +691,21 @@ namespace QuanLyCoSoSX.GUI
                 foreach(var pkn in lstPhieuKN)
                 {
                     DGVPKN.Rows.Add(pkn.Spkn, pkn.Spdk, pkn.Ngkn.ToString("dd/MM/yyyy"), pkn.Manv, pkn.Masp, pkn.KL1);
+                    datakq.Add(pkn.KL1, 1);
+                    datanv.Add(pkn.Manv.ToString(), 1);
+                    datasp.Add(pkn.Masp, 1);
                 }
                 txtSoLuongPKN.Text = DGVPKN.Rows.Count.ToString();
             }
+            InChartPhieuKiemNghiem(datakq, datanv, datasp);
             
         }
         private void TKPKNBangNV(string manv)
         {
             DGVPKN.Rows.Clear();
-            MySqlConnection conn = DBConnect.GetDBConnection();
             PhieuKNBAL PKNBAL = new PhieuKNBAL();
             List<PhieuKN> lstPhieuKN = PKNBAL.GetBYNV(conn,manv);
+            DataChart datakq = new DataChart(), datanv = new DataChart(), datasp = new DataChart();
             if (ckbNgayKN.Checked == true)
             {
                 DateTime tungay, dengay;
@@ -570,7 +714,12 @@ namespace QuanLyCoSoSX.GUI
                 foreach (var pkn in lstPhieuKN)
                 {
                     if (pkn.Ngkn.Date >= tungay.Date && pkn.Ngkn.Date <= dengay.Date)
+                    {
                         DGVPKN.Rows.Add(pkn.Spkn, pkn.Spdk, pkn.Ngkn.ToString("dd/MM/yyyy"), pkn.Manv, pkn.Masp, pkn.KL1);
+                        datakq.Add(pkn.KL1, 1);
+                        datanv.Add(pkn.Manv.ToString(), 1);
+                        datasp.Add(pkn.Masp, 1);
+                    }
                 }
                 txtSoLuongPKN.Text = DGVPKN.Rows.Count.ToString();
             }
@@ -579,22 +728,54 @@ namespace QuanLyCoSoSX.GUI
                 foreach (var pkn in lstPhieuKN)
                 {
                     DGVPKN.Rows.Add(pkn.Spkn, pkn.Spdk, pkn.Ngkn.ToString("dd/MM/yyyy"), pkn.Manv, pkn.Masp, pkn.KL1);
+                    DGVPKN.Rows.Add(pkn.Spkn, pkn.Spdk, pkn.Ngkn.ToString("dd/MM/yyyy"), pkn.Manv, pkn.Masp, pkn.KL1);
+                    datakq.Add(pkn.KL1, 1);
+                    datanv.Add(pkn.Manv.ToString(), 1);
+                    datasp.Add(pkn.Masp, 1);
                 }
                 txtSoLuongPKN.Text = DGVPKN.Rows.Count.ToString();
             }
+
+            InChartPhieuKiemNghiem(datakq, datanv, datasp);
         }
 
         private void TKPKNBangSP(string masp)
         {
             DGVPKN.Rows.Clear();
-            MySqlConnection conn = DBConnect.GetDBConnection();
             PhieuKNBAL PKNBAL = new PhieuKNBAL();
             List<PhieuKN> lstPhieuKN = PKNBAL.GetBYSP(conn, masp);
-            foreach (var pkn in lstPhieuKN)
+            DataChart datakq = new DataChart(), datanv = new DataChart(), datasp = new DataChart();
+            if (ckbNgayKN.Checked == true)
             {
-                DGVPKN.Rows.Add(pkn.Spkn, pkn.Spdk, pkn.Ngkn, pkn.Manv, pkn.Masp, pkn.KL1);
+                DateTime tungay, dengay;
+                tungay = dtTuNgay_pnpkn.Value;
+                dengay = dtDenNgay_pnpkn.Value;
+                foreach (var pkn in lstPhieuKN)
+                {
+                    if (pkn.Ngkn.Date >= tungay.Date && pkn.Ngkn.Date <= dengay.Date)
+                    {
+                        DGVPKN.Rows.Add(pkn.Spkn, pkn.Spdk, pkn.Ngkn.ToString("dd/MM/yyyy"), pkn.Manv, pkn.Masp, pkn.KL1);
+                        datakq.Add(pkn.KL1, 1);
+                        datanv.Add(pkn.Manv.ToString(), 1);
+                        datasp.Add(pkn.Masp, 1);
+                    }
+                }
+                txtSoLuongPKN.Text = DGVPKN.Rows.Count.ToString();
             }
-            txtSoLuongPKN.Text = lstPhieuKN.Count.ToString();
+            else
+            {
+                foreach (var pkn in lstPhieuKN)
+                {
+                    DGVPKN.Rows.Add(pkn.Spkn, pkn.Spdk, pkn.Ngkn.ToString("dd/MM/yyyy"), pkn.Manv, pkn.Masp, pkn.KL1);
+                    DGVPKN.Rows.Add(pkn.Spkn, pkn.Spdk, pkn.Ngkn.ToString("dd/MM/yyyy"), pkn.Manv, pkn.Masp, pkn.KL1);
+                    datakq.Add(pkn.KL1, 1);
+                    datanv.Add(pkn.Manv.ToString(), 1);
+                    datasp.Add(pkn.Masp, 1);
+                }
+                txtSoLuongPKN.Text = DGVPKN.Rows.Count.ToString();
+            }
+            InChartPhieuKiemNghiem(datakq, datanv, datasp);
+
         }
         private void rdbtTatca_pnpkn_CheckedChanged(object sender, EventArgs e)
         {
@@ -607,22 +788,7 @@ namespace QuanLyCoSoSX.GUI
                 
                 
         }
-        private void rdbtPDK_pnpkn_CheckedChanged(object sender, EventArgs e)
-        {
-            if(rdbtPDK_pnpkn.Checked)
-            {
-                cbTieuChi_pnpkn.Show();
-                DGVPKN.Rows.Clear();
-                MySqlConnection conn = DBConnect.GetDBConnection();
-                PhieuDKBAL PDKBAL = new PhieuDKBAL();
-                List<PhieuDK> lstPhieuDk = PDKBAL.GetAll(conn);
-                cbTieuChi_pnpkn.DataSource = null;
-                cbTieuChi_pnpkn.DisplayMember = "Spdk";
-                cbTieuChi_pnpkn.ValueMember = "Spdk";
-                cbTieuChi_pnpkn.DataSource = lstPhieuDk;
-            }
-          
-        }
+
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
             dtDenNgay_pnpkn.Show();
@@ -636,9 +802,8 @@ namespace QuanLyCoSoSX.GUI
             if(rdbtNhanVien_pnpkn.Checked)
             {
                 cbTieuChi_pnpkn.Show();
-                MySqlConnection conn = DBConnect.GetDBConnection();
                 NhanVienBAL NVBAL = new NhanVienBAL();
-                List<NhanVien> lstNhanVien = NVBAL.GetAll(conn);
+                List<NhanVien> lstNhanVien = NVBAL.GetByMaPB(conn, ConfigurationManager.AppSettings["maphongkiemdinh"]);
                 cbTieuChi_pnpkn.DataSource = null;
                 cbTieuChi_pnpkn.DisplayMember = "Tennv";
                 cbTieuChi_pnpkn.ValueMember = "Manv";
@@ -649,16 +814,16 @@ namespace QuanLyCoSoSX.GUI
 
         private void rdbtSanPham_pnpkn_CheckedChanged(object sender, EventArgs e)
         {
-            if(rdbtSanPham_pnpkn.Checked)
+            cbTieuChi_pnpkn.Show();
+            cbTieuChi_pnpkn.DataSource = null;
+            if (rdbtSanPham_pnpkn.Checked)
             {
-                cbTieuChi_pnpkn.Show();
-                MySqlConnection conn = DBConnect.GetDBConnection();
-                SanPhamBAL SPBAL = new SanPhamBAL();
-                List<SanPham> lstSanPham = SPBAL.GetAll(conn);
-                cbTieuChi_pnpkn.DataSource = null;
+                PhieuKNBAL DBPKN = new PhieuKNBAL();
+                cbTieuChi_pnpkn.DataSource = DBPKN.GetAllMaSanPham(conn);
                 cbTieuChi_pnpkn.DisplayMember = "Tensp";
                 cbTieuChi_pnpkn.ValueMember = "Masp";
-                cbTieuChi_pnpkn.DataSource = lstSanPham;
+
+
             }
           
         }
@@ -667,9 +832,9 @@ namespace QuanLyCoSoSX.GUI
         {
             if (!rdbtTatca_pnpkn.Checked && cbTieuChi_pnpkn.SelectedValue == null)
                 return;
-            if (rdbtPDK_pnpkn.Checked)
+            if (rdbtKQ_pnpkn.Checked)
             {
-                TKPKNBangPDK(cbTieuChi_pnpkn.SelectedValue.ToString());
+                TKPKNBangKQ(cbTieuChi_pnpkn.SelectedValue.ToString());
             }
             else if (rdbtNhanVien_pnpkn.Checked)
             {
@@ -742,5 +907,29 @@ namespace QuanLyCoSoSX.GUI
         {
             this.parr.Show();
         }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void rdbtKQ_pnpkn_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (rdbtKQ_pnpkn.Checked)
+            {      
+                cbTieuChi_pnpkn.Show();
+                cbTieuChi_pnpkn.DataSource = null;
+                Dictionary<string, string> test = new Dictionary<string, string>();
+                test.Add("Chưa hoàn tất kiểm định", "Chưa hoàn tất kiểm định");
+                test.Add("Mẫu thử đạt chất lượng", "Mẫu thử đạt chất lượng");
+                test.Add("Mẫu thử không đạt chất lượng", "Mẫu thử không đạt chất lượng");
+                cbTieuChi_pnpkn.DataSource = new BindingSource(test, null);
+                cbTieuChi_pnpkn.DisplayMember = "display";
+                cbTieuChi_pnpkn.ValueMember = "value";
+            }
+        }
+
+        
     }
 }

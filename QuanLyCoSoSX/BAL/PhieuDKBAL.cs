@@ -343,26 +343,20 @@ namespace QuanLyCoSoSX.BAL
             string masp, string ngdk, string nghh, int sl)
         {
             try
-            {
-                if (IsExist(conn, macs, masp, ngdk, nghh))
-                    throw new Exception("Thông tin phiếu đăng ký bị trùng lặp");
-                else
-                {
-                    conn.Open();
-                    string sql = "UPDATE `phieudangky` " +
-                    "SET `ngdk` = @ngdk, `nghh` = @nghh, `macs` = @macs, `masp` = @masp, `sl` = @sl " +
-                    "WHERE `phieudangky`.`spdk` = @spdk;";
-                    var cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@spdk", spdk);
-                    cmd.Parameters.AddWithValue("@ngdk", ngdk);
-                    cmd.Parameters.AddWithValue("@nghh", nghh);
-                    cmd.Parameters.AddWithValue("@macs", macs);
-                    cmd.Parameters.AddWithValue("@masp", masp);
-                    cmd.Parameters.AddWithValue("@sl", sl);
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                }    
-                
+            {  
+                conn.Open();
+                string sql = "UPDATE `phieudangky` " +
+                "SET `ngdk` = @ngdk, `nghh` = @nghh, `macs` = @macs, `masp` = @masp, `sl` = @sl " +
+                "WHERE `phieudangky`.`spdk` = @spdk;";
+                var cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@spdk", spdk);
+                cmd.Parameters.AddWithValue("@ngdk", ngdk);
+                cmd.Parameters.AddWithValue("@nghh", nghh);
+                cmd.Parameters.AddWithValue("@macs", macs);
+                cmd.Parameters.AddWithValue("@masp", masp);
+                cmd.Parameters.AddWithValue("@sl", sl);
+                cmd.ExecuteNonQuery();
+                conn.Close();            
             }
             catch (Exception ex)
             {
@@ -375,10 +369,108 @@ namespace QuanLyCoSoSX.BAL
             try
             {
                 conn.Open();
+                PhieuKNBAL PKNBAL = new PhieuKNBAL();
+                PKNBAL.DeleteBySPDK(conn,spdk);
+
+                string sqldelCT = "delete from ctphieudangky where spdk = @spdk";
+                var cmd1 = new MySqlCommand(sqldelCT, conn);
+                cmd1.Parameters.AddWithValue("@spdk", spdk);
+                cmd1.ExecuteNonQuery();
+
+
                 string sql = "Delete from phieudangky where spdk= @spdk";
                 var cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@spdk", spdk);
                 cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DeleteByMasp(MySqlConnection conn , string masp)
+        {
+            try
+            {
+                string sql2 = "SELECT spdk FROM phieudangky WHERE masp = @masp";
+                var cmd2 = new MySqlCommand(sql2, conn);
+                cmd2.Parameters.AddWithValue("@masp", masp);
+                MySqlDataReader rdr = cmd2.ExecuteReader();
+                List<string> list = new List<string>();
+                if (rdr.HasRows)
+                {
+                    while (rdr.Read())
+                    {
+                        string a = rdr.GetString("spdk");
+                        list.Add(a);
+                    }
+                }
+                rdr.Close();
+                cmd2.Cancel();
+
+                foreach (var spdk in list)
+                {
+                    PhieuKNBAL PKNBAL = new PhieuKNBAL();
+                    PKNBAL.DeleteBySPDK(conn, spdk);
+
+                    string sqldelCT = "delete from ctphieudangky where spdk = @spdk";
+                    var cmd1 = new MySqlCommand(sqldelCT, conn);
+                    cmd1.Parameters.AddWithValue("@spdk", spdk);
+                    cmd1.ExecuteNonQuery();
+                    cmd1.Cancel();
+
+                    string sql = "Delete from phieudangky where spdk= @spdk";
+                    var cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@spdk", spdk);
+                    cmd.ExecuteNonQuery();
+                    cmd.Cancel();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DeleteByMaCS(MySqlConnection conn ,string macs)
+        {
+            try
+            {
+                string sql2 = "SELECT spdk FROM phieudangky WHERE macs = @macs";
+                var cmd2 = new MySqlCommand(sql2, conn);
+                cmd2.Parameters.AddWithValue("@macs", macs);
+                MySqlDataReader rdr = cmd2.ExecuteReader();
+                List<string> list = new List<string>();
+                if (rdr.HasRows)
+                {
+                    while (rdr.Read())
+                    {
+                        string a = rdr.GetString("spdk");
+                        list.Add(a);
+                    }
+                }
+                rdr.Close();
+
+                foreach (var spdk in list)
+                {
+                    PhieuKNBAL PKNBAL = new PhieuKNBAL();
+                    PKNBAL.DeleteBySPDK(conn, spdk);
+
+                    conn.Open();
+                    string sqldelCT = "delete from ctphieudangky where spdk = @spdk";
+                    var cmd1 = new MySqlCommand(sqldelCT, conn);
+                    cmd1.Parameters.AddWithValue("@spdk", spdk);
+                    cmd1.ExecuteNonQuery();
+
+                    string sql = "Delete from phieudangky where spdk= @spdk";
+                    var cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@spdk", spdk);
+                    cmd.ExecuteNonQuery();
+
+                }
                 conn.Close();
             }
             catch (Exception ex)

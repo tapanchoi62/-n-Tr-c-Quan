@@ -34,16 +34,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.SearchChiTieubt = new System.Windows.Forms.Button();
-            this.txtSearchChiTieu = new System.Windows.Forms.TextBox();
+            this.btTimChiTieu = new System.Windows.Forms.Button();
+            this.txtTimChiTieu = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.GetThongTinbt = new System.Windows.Forms.Button();
+            this.btGetThongTin = new System.Windows.Forms.Button();
             this.txtMaChiTieu = new System.Windows.Forms.TextBox();
-            this.Xoabt = new System.Windows.Forms.Button();
+            this.btXoa = new System.Windows.Forms.Button();
             this.txtTenChiTieu = new System.Windows.Forms.TextBox();
-            this.Suabt = new System.Windows.Forms.Button();
+            this.btSua = new System.Windows.Forms.Button();
             this.txtYNghia = new System.Windows.Forms.TextBox();
-            this.Thembt = new System.Windows.Forms.Button();
+            this.btThem = new System.Windows.Forms.Button();
             this.DGVChiTieu = new System.Windows.Forms.DataGridView();
             this.MaChiTieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenChiTieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,13 +61,13 @@
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.panel1);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.GetThongTinbt);
+            this.panel3.Controls.Add(this.btGetThongTin);
             this.panel3.Controls.Add(this.txtMaChiTieu);
-            this.panel3.Controls.Add(this.Xoabt);
+            this.panel3.Controls.Add(this.btXoa);
             this.panel3.Controls.Add(this.txtTenChiTieu);
-            this.panel3.Controls.Add(this.Suabt);
+            this.panel3.Controls.Add(this.btSua);
             this.panel3.Controls.Add(this.txtYNghia);
-            this.panel3.Controls.Add(this.Thembt);
+            this.panel3.Controls.Add(this.btThem);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
@@ -96,8 +96,8 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.SearchChiTieubt);
-            this.panel1.Controls.Add(this.txtSearchChiTieu);
+            this.panel1.Controls.Add(this.btTimChiTieu);
+            this.panel1.Controls.Add(this.txtTimChiTieu);
             this.panel1.Location = new System.Drawing.Point(12, 319);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(413, 100);
@@ -114,26 +114,26 @@
             this.label7.TabIndex = 3;
             this.label7.Text = "Tra cứu chỉ tiêu";
             // 
-            // SearchChiTieubt
+            // btTimChiTieu
             // 
-            this.SearchChiTieubt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SearchChiTieubt.Image = ((System.Drawing.Image)(resources.GetObject("SearchChiTieubt.Image")));
-            this.SearchChiTieubt.Location = new System.Drawing.Point(287, 32);
-            this.SearchChiTieubt.Name = "SearchChiTieubt";
-            this.SearchChiTieubt.Size = new System.Drawing.Size(110, 35);
-            this.SearchChiTieubt.TabIndex = 2;
-            this.SearchChiTieubt.Text = "Tìm";
-            this.SearchChiTieubt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.SearchChiTieubt.UseVisualStyleBackColor = true;
-            this.SearchChiTieubt.Click += new System.EventHandler(this.SearchChiTieubt_Click);
+            this.btTimChiTieu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btTimChiTieu.Image = ((System.Drawing.Image)(resources.GetObject("btTimChiTieu.Image")));
+            this.btTimChiTieu.Location = new System.Drawing.Point(287, 32);
+            this.btTimChiTieu.Name = "btTimChiTieu";
+            this.btTimChiTieu.Size = new System.Drawing.Size(110, 35);
+            this.btTimChiTieu.TabIndex = 2;
+            this.btTimChiTieu.Text = "Tìm";
+            this.btTimChiTieu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btTimChiTieu.UseVisualStyleBackColor = true;
+            this.btTimChiTieu.Click += new System.EventHandler(this.SearchChiTieubt_Click);
             // 
-            // txtSearchChiTieu
+            // txtTimChiTieu
             // 
-            this.txtSearchChiTieu.Location = new System.Drawing.Point(14, 40);
-            this.txtSearchChiTieu.Name = "txtSearchChiTieu";
-            this.txtSearchChiTieu.Size = new System.Drawing.Size(258, 20);
-            this.txtSearchChiTieu.TabIndex = 0;
-            this.txtSearchChiTieu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchChiTieu_KeyDown);
+            this.txtTimChiTieu.Location = new System.Drawing.Point(14, 40);
+            this.txtTimChiTieu.Name = "txtTimChiTieu";
+            this.txtTimChiTieu.Size = new System.Drawing.Size(258, 20);
+            this.txtTimChiTieu.TabIndex = 0;
+            this.txtTimChiTieu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchChiTieu_KeyDown);
             // 
             // label4
             // 
@@ -144,19 +144,19 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Ý nghĩa";
             // 
-            // GetThongTinbt
+            // btGetThongTin
             // 
-            this.GetThongTinbt.BackColor = System.Drawing.Color.Orange;
-            this.GetThongTinbt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GetThongTinbt.Image = ((System.Drawing.Image)(resources.GetObject("GetThongTinbt.Image")));
-            this.GetThongTinbt.Location = new System.Drawing.Point(315, 255);
-            this.GetThongTinbt.Name = "GetThongTinbt";
-            this.GetThongTinbt.Size = new System.Drawing.Size(110, 36);
-            this.GetThongTinbt.TabIndex = 30;
-            this.GetThongTinbt.Text = "Lấy Thông Tin";
-            this.GetThongTinbt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.GetThongTinbt.UseVisualStyleBackColor = false;
-            this.GetThongTinbt.Click += new System.EventHandler(this.GetThongTinbt_Click);
+            this.btGetThongTin.BackColor = System.Drawing.Color.Orange;
+            this.btGetThongTin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btGetThongTin.Image = ((System.Drawing.Image)(resources.GetObject("btGetThongTin.Image")));
+            this.btGetThongTin.Location = new System.Drawing.Point(315, 255);
+            this.btGetThongTin.Name = "btGetThongTin";
+            this.btGetThongTin.Size = new System.Drawing.Size(110, 36);
+            this.btGetThongTin.TabIndex = 30;
+            this.btGetThongTin.Text = "Lấy Thông Tin";
+            this.btGetThongTin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btGetThongTin.UseVisualStyleBackColor = false;
+            this.btGetThongTin.Click += new System.EventHandler(this.GetThongTinbt_Click);
             // 
             // txtMaChiTieu
             // 
@@ -166,18 +166,18 @@
             this.txtMaChiTieu.Size = new System.Drawing.Size(305, 20);
             this.txtMaChiTieu.TabIndex = 3;
             // 
-            // Xoabt
+            // btXoa
             // 
-            this.Xoabt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Xoabt.Image = ((System.Drawing.Image)(resources.GetObject("Xoabt.Image")));
-            this.Xoabt.Location = new System.Drawing.Point(213, 255);
-            this.Xoabt.Name = "Xoabt";
-            this.Xoabt.Size = new System.Drawing.Size(93, 35);
-            this.Xoabt.TabIndex = 31;
-            this.Xoabt.Text = "Xoá ";
-            this.Xoabt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Xoabt.UseVisualStyleBackColor = true;
-            this.Xoabt.Click += new System.EventHandler(this.Xoabt_Click);
+            this.btXoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btXoa.Image = ((System.Drawing.Image)(resources.GetObject("btXoa.Image")));
+            this.btXoa.Location = new System.Drawing.Point(213, 255);
+            this.btXoa.Name = "btXoa";
+            this.btXoa.Size = new System.Drawing.Size(93, 35);
+            this.btXoa.TabIndex = 31;
+            this.btXoa.Text = "Xoá ";
+            this.btXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btXoa.UseVisualStyleBackColor = true;
+            this.btXoa.Click += new System.EventHandler(this.Xoabt_Click);
             // 
             // txtTenChiTieu
             // 
@@ -186,18 +186,18 @@
             this.txtTenChiTieu.Size = new System.Drawing.Size(305, 20);
             this.txtTenChiTieu.TabIndex = 3;
             // 
-            // Suabt
+            // btSua
             // 
-            this.Suabt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Suabt.Image = ((System.Drawing.Image)(resources.GetObject("Suabt.Image")));
-            this.Suabt.Location = new System.Drawing.Point(109, 255);
-            this.Suabt.Name = "Suabt";
-            this.Suabt.Size = new System.Drawing.Size(93, 35);
-            this.Suabt.TabIndex = 32;
-            this.Suabt.Text = "Sửa";
-            this.Suabt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Suabt.UseVisualStyleBackColor = true;
-            this.Suabt.Click += new System.EventHandler(this.Suabt_Click);
+            this.btSua.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btSua.Image = ((System.Drawing.Image)(resources.GetObject("btSua.Image")));
+            this.btSua.Location = new System.Drawing.Point(109, 255);
+            this.btSua.Name = "btSua";
+            this.btSua.Size = new System.Drawing.Size(93, 35);
+            this.btSua.TabIndex = 32;
+            this.btSua.Text = "Sửa";
+            this.btSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btSua.UseVisualStyleBackColor = true;
+            this.btSua.Click += new System.EventHandler(this.Suabt_Click);
             // 
             // txtYNghia
             // 
@@ -206,18 +206,18 @@
             this.txtYNghia.Size = new System.Drawing.Size(305, 20);
             this.txtYNghia.TabIndex = 3;
             // 
-            // Thembt
+            // btThem
             // 
-            this.Thembt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Thembt.Image = ((System.Drawing.Image)(resources.GetObject("Thembt.Image")));
-            this.Thembt.Location = new System.Drawing.Point(8, 255);
-            this.Thembt.Name = "Thembt";
-            this.Thembt.Size = new System.Drawing.Size(93, 35);
-            this.Thembt.TabIndex = 33;
-            this.Thembt.Text = "Thêm ";
-            this.Thembt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Thembt.UseVisualStyleBackColor = true;
-            this.Thembt.Click += new System.EventHandler(this.Thembt_Click);
+            this.btThem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btThem.Image = ((System.Drawing.Image)(resources.GetObject("btThem.Image")));
+            this.btThem.Location = new System.Drawing.Point(8, 255);
+            this.btThem.Name = "btThem";
+            this.btThem.Size = new System.Drawing.Size(93, 35);
+            this.btThem.TabIndex = 33;
+            this.btThem.Text = "Thêm ";
+            this.btThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btThem.UseVisualStyleBackColor = true;
+            this.btThem.Click += new System.EventHandler(this.Thembt_Click);
             // 
             // DGVChiTieu
             // 
@@ -304,17 +304,17 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button GetThongTinbt;
+        private System.Windows.Forms.Button btGetThongTin;
         private System.Windows.Forms.TextBox txtMaChiTieu;
-        private System.Windows.Forms.Button Xoabt;
+        private System.Windows.Forms.Button btXoa;
         private System.Windows.Forms.TextBox txtTenChiTieu;
-        private System.Windows.Forms.Button Suabt;
+        private System.Windows.Forms.Button btSua;
         private System.Windows.Forms.TextBox txtYNghia;
-        private System.Windows.Forms.Button Thembt;
+        private System.Windows.Forms.Button btThem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button SearchChiTieubt;
-        private System.Windows.Forms.TextBox txtSearchChiTieu;
+        private System.Windows.Forms.Button btTimChiTieu;
+        private System.Windows.Forms.TextBox txtTimChiTieu;
         private System.Windows.Forms.DataGridView DGVChiTieu;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaChiTieu;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenChiTieu;

@@ -23,28 +23,23 @@ namespace QuanLyCoSoSX.GUI
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void Login()
         {
             TaiKhoanBAL db = new TaiKhoanBAL();
             string user = textBox1.Text;
             string pass = textBox2.Text;
-            TaiKhoan tk = db.GetByTenTK(conn,user,pass) ;
-            
+            TaiKhoan tk = db.GetByTenTK(conn, user, pass);
+
             if (KiemTraLogin(user, pass))
             {
-                if(tk.Quyen == "nhanvien")
+                if (tk.Quyen == "nhanvien")
                 {
                     ManHinhQuanLyNhanVien manhinh = new ManHinhQuanLyNhanVien(this);
                     manhinh.Show();
                     this.Hide();
                 }
-                else 
-                if(tk.Quyen == ("quanly"))
+                else
+                if (tk.Quyen == ("quanly"))
                 {
                     ManHinhQuanLy manhinh = new ManHinhQuanLy(this);
                     manhinh.Show();
@@ -52,12 +47,15 @@ namespace QuanLyCoSoSX.GUI
 
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("Đăng nhập lỗi, vui lòng đăng nhập lại !!! ", "Thông báo");
             }
+        }
 
-
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Login();
         }
 
         
@@ -78,68 +76,14 @@ namespace QuanLyCoSoSX.GUI
 
         private void textBox2_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
-            {
-                TaiKhoanBAL db = new TaiKhoanBAL();
-                string user = textBox1.Text;
-                string pass = textBox2.Text;
-                TaiKhoan tk = db.GetByTenTK(conn, user, pass);
-
-                if (KiemTraLogin(user, pass))
-                {
-                    if (tk.Quyen == "nhanvien")
-                    {
-                        ManHinhQuanLyNhanVien manhinh = new ManHinhQuanLyNhanVien(this);
-                        manhinh.Show();
-                        this.Hide();
-                    }
-                    else
-                    if (tk.Quyen == ("quanly"))
-                    {
-                        ManHinhQuanLy manhinh = new ManHinhQuanLy(this);
-                        manhinh.Show();
-                        this.Hide();
-
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Đăng nhập lỗi, vui lòng đăng nhập lại !!! ", "Thông báo");
-                }
-            }
+            if(e.KeyCode==Keys.Enter)
+             Login();
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                TaiKhoanBAL db = new TaiKhoanBAL();
-                string user = textBox1.Text;
-                string pass = textBox2.Text;
-                TaiKhoan tk = db.GetByTenTK(conn, user, pass);
-
-                if (KiemTraLogin(user, pass))
-                {
-                    if (tk.Quyen == "nhanvien")
-                    {
-                        ManHinhQuanLyNhanVien manhinh = new ManHinhQuanLyNhanVien(this);
-                        manhinh.Show();
-                        this.Hide();
-                    }
-                    else
-                    if (tk.Quyen == ("quanly"))
-                    {
-                        ManHinhQuanLy manhinh = new ManHinhQuanLy(this);
-                        manhinh.Show();
-                        this.Hide();
-
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Đăng nhập lỗi, vui lòng đăng nhập lại !!! ", "Thông báo");
-                }
-            }
+            if(e.KeyCode == Keys.Enter)
+            Login();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -147,6 +91,13 @@ namespace QuanLyCoSoSX.GUI
             FormDangKyTaiKhoan dangki = new FormDangKyTaiKhoan(this);
             this.Hide();
             dangki.Show();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormXuLyTaiKhoan KhoiPhuc = new FormXuLyTaiKhoan(this);
+            KhoiPhuc.Show();
+            this.Hide();
         }
     }
 }

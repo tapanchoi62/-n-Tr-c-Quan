@@ -109,6 +109,7 @@
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -136,82 +137,90 @@
     <Compile Include="BAL\PhongBanBAL.cs" />
     <Compile Include="BAL\SanPhamBAL.cs" />
     <Compile Include="BAL\TaiKhoanBAL.cs" />
+    <Compile Include="DAO\ChiTieu.cs" />
+    <Compile Include="DAO\CSSX.cs" />
+    <Compile Include="DAO\CTPhieuDK.cs" />
+    <Compile Include="DAO\CTPhieuKN.cs" />
+    <Compile Include="DAO\DataChart.cs" />
     <Compile Include="DAO\NhanVien.cs" />
     <Compile Include="DAO\PhieuDK.cs" />
     <Compile Include="DAO\PhieuKN.cs" />
     <Compile Include="DAO\PhongBan.cs" />
     <Compile Include="DAO\SanPham.cs" />
     <Compile Include="DAO\TaiKhoan.cs" />
+    <Compile Include="DAO\Thongke.cs" />
     <Compile Include="DTO\ConnectDB.cs" />
-    <Compile Include="DAO\ChiTieu.cs" />
-    <Compile Include="DAO\CSSX.cs" />
-    <Compile Include="DAO\CTPhieuDK.cs" />
-    <Compile Include="DAO\CTPhieuKN.cs" />
     <Compile Include="DTO\DBMySQLUtils.cs" />
     <Compile Include="GUI\FormDangKyTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FormDangKyTaiKhoan.Designer.cs">
+    <Compile Include="GUI\FormDangKyTaiKhoan.designer.cs">
       <DependentUpon>FormDangKyTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormDangNhap.designer.cs">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormKhoiPhucTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormKhoiPhucTaiKhoan.designer.cs">
+      <DependentUpon>FormKhoiPhucTaiKhoan.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FormNhanVien.Designer.cs">
+    <Compile Include="GUI\FormNhanVien.designer.cs">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormPhongBan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FormPhongBan.Designer.cs">
+    <Compile Include="GUI\FormPhongBan.designer.cs">
       <DependentUpon>FormPhongBan.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormQuanLiChatLuong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FormQuanLiChatLuong.Designer.cs">
+    <Compile Include="GUI\FormQuanLiChatLuong.designer.cs">
       <DependentUpon>FormQuanLiChatLuong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\FormQuanLiPhieuKiemNghiem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FormQuanLiPhieuKiemNghiem.Designer.cs">
-      <DependentUpon>FormQuanLiPhieuKiemNghiem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\FormDangNhap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FormDangNhap.Designer.cs">
-      <DependentUpon>FormDangNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormQuanLiCoSoSanXuat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FormQuanLiCoSoSanXuat.Designer.cs">
+    <Compile Include="GUI\FormQuanLiCoSoSanXuat.designer.cs">
       <DependentUpon>FormQuanLiCoSoSanXuat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormQuanLiPhieuKiemNghiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormQuanLiPhieuKiemNghiem.designer.cs">
+      <DependentUpon>FormQuanLiPhieuKiemNghiem.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormQuanLyPhieuDangKy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FormQuanLyPhieuDangKy.Designer.cs">
+    <Compile Include="GUI\FormQuanLyPhieuDangKy.designer.cs">
       <DependentUpon>FormQuanLyPhieuDangKy.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FormSanPham.Designer.cs">
+    <Compile Include="GUI\FormSanPham.designer.cs">
       <DependentUpon>FormSanPham.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormThongKe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FormThongKe.Designer.cs">
+    <Compile Include="GUI\FormThongKe.designer.cs">
       <DependentUpon>FormThongKe.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\ManHinhQuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\ManHinhQuanLy.Designer.cs">
+    <Compile Include="GUI\ManHinhQuanLy.designer.cs">
       <DependentUpon>ManHinhQuanLy.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\ManHinhQuanLyNhanVien.cs">
@@ -228,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormKhoiPhucTaiKhoan.resx">
+      <DependentUpon>FormKhoiPhucTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormNhanVien.resx">
       <DependentUpon>FormNhanVien.cs</DependentUpon>

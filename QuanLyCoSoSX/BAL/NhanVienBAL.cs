@@ -19,7 +19,7 @@ namespace QuanLyCoSoSX.BAL
         {
             conn.Open();
 
-            string sql = "SELECT * FROM NhanVien";
+            string sql = "SELECT * FROM nhanvien";
 
             var cmd = new MySqlCommand(sql, conn);
 
@@ -97,7 +97,7 @@ namespace QuanLyCoSoSX.BAL
         {
             conn.Open();
             NhanVien a = new NhanVien();
-            string sql = "SELECT * FROM NhanVien where manv= @id";
+            string sql = "SELECT * FROM nhanvien where manv= @id";
 
             var cmd = new MySqlCommand(sql, conn);
 
@@ -128,7 +128,7 @@ namespace QuanLyCoSoSX.BAL
             try
             {
                 conn.Open();
-                string sql = "SELECT * FROM NhanVien WHERE tennv=@tennv AND ngsinh=@ngsinh AND gioitinh=@gioitinh AND mapb = @mapb";
+                string sql = "SELECT * FROM nhanvien WHERE tennv=@tennv AND ngsinh=@ngsinh AND gioitinh=@gioitinh AND mapb = @mapb";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@tennv", tennv);
                 cmd.Parameters.AddWithValue("@ngsinh", ngsinh);
@@ -163,7 +163,7 @@ namespace QuanLyCoSoSX.BAL
                 else
                 {
                     conn.Open();
-                    string sql = "INSERT INTO `NhanVien` (`tennv`, `ngsinh`, `gioitinh`, `mapb`,`sdt`)" +
+                    string sql = "INSERT INTO `nhanvien` (`tennv`, `ngsinh`, `gioitinh`, `mapb`,`sdt`)" +
                         " VALUES (@tennv, @ngsinh, @gioitinh,@mapb,@sdt);";
                     var cmd = new MySqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@tennv", tennv);
@@ -193,7 +193,7 @@ namespace QuanLyCoSoSX.BAL
             try
             {
                 conn.Open();
-                string sql = "Update `NhanVien` Set `tennv`=@tennv, `ngsinh`=@ngsinh, `gioitinh`=@gioitinh," +
+                string sql = "Update `nhanvien` Set `tennv`=@tennv, `ngsinh`=@ngsinh, `gioitinh`=@gioitinh," +
                     "`mapb`=@mapb,`sdt`=@sdt where manv =@manv;";
                 var cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@manv", manv);
@@ -219,7 +219,7 @@ namespace QuanLyCoSoSX.BAL
             try
             {
                 conn.Open();
-                string sql = "Delete from NhanVien where manv= @manv";
+                string sql = "Delete from nhanvien where manv= @manv";
                 var cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@manv", manv);
 

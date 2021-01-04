@@ -57,8 +57,7 @@
             // 
             this.cbQuyen.FormattingEnabled = true;
             this.cbQuyen.Items.AddRange(new object[] {
-            "Nhân viên",
-            "Quản lí"});
+            "Nhân viên"});
             this.cbQuyen.Location = new System.Drawing.Point(137, 175);
             this.cbQuyen.Margin = new System.Windows.Forms.Padding(2);
             this.cbQuyen.Name = "cbQuyen";

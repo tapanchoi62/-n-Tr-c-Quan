@@ -46,55 +46,76 @@ namespace QuanLyCoSoSX.GUI
             GetDGVChiTieu();
         }
 
+        private void xoaChiTieu(string maCT)
+        {
+            try
+            {
+                MySqlConnection conn = DBConnect.GetDBConnection();
+                ChiTieuBAL ChiTieu = new ChiTieuBAL();
+                ChiTieu.Delete(conn, maCT);
+                GetDGVChiTieu();
+                MessageBox.Show("Xoá thành công", "Thành công");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
+        }
         private void Xoabt_Click(object sender, EventArgs e)
         {
-            try
-            {
-                MySqlConnection conn = DBConnect.GetDBConnection();
-                ChiTieuBAL ChiTieu = new ChiTieuBAL();
-                ChiTieu.Delete(conn, txtMaChiTieu.Text);
-                GetDGVChiTieu();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-           
+            xoaChiTieu(txtMaChiTieu.Text);  
         }
 
+        private void CheckTT()
+        {
+            if (txtTenChiTieu.Text == "" || txtYNghia.Text == "")
+                throw new Exception("Không được để trống thông tin");
+        }
+
+
+        private void suaChiTieu(string maCT,string tenCT,string yNghia)
+        {
+            try
+            {
+                CheckTT();
+                MySqlConnection conn = DBConnect.GetDBConnection();
+                ChiTieuBAL ChiTieu = new ChiTieuBAL();
+                ChiTieu.Update(conn, maCT, tenCT, yNghia);
+                GetDGVChiTieu();
+                MessageBox.Show("Sửa thông tin thành công", "Thành công");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
+        }
         private void Suabt_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (txtTenChiTieu.Text == "" || txtYNghia.Text == "")
-                    throw new Exception("Không được để trống thông tin");
-                MySqlConnection conn = DBConnect.GetDBConnection();
-                ChiTieuBAL ChiTieu = new ChiTieuBAL();
-                ChiTieu.Update(conn, txtMaChiTieu.Text, txtTenChiTieu.Text, txtYNghia.Text);
-                GetDGVChiTieu();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            suaChiTieu(txtMaChiTieu.Text,txtTenChiTieu.Text,txtYNghia.Text);
         }
 
-        
-        private void Thembt_Click(object sender, EventArgs e)
+        private void themChiTieu(string tenCT,string yNghia)
         {
             try
             {
-                if (txtTenChiTieu.Text == "" || txtYNghia.Text == "")
-                    throw new Exception("Không được để trống thông tin");
+                CheckTT();
                 MySqlConnection conn = DBConnect.GetDBConnection();
                 ChiTieuBAL ChiTieu = new ChiTieuBAL();
-                ChiTieu.Insert(conn, txtTenChiTieu.Text, txtYNghia.Text);
+                ChiTieu.Insert(conn, tenCT, yNghia);
                 GetDGVChiTieu();
+                MessageBox.Show("Thêm thành công", "Thành công");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+
+                MessageBox.Show(ex.Message, "Lỗi");
             }
+        }
+        private void Thembt_Click(object sender, EventArgs e)
+        {
+            themChiTieu(txtTenChiTieu.Text,txtYNghia.Text);
         }
 
         private void DGVChiTieu_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -114,29 +135,29 @@ namespace QuanLyCoSoSX.GUI
             this.parent.Show();
         }
 
-        void SearchChiTieu()
+        void SearchChiTieu(string key )
         {
-            if (txtSearchChiTieu.Text == "")
+            if (key == "")
             {
-                GetDGVChiTieu();
+                DGVChiTieu.Rows.Clear();
                 return;
             }
             MySqlConnection conn = DBConnect.GetDBConnection();
             ChiTieuBAL ChiTieu = new ChiTieuBAL();
-            var lstChiTieu = ChiTieu.SearchByInfo(conn, txtSearchChiTieu.Text);
+            var lstChiTieu = ChiTieu.SearchByInfo(conn,key );
             DGVChiTieu.Rows.Clear();
             foreach(var ct in lstChiTieu)
                 DGVChiTieu.Rows.Add(ct.Mact, ct.Tenchitieu, ct.Ynghia);
         }
         private void SearchChiTieubt_Click(object sender, EventArgs e)
         {
-            SearchChiTieu();
+            SearchChiTieu(txtTimChiTieu.Text);
         }
 
         private void txtSearchChiTieu_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
-                SearchChiTieu();
+                SearchChiTieu(txtTimChiTieu.Text);
         }
 
    

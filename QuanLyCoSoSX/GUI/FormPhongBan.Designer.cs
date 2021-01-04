@@ -31,20 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPhongBan));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBoxSearchPhongBan = new System.Windows.Forms.TextBox();
-            this.SearchPhongBan = new System.Windows.Forms.Button();
+            this.txtTimPhongBan = new System.Windows.Forms.TextBox();
+            this.btTimPhongBan = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.DGVPhongBan = new System.Windows.Forms.DataGridView();
             this.MaPhongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenPhongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.GetThongTinbt = new System.Windows.Forms.Button();
-            this.Xoabt = new System.Windows.Forms.Button();
-            this.Suabt = new System.Windows.Forms.Button();
-            this.Thembt = new System.Windows.Forms.Button();
-            this.textboxTenPhongBan = new System.Windows.Forms.TextBox();
+            this.btLayThongTin = new System.Windows.Forms.Button();
+            this.btXoa = new System.Windows.Forms.Button();
+            this.btSua = new System.Windows.Forms.Button();
+            this.btThem = new System.Windows.Forms.Button();
+            this.txtTenPhongBan = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textboxMaPhongBan = new System.Windows.Forms.TextBox();
+            this.txtMaPhongBan = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVPhongBan)).BeginInit();
@@ -65,8 +65,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel2.Controls.Add(this.textBoxSearchPhongBan);
-            this.panel2.Controls.Add(this.SearchPhongBan);
+            this.panel2.Controls.Add(this.txtTimPhongBan);
+            this.panel2.Controls.Add(this.btTimPhongBan);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(11, 221);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
@@ -74,27 +74,27 @@
             this.panel2.Size = new System.Drawing.Size(389, 76);
             this.panel2.TabIndex = 1;
             // 
-            // textBoxSearchPhongBan
+            // txtTimPhongBan
             // 
-            this.textBoxSearchPhongBan.Location = new System.Drawing.Point(19, 34);
-            this.textBoxSearchPhongBan.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxSearchPhongBan.Name = "textBoxSearchPhongBan";
-            this.textBoxSearchPhongBan.Size = new System.Drawing.Size(235, 20);
-            this.textBoxSearchPhongBan.TabIndex = 38;
-            this.textBoxSearchPhongBan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchPhongBan_KeyDown);
+            this.txtTimPhongBan.Location = new System.Drawing.Point(19, 34);
+            this.txtTimPhongBan.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTimPhongBan.Name = "txtTimPhongBan";
+            this.txtTimPhongBan.Size = new System.Drawing.Size(235, 20);
+            this.txtTimPhongBan.TabIndex = 38;
+            this.txtTimPhongBan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchPhongBan_KeyDown);
             // 
-            // SearchPhongBan
+            // btTimPhongBan
             // 
-            this.SearchPhongBan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SearchPhongBan.Image = global::QuanLyCoSoSX.Properties.Resources.search_icon;
-            this.SearchPhongBan.Location = new System.Drawing.Point(275, 25);
-            this.SearchPhongBan.Name = "SearchPhongBan";
-            this.SearchPhongBan.Size = new System.Drawing.Size(88, 37);
-            this.SearchPhongBan.TabIndex = 37;
-            this.SearchPhongBan.Text = "Tìm";
-            this.SearchPhongBan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.SearchPhongBan.UseVisualStyleBackColor = true;
-            this.SearchPhongBan.Click += new System.EventHandler(this.SearchPhongBan_Click);
+            this.btTimPhongBan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btTimPhongBan.Image = global::QuanLyCoSoSX.Properties.Resources.search_icon;
+            this.btTimPhongBan.Location = new System.Drawing.Point(275, 25);
+            this.btTimPhongBan.Name = "btTimPhongBan";
+            this.btTimPhongBan.Size = new System.Drawing.Size(88, 37);
+            this.btTimPhongBan.TabIndex = 37;
+            this.btTimPhongBan.Text = "Tìm";
+            this.btTimPhongBan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btTimPhongBan.UseVisualStyleBackColor = true;
+            this.btTimPhongBan.Click += new System.EventHandler(this.SearchPhongBan_Click);
             // 
             // label3
             // 
@@ -112,12 +112,14 @@
             this.DGVPhongBan.AllowUserToAddRows = false;
             this.DGVPhongBan.AllowUserToDeleteRows = false;
             this.DGVPhongBan.AllowUserToResizeRows = false;
+            this.DGVPhongBan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DGVPhongBan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DGVPhongBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVPhongBan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaPhongBan,
             this.TenPhongBan});
-            this.DGVPhongBan.Dock = System.Windows.Forms.DockStyle.Right;
             this.DGVPhongBan.Location = new System.Drawing.Point(421, 0);
             this.DGVPhongBan.MultiSelect = false;
             this.DGVPhongBan.Name = "DGVPhongBan";
@@ -149,14 +151,14 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel3.Controls.Add(this.GetThongTinbt);
-            this.panel3.Controls.Add(this.Xoabt);
+            this.panel3.Controls.Add(this.btLayThongTin);
+            this.panel3.Controls.Add(this.btXoa);
             this.panel3.Controls.Add(this.panel2);
-            this.panel3.Controls.Add(this.Suabt);
-            this.panel3.Controls.Add(this.Thembt);
-            this.panel3.Controls.Add(this.textboxTenPhongBan);
+            this.panel3.Controls.Add(this.btSua);
+            this.panel3.Controls.Add(this.btThem);
+            this.panel3.Controls.Add(this.txtTenPhongBan);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.textboxMaPhongBan);
+            this.panel3.Controls.Add(this.txtMaPhongBan);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.panel1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
@@ -165,66 +167,66 @@
             this.panel3.Size = new System.Drawing.Size(422, 551);
             this.panel3.TabIndex = 45;
             // 
-            // GetThongTinbt
+            // btLayThongTin
             // 
-            this.GetThongTinbt.BackColor = System.Drawing.Color.Orange;
-            this.GetThongTinbt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GetThongTinbt.Image = ((System.Drawing.Image)(resources.GetObject("GetThongTinbt.Image")));
-            this.GetThongTinbt.Location = new System.Drawing.Point(286, 162);
-            this.GetThongTinbt.Name = "GetThongTinbt";
-            this.GetThongTinbt.Size = new System.Drawing.Size(114, 37);
-            this.GetThongTinbt.TabIndex = 42;
-            this.GetThongTinbt.Text = "Lấy Thông Tin";
-            this.GetThongTinbt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.GetThongTinbt.UseVisualStyleBackColor = false;
-            this.GetThongTinbt.Click += new System.EventHandler(this.GetThongTinbt_Click);
+            this.btLayThongTin.BackColor = System.Drawing.Color.Orange;
+            this.btLayThongTin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btLayThongTin.Image = ((System.Drawing.Image)(resources.GetObject("btLayThongTin.Image")));
+            this.btLayThongTin.Location = new System.Drawing.Point(286, 162);
+            this.btLayThongTin.Name = "btLayThongTin";
+            this.btLayThongTin.Size = new System.Drawing.Size(114, 37);
+            this.btLayThongTin.TabIndex = 42;
+            this.btLayThongTin.Text = "Lấy Thông Tin";
+            this.btLayThongTin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btLayThongTin.UseVisualStyleBackColor = false;
+            this.btLayThongTin.Click += new System.EventHandler(this.GetThongTinbt_Click);
             // 
-            // Xoabt
+            // btXoa
             // 
-            this.Xoabt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Xoabt.Image = ((System.Drawing.Image)(resources.GetObject("Xoabt.Image")));
-            this.Xoabt.Location = new System.Drawing.Point(196, 162);
-            this.Xoabt.Name = "Xoabt";
-            this.Xoabt.Size = new System.Drawing.Size(69, 37);
-            this.Xoabt.TabIndex = 43;
-            this.Xoabt.Text = "Xoá ";
-            this.Xoabt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Xoabt.UseVisualStyleBackColor = true;
-            this.Xoabt.Click += new System.EventHandler(this.Xoabt_Click);
+            this.btXoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btXoa.Image = ((System.Drawing.Image)(resources.GetObject("btXoa.Image")));
+            this.btXoa.Location = new System.Drawing.Point(196, 162);
+            this.btXoa.Name = "btXoa";
+            this.btXoa.Size = new System.Drawing.Size(69, 37);
+            this.btXoa.TabIndex = 43;
+            this.btXoa.Text = "Xoá ";
+            this.btXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btXoa.UseVisualStyleBackColor = true;
+            this.btXoa.Click += new System.EventHandler(this.Xoabt_Click);
             // 
-            // Suabt
+            // btSua
             // 
-            this.Suabt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Suabt.Image = ((System.Drawing.Image)(resources.GetObject("Suabt.Image")));
-            this.Suabt.Location = new System.Drawing.Point(106, 162);
-            this.Suabt.Name = "Suabt";
-            this.Suabt.Size = new System.Drawing.Size(69, 37);
-            this.Suabt.TabIndex = 44;
-            this.Suabt.Text = "Sửa";
-            this.Suabt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Suabt.UseVisualStyleBackColor = true;
-            this.Suabt.Click += new System.EventHandler(this.Suabt_Click);
+            this.btSua.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btSua.Image = ((System.Drawing.Image)(resources.GetObject("btSua.Image")));
+            this.btSua.Location = new System.Drawing.Point(106, 162);
+            this.btSua.Name = "btSua";
+            this.btSua.Size = new System.Drawing.Size(69, 37);
+            this.btSua.TabIndex = 44;
+            this.btSua.Text = "Sửa";
+            this.btSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btSua.UseVisualStyleBackColor = true;
+            this.btSua.Click += new System.EventHandler(this.Suabt_Click);
             // 
-            // Thembt
+            // btThem
             // 
-            this.Thembt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Thembt.Image = ((System.Drawing.Image)(resources.GetObject("Thembt.Image")));
-            this.Thembt.Location = new System.Drawing.Point(15, 162);
-            this.Thembt.Name = "Thembt";
-            this.Thembt.Size = new System.Drawing.Size(85, 37);
-            this.Thembt.TabIndex = 45;
-            this.Thembt.Text = "Thêm ";
-            this.Thembt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Thembt.UseVisualStyleBackColor = true;
-            this.Thembt.Click += new System.EventHandler(this.Thembt_Click);
+            this.btThem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btThem.Image = ((System.Drawing.Image)(resources.GetObject("btThem.Image")));
+            this.btThem.Location = new System.Drawing.Point(15, 162);
+            this.btThem.Name = "btThem";
+            this.btThem.Size = new System.Drawing.Size(85, 37);
+            this.btThem.TabIndex = 45;
+            this.btThem.Text = "Thêm ";
+            this.btThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btThem.UseVisualStyleBackColor = true;
+            this.btThem.Click += new System.EventHandler(this.Thembt_Click);
             // 
-            // textboxTenPhongBan
+            // txtTenPhongBan
             // 
-            this.textboxTenPhongBan.Location = new System.Drawing.Point(135, 116);
-            this.textboxTenPhongBan.Margin = new System.Windows.Forms.Padding(2);
-            this.textboxTenPhongBan.Name = "textboxTenPhongBan";
-            this.textboxTenPhongBan.Size = new System.Drawing.Size(234, 20);
-            this.textboxTenPhongBan.TabIndex = 41;
+            this.txtTenPhongBan.Location = new System.Drawing.Point(135, 116);
+            this.txtTenPhongBan.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTenPhongBan.Name = "txtTenPhongBan";
+            this.txtTenPhongBan.Size = new System.Drawing.Size(234, 20);
+            this.txtTenPhongBan.TabIndex = 41;
             // 
             // label2
             // 
@@ -236,13 +238,13 @@
             this.label2.TabIndex = 40;
             this.label2.Text = "Tên phòng ban";
             // 
-            // textboxMaPhongBan
+            // txtMaPhongBan
             // 
-            this.textboxMaPhongBan.Location = new System.Drawing.Point(135, 76);
-            this.textboxMaPhongBan.Margin = new System.Windows.Forms.Padding(2);
-            this.textboxMaPhongBan.Name = "textboxMaPhongBan";
-            this.textboxMaPhongBan.Size = new System.Drawing.Size(234, 20);
-            this.textboxMaPhongBan.TabIndex = 39;
+            this.txtMaPhongBan.Location = new System.Drawing.Point(135, 76);
+            this.txtMaPhongBan.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMaPhongBan.Name = "txtMaPhongBan";
+            this.txtMaPhongBan.Size = new System.Drawing.Size(234, 20);
+            this.txtMaPhongBan.TabIndex = 39;
             // 
             // label1
             // 
@@ -280,20 +282,20 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBoxSearchPhongBan;
-        private System.Windows.Forms.Button SearchPhongBan;
+        private System.Windows.Forms.TextBox txtTimPhongBan;
+        private System.Windows.Forms.Button btTimPhongBan;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView DGVPhongBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaPhongBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenPhongBan;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button GetThongTinbt;
-        private System.Windows.Forms.Button Xoabt;
-        private System.Windows.Forms.Button Suabt;
-        private System.Windows.Forms.Button Thembt;
-        private System.Windows.Forms.TextBox textboxTenPhongBan;
+        private System.Windows.Forms.Button btLayThongTin;
+        private System.Windows.Forms.Button btXoa;
+        private System.Windows.Forms.Button btSua;
+        private System.Windows.Forms.Button btThem;
+        private System.Windows.Forms.TextBox txtTenPhongBan;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textboxMaPhongBan;
+        private System.Windows.Forms.TextBox txtMaPhongBan;
         private System.Windows.Forms.Label label1;
     }
 }

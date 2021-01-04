@@ -73,64 +73,105 @@ namespace QuanLyCoSoSX.GUI
                 throw new Exception("Đơn vị tính không được để trống");
             if (txtMaCSSX.Text == "")
                 throw new Exception("Cơ sở sản xuất không được để trống");
+            
         }
-        private void Thembt_Click(object sender, EventArgs e)
+
+        private void themSanPham(string tenSP,string dvTinh,int maCS)
         {
             MySqlConnection conn = DBConnect.GetDBConnection();
             SanPhamBAL sanpham = new SanPhamBAL();
             try
             {
-                sanpham.Insert(conn, txtTensp.Text, txtDonvitinh.Text, Convert.ToInt32(txtMaCSSX.Text));
+                sanpham.Insert(conn,tenSP, dvTinh, maCS);
                 GetDGV();
+                MessageBox.Show("Thêm thông tin sản phẩm thành công", "Thành công");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Loi");
             }
+        }
+        private void Thembt_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CheckTT();
+                themSanPham(txtTensp.Text, txtDonvitinh.Text, Convert.ToInt32(txtMaCSSX.Text));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Loi");
+            }
+           
 
+        }
+
+        private void suaSanPham(string maSP,string tenSP,string dvTinh,int maCS)
+        {
+            MySqlConnection conn = DBConnect.GetDBConnection();
+            SanPhamBAL sanpham = new SanPhamBAL();
+            try
+            {
+                sanpham.Update(conn, maSP, tenSP, dvTinh, maCS);
+                GetDGV();
+                MessageBox.Show("Sửa thông tin sản phẩm thành công", "Thành công");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
         }
 
         private void Suabt_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = DBConnect.GetDBConnection();
-            SanPhamBAL sanpham = new SanPhamBAL();
             try
             {
                 CheckTT();
-                sanpham.Update(conn, txtMasp.Text, txtTensp.Text, txtDonvitinh.Text, Convert.ToInt32(txtMaCSSX.Text));
-                GetDGV();
+                suaSanPham(txtMasp.Text, txtTensp.Text, txtDonvitinh.Text, Convert.ToInt32(txtMaCSSX.Text));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"Loi");
+                MessageBox.Show(ex.Message, "Lỗi");
             }
+           
         }
 
-        private void Xoabt_Click(object sender, EventArgs e)
+        private void xoaSanPham(string maSP)
         {
             MySqlConnection conn = DBConnect.GetDBConnection();
             SanPhamBAL sanpham = new SanPhamBAL();
             try
             {
-                CheckTT();
-                sanpham.Delete(conn, txtMasp.Text);
+                if (maSP == "")
+                    throw new Exception("Không thành công! Vui lòng chọn sản phẩm cần xoá");
+                sanpham.Delete(conn, maSP);
                 GetDGV();
+                MessageBox.Show("Xoá thông tin sản phẩm thành công", "Thành công");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"Loi");
+                MessageBox.Show(ex.Message, "Lỗi");
             }
-            
+        }
+        private void Xoabt_Click(object sender, EventArgs e)
+        {
+
+            var select = MessageBox.Show("Nếu tiếp tục hệ thống sẽ xoá toàn bộ các dữ liệu có liên quan đến sản phẩm này. Bạn có muốn tiếp tục không ?", "Cảnh báo!", MessageBoxButtons.YesNoCancel);
+            if(select==DialogResult.Yes)
+            {
+                xoaSanPham(txtMasp.Text);
+            }  
+           
         }
 
-        private void SearchByID()
+        private void timSanPham(string key)
         {
             MySqlConnection conn = DBConnect.GetDBConnection();
             SanPhamBAL sanpham = new SanPhamBAL();                
             try
             {
                 DGVSanPham.Rows.Clear();
-                List<SanPham> lstSanPham = sanpham.SearchByInfo(conn, txtFindByID.Text);
+                List<SanPham> lstSanPham = sanpham.SearchByInfo(conn, key);
                 foreach(var sp in lstSanPham)
                 {
                     DGVSanPham.Rows.Add(sp.Masp, sp.Tensp, sp.Donvi, sp.getCS().Tencs);
@@ -144,42 +185,43 @@ namespace QuanLyCoSoSX.GUI
         }
         private void TraCuuKiemNghiem_Click(object sender, EventArgs e)
         {
-            SearchByID();
+           timSanPham(txtTimSanPham.Text);
 
         }
 
         private void DGVSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex>=0)
+            if(e.RowIndex>=0&& DGVSanPham.Rows[e.RowIndex].Cells[3].Value!=null)
             {
                 int index = e.RowIndex;
                 txtMasp.Text = DGVSanPham.Rows[index].Cells[0].Value.ToString();
                 txtTensp.Text = DGVSanPham.Rows[index].Cells[1].Value.ToString();
                 txtDonvitinh.Text = DGVSanPham.Rows[index].Cells[2].Value.ToString();
                 MySqlConnection conn = DBConnect.GetDBConnection();
-                CSSXBAL DBCSSX = new CSSXBAL();
-                   
+                CSSXBAL DBCSSX = new CSSXBAL();               
                 cbCSSX.SelectedValue = DBCSSX.GetIDByName(conn, DGVSanPham.Rows[index].Cells[3].Value.ToString());
             }    
         }
 
         private void cbCSSX_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            txtMaCSSX.Text = cbCSSX.SelectedValue.ToString();
+        {   
+            if(cbCSSX.SelectedValue!=null)
+                txtMaCSSX.Text = cbCSSX.SelectedValue.ToString();
         }
 
-        private void txtFindByID_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Enter)
-            {
-                SearchByID();
-            }
-        }
+       
 
         private void FormSanPham_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.parent.Show();
+        }
+
+        private void txtTimSanPham_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                timSanPham(txtTimSanPham.Text);
+            }
         }
     }
 }

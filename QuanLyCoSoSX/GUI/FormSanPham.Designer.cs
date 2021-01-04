@@ -47,7 +47,7 @@
             this.Thembt = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.TraCuuKiemNghiem = new System.Windows.Forms.Button();
-            this.txtFindByID = new System.Windows.Forms.TextBox();
+            this.txtTimSanPham = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.DGVSanPham = new System.Windows.Forms.DataGridView();
             this.dgvMasp = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -238,7 +238,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panel1.Controls.Add(this.TraCuuKiemNghiem);
-            this.panel1.Controls.Add(this.txtFindByID);
+            this.panel1.Controls.Add(this.txtTimSanPham);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Location = new System.Drawing.Point(5, 371);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
@@ -259,13 +259,13 @@
             this.TraCuuKiemNghiem.UseVisualStyleBackColor = true;
             this.TraCuuKiemNghiem.Click += new System.EventHandler(this.TraCuuKiemNghiem_Click);
             // 
-            // txtFindByID
+            // txtTimSanPham
             // 
-            this.txtFindByID.Location = new System.Drawing.Point(16, 39);
-            this.txtFindByID.Name = "txtFindByID";
-            this.txtFindByID.Size = new System.Drawing.Size(263, 20);
-            this.txtFindByID.TabIndex = 8;
-            this.txtFindByID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFindByID_KeyDown);
+            this.txtTimSanPham.Location = new System.Drawing.Point(16, 39);
+            this.txtTimSanPham.Name = "txtTimSanPham";
+            this.txtTimSanPham.Size = new System.Drawing.Size(263, 20);
+            this.txtTimSanPham.TabIndex = 8;
+            this.txtTimSanPham.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTimSanPham_KeyDown);
             // 
             // label9
             // 
@@ -405,7 +405,7 @@
         private System.Windows.Forms.Button Thembt;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button TraCuuKiemNghiem;
-        private System.Windows.Forms.TextBox txtFindByID;
+        private System.Windows.Forms.TextBox txtTimSanPham;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView DGVSanPham;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvMasp;

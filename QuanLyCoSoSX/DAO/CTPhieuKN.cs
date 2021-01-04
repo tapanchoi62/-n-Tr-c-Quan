@@ -17,7 +17,6 @@ namespace QuanLyCoSoSX.DAO
         private string mact;
         private string spkn;
         private ChiTieu ChiTieu;
-       // private CTPhieuKN list;
         public ChiTieu getCT()
         {
             if (this.ChiTieu == null)
@@ -28,17 +27,6 @@ namespace QuanLyCoSoSX.DAO
             }
             return ChiTieu;
         }
-        //public CTPhieuKN get()
-        //{
-        //    if (list == null)
-        //    {
-        //        CTPhieuKNBAL a = new CTPhieuKNBAL();
-
-        //        this.list = a.GetByspkn(conn, spkn);
-
-        //    }
-        //    return list;
-        //}
         public int Cskn { get => cskn; set => cskn = value; }
         public int Cskq { get => cskq; set => cskq = value; }
         public string Mact { get => mact; set => mact = value; }

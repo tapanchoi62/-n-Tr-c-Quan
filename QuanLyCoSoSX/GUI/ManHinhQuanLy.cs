@@ -26,8 +26,9 @@ namespace QuanLyCoSoSX.GUI
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            FormNhanVien form = new FormNhanVien();
-            form.Visible = true;
+            FormNhanVien form = new FormNhanVien(this);
+            form.Show();
+            this.Hide();
             
         }
 

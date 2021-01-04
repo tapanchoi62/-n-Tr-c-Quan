@@ -19,6 +19,10 @@ namespace QuanLyCoSoSX.DAO
         private string quyen;
 
         private NhanVien nv;
+        public TaiKhoan()
+        {
+            quyen = null;
+        }
         public NhanVien getnv()
         {
             if (nv == null)

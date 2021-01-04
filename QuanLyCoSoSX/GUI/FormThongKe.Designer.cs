@@ -29,8 +29,46 @@ namespace QuanLyCoSoSX.GUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title9 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title10 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title11 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title12 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title13 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend14 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title14 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.TabNhanVien = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.ChartNhanVien_PhongBan = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ChartNhanVien_GioiTinh = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.dgvNhanVien = new System.Windows.Forms.DataGridView();
+            this.Manv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mapb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ckbNgSinh_pnnv = new System.Windows.Forms.CheckBox();
             this.ckbGioiTinh_pnnv = new System.Windows.Forms.CheckBox();
             this.cbGioiTinh_pnnv = new System.Windows.Forms.ComboBox();
@@ -43,28 +81,30 @@ namespace QuanLyCoSoSX.GUI
             this.rdbtTatCa_pnnv = new System.Windows.Forms.RadioButton();
             this.rdbtPhongBan_pnnv = new System.Windows.Forms.RadioButton();
             this.cbTieuChi = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSoNV_pnnv = new System.Windows.Forms.TextBox();
-            this.dgvNhanVien = new System.Windows.Forms.DataGridView();
-            this.Manv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mapb = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabSanPham = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.ChartSanPham_CSSX = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.DGVSanPham = new System.Windows.Forms.DataGridView();
+            this.MaSp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.macssx = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSLSP_pnsp = new System.Windows.Forms.TextBox();
             this.cbCssx_pnsp = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rdbtCSSX_pnsp = new System.Windows.Forms.RadioButton();
             this.rdbtTatCa_pnsp = new System.Windows.Forms.RadioButton();
-            this.DGVSanPham = new System.Windows.Forms.DataGridView();
-            this.MaSp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.macssx = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabPhieuDK = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.ChartPDK_CSSX = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.DGVPhieuDK = new System.Windows.Forms.DataGridView();
+            this.spdk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngdk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nghh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.macs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.masp1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnNgHH_pnpdk = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -83,20 +123,9 @@ namespace QuanLyCoSoSX.GUI
             this.rdbtCssx_pnpdk = new System.Windows.Forms.RadioButton();
             this.rdbtTatCa_pnPDK = new System.Windows.Forms.RadioButton();
             this.cbTieuChi_pnpdk = new System.Windows.Forms.ComboBox();
-            this.DGVPhieuDK = new System.Windows.Forms.DataGridView();
-            this.spdk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngdk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nghh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.macs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.masp1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabPhieuKN = new System.Windows.Forms.TabPage();
-            this.pnNgayThang_pnpkn = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dtDenNgay_pnpkn = new System.Windows.Forms.DateTimePicker();
-            this.dtTuNgay_pnpkn = new System.Windows.Forms.DateTimePicker();
-            this.ckbNgayKN = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.ChartPKN_SP = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.DGVPKN = new System.Windows.Forms.DataGridView();
             this.spkn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -104,30 +133,51 @@ namespace QuanLyCoSoSX.GUI
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartPKN_NV = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ChartPKN_KQ = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.pnNgayThang_pnpkn = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dtDenNgay_pnpkn = new System.Windows.Forms.DateTimePicker();
+            this.dtTuNgay_pnpkn = new System.Windows.Forms.DateTimePicker();
+            this.ckbNgayKN = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSoLuongPKN = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.rdbtPDK_pnpkn = new System.Windows.Forms.RadioButton();
+            this.rdbtKQ_pnpkn = new System.Windows.Forms.RadioButton();
             this.rdbtTatca_pnpkn = new System.Windows.Forms.RadioButton();
             this.rdbtSanPham_pnpkn = new System.Windows.Forms.RadioButton();
             this.rdbtNhanVien_pnpkn = new System.Windows.Forms.RadioButton();
             this.cbTieuChi_pnpkn = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSLNV_pnnv = new System.Windows.Forms.TextBox();
             this.TabControl.SuspendLayout();
             this.TabNhanVien.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartNhanVien_PhongBan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartNhanVien_GioiTinh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.pnNgaySinh_pnnv.SuspendLayout();
             this.SelectPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.tabSanPham.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartSanPham_CSSX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVSanPham)).BeginInit();
+            this.panel1.SuspendLayout();
             this.TabPhieuDK.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartPDK_CSSX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVPhieuDK)).BeginInit();
             this.pnNgHH_pnpdk.SuspendLayout();
             this.pnNgDK_pnpdk.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVPhieuDK)).BeginInit();
             this.TabPhieuKN.SuspendLayout();
-            this.pnNgayThang_pnpkn.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartPKN_SP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVPKN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartPKN_NV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartPKN_KQ)).BeginInit();
+            this.pnNgayThang_pnpkn.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -148,20 +198,166 @@ namespace QuanLyCoSoSX.GUI
             // 
             this.TabNhanVien.AutoScroll = true;
             this.TabNhanVien.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.TabNhanVien.Controls.Add(this.label1);
+            this.TabNhanVien.Controls.Add(this.txtSLNV_pnnv);
+            this.TabNhanVien.Controls.Add(this.tableLayoutPanel2);
             this.TabNhanVien.Controls.Add(this.ckbNgSinh_pnnv);
             this.TabNhanVien.Controls.Add(this.ckbGioiTinh_pnnv);
             this.TabNhanVien.Controls.Add(this.cbGioiTinh_pnnv);
             this.TabNhanVien.Controls.Add(this.pnNgaySinh_pnnv);
             this.TabNhanVien.Controls.Add(this.SelectPanel);
-            this.TabNhanVien.Controls.Add(this.label1);
-            this.TabNhanVien.Controls.Add(this.txtSoNV_pnnv);
-            this.TabNhanVien.Controls.Add(this.dgvNhanVien);
             this.TabNhanVien.Location = new System.Drawing.Point(4, 22);
             this.TabNhanVien.Name = "TabNhanVien";
             this.TabNhanVien.Padding = new System.Windows.Forms.Padding(3);
             this.TabNhanVien.Size = new System.Drawing.Size(1043, 535);
             this.TabNhanVien.TabIndex = 0;
             this.TabNhanVien.Text = "Nhân viên";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.tableLayoutPanel2.Controls.Add(this.ChartNhanVien_PhongBan, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.ChartNhanVien_GioiTinh, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.dgvNhanVien, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 73);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1040, 462);
+            this.tableLayoutPanel2.TabIndex = 19;
+            // 
+            // ChartNhanVien_PhongBan
+            // 
+            this.ChartNhanVien_PhongBan.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ChartNhanVien_PhongBan.BorderlineColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            chartArea8.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            chartArea8.Name = "ChartArea1";
+            this.ChartNhanVien_PhongBan.ChartAreas.Add(chartArea8);
+            this.ChartNhanVien_PhongBan.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend8.Alignment = System.Drawing.StringAlignment.Center;
+            legend8.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            legend8.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            legend8.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend8.Name = "Legend1";
+            this.ChartNhanVien_PhongBan.Legends.Add(legend8);
+            this.ChartNhanVien_PhongBan.Location = new System.Drawing.Point(3, 3);
+            this.ChartNhanVien_PhongBan.Name = "ChartNhanVien_PhongBan";
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series8.CustomProperties = "PieLabelStyle=Disabled";
+            series8.Legend = "Legend1";
+            series8.Name = "S1";
+            this.ChartNhanVien_PhongBan.Series.Add(series8);
+            this.ChartNhanVien_PhongBan.Size = new System.Drawing.Size(358, 225);
+            this.ChartNhanVien_PhongBan.TabIndex = 15;
+            this.ChartNhanVien_PhongBan.Text = "chart1";
+            title8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title8.Name = "Title1";
+            title8.Text = "Biểu đồ theo phòng ban";
+            this.ChartNhanVien_PhongBan.Titles.Add(title8);
+            // 
+            // ChartNhanVien_GioiTinh
+            // 
+            this.ChartNhanVien_GioiTinh.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ChartNhanVien_GioiTinh.BorderlineColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            chartArea9.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            chartArea9.Name = "ChartArea1";
+            this.ChartNhanVien_GioiTinh.ChartAreas.Add(chartArea9);
+            this.ChartNhanVien_GioiTinh.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend9.Alignment = System.Drawing.StringAlignment.Center;
+            legend9.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            legend9.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            legend9.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend9.Name = "Legend1";
+            this.ChartNhanVien_GioiTinh.Legends.Add(legend9);
+            this.ChartNhanVien_GioiTinh.Location = new System.Drawing.Point(3, 234);
+            this.ChartNhanVien_GioiTinh.Name = "ChartNhanVien_GioiTinh";
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series9.CustomProperties = "PieLabelStyle=Disabled";
+            series9.Legend = "Legend1";
+            series9.Name = "S1";
+            this.ChartNhanVien_GioiTinh.Series.Add(series9);
+            this.ChartNhanVien_GioiTinh.Size = new System.Drawing.Size(358, 225);
+            this.ChartNhanVien_GioiTinh.TabIndex = 15;
+            this.ChartNhanVien_GioiTinh.Text = "chart1";
+            title9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title9.Name = "Title1";
+            title9.Text = "Biểu đồ theo giới tính";
+            this.ChartNhanVien_GioiTinh.Titles.Add(title9);
+            // 
+            // dgvNhanVien
+            // 
+            this.dgvNhanVien.AllowUserToAddRows = false;
+            this.dgvNhanVien.AllowUserToDeleteRows = false;
+            this.dgvNhanVien.AllowUserToResizeRows = false;
+            this.dgvNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Manv,
+            this.TenNV,
+            this.NgSinh,
+            this.GioiTinh,
+            this.Mapb,
+            this.SDT});
+            this.dgvNhanVien.Location = new System.Drawing.Point(367, 3);
+            this.dgvNhanVien.Name = "dgvNhanVien";
+            this.dgvNhanVien.ReadOnly = true;
+            this.dgvNhanVien.RowHeadersVisible = false;
+            this.tableLayoutPanel2.SetRowSpan(this.dgvNhanVien, 2);
+            this.dgvNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvNhanVien.Size = new System.Drawing.Size(670, 456);
+            this.dgvNhanVien.TabIndex = 7;
+            // 
+            // Manv
+            // 
+            this.Manv.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Manv.HeaderText = "Mã NV";
+            this.Manv.Name = "Manv";
+            this.Manv.ReadOnly = true;
+            // 
+            // TenNV
+            // 
+            this.TenNV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenNV.HeaderText = "Tên NV";
+            this.TenNV.Name = "TenNV";
+            this.TenNV.ReadOnly = true;
+            // 
+            // NgSinh
+            // 
+            this.NgSinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NgSinh.HeaderText = "Ngày Sinh";
+            this.NgSinh.Name = "NgSinh";
+            this.NgSinh.ReadOnly = true;
+            // 
+            // GioiTinh
+            // 
+            this.GioiTinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.GioiTinh.HeaderText = "Giới tính";
+            this.GioiTinh.Name = "GioiTinh";
+            this.GioiTinh.ReadOnly = true;
+            // 
+            // Mapb
+            // 
+            this.Mapb.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Mapb.HeaderText = "Mã phòng ban";
+            this.Mapb.Name = "Mapb";
+            this.Mapb.ReadOnly = true;
+            // 
+            // SDT
+            // 
+            this.SDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SDT.HeaderText = "SĐT";
+            this.SDT.Name = "SDT";
+            this.SDT.ReadOnly = true;
             // 
             // ckbNgSinh_pnnv
             // 
@@ -287,96 +483,14 @@ namespace QuanLyCoSoSX.GUI
             this.cbTieuChi.TabIndex = 6;
             this.cbTieuChi.SelectedIndexChanged += new System.EventHandler(this.cbTieuChi_SelectedIndexChanged);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Số nhân viên";
-            // 
-            // txtSoNV_pnnv
-            // 
-            this.txtSoNV_pnnv.Location = new System.Drawing.Point(101, 45);
-            this.txtSoNV_pnnv.Name = "txtSoNV_pnnv";
-            this.txtSoNV_pnnv.Size = new System.Drawing.Size(78, 20);
-            this.txtSoNV_pnnv.TabIndex = 8;
-            // 
-            // dgvNhanVien
-            // 
-            this.dgvNhanVien.AllowUserToAddRows = false;
-            this.dgvNhanVien.AllowUserToDeleteRows = false;
-            this.dgvNhanVien.AllowUserToResizeRows = false;
-            this.dgvNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Manv,
-            this.TenNV,
-            this.NgSinh,
-            this.GioiTinh,
-            this.Mapb,
-            this.SDT});
-            this.dgvNhanVien.Location = new System.Drawing.Point(6, 73);
-            this.dgvNhanVien.Name = "dgvNhanVien";
-            this.dgvNhanVien.ReadOnly = true;
-            this.dgvNhanVien.RowHeadersVisible = false;
-            this.dgvNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNhanVien.Size = new System.Drawing.Size(1029, 446);
-            this.dgvNhanVien.TabIndex = 7;
-            // 
-            // Manv
-            // 
-            this.Manv.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Manv.HeaderText = "Mã NV";
-            this.Manv.Name = "Manv";
-            this.Manv.ReadOnly = true;
-            // 
-            // TenNV
-            // 
-            this.TenNV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenNV.HeaderText = "Tên NV";
-            this.TenNV.Name = "TenNV";
-            this.TenNV.ReadOnly = true;
-            // 
-            // NgSinh
-            // 
-            this.NgSinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NgSinh.HeaderText = "Ngày Sinh";
-            this.NgSinh.Name = "NgSinh";
-            this.NgSinh.ReadOnly = true;
-            // 
-            // GioiTinh
-            // 
-            this.GioiTinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.GioiTinh.HeaderText = "Giới tính";
-            this.GioiTinh.Name = "GioiTinh";
-            this.GioiTinh.ReadOnly = true;
-            // 
-            // Mapb
-            // 
-            this.Mapb.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Mapb.HeaderText = "Mã phòng ban";
-            this.Mapb.Name = "Mapb";
-            this.Mapb.ReadOnly = true;
-            // 
-            // SDT
-            // 
-            this.SDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SDT.HeaderText = "SĐT";
-            this.SDT.Name = "SDT";
-            this.SDT.ReadOnly = true;
-            // 
             // tabSanPham
             // 
             this.tabSanPham.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.tabSanPham.Controls.Add(this.tableLayoutPanel1);
             this.tabSanPham.Controls.Add(this.label2);
             this.tabSanPham.Controls.Add(this.txtSLSP_pnsp);
             this.tabSanPham.Controls.Add(this.cbCssx_pnsp);
             this.tabSanPham.Controls.Add(this.panel1);
-            this.tabSanPham.Controls.Add(this.DGVSanPham);
             this.tabSanPham.Location = new System.Drawing.Point(4, 22);
             this.tabSanPham.Name = "tabSanPham";
             this.tabSanPham.Padding = new System.Windows.Forms.Padding(3);
@@ -384,10 +498,108 @@ namespace QuanLyCoSoSX.GUI
             this.tabSanPham.TabIndex = 1;
             this.tabSanPham.Text = "Sản phẩm";
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.tableLayoutPanel1.Controls.Add(this.ChartSanPham_CSSX, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.DGVSanPham, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 78);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1034, 454);
+            this.tableLayoutPanel1.TabIndex = 17;
+            // 
+            // ChartSanPham_CSSX
+            // 
+            this.ChartSanPham_CSSX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChartSanPham_CSSX.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ChartSanPham_CSSX.BorderlineColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            chartArea10.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            chartArea10.Name = "ChartArea1";
+            this.ChartSanPham_CSSX.ChartAreas.Add(chartArea10);
+            legend10.Alignment = System.Drawing.StringAlignment.Center;
+            legend10.AutoFitMinFontSize = 6;
+            legend10.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            legend10.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend10.ItemColumnSpacing = 35;
+            legend10.Name = "Legend1";
+            this.ChartSanPham_CSSX.Legends.Add(legend10);
+            this.ChartSanPham_CSSX.Location = new System.Drawing.Point(3, 3);
+            this.ChartSanPham_CSSX.Name = "ChartSanPham_CSSX";
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series10.CustomProperties = "PieLabelStyle=Disabled";
+            series10.Legend = "Legend1";
+            series10.Name = "S1";
+            this.ChartSanPham_CSSX.Series.Add(series10);
+            this.ChartSanPham_CSSX.Size = new System.Drawing.Size(355, 448);
+            this.ChartSanPham_CSSX.TabIndex = 16;
+            this.ChartSanPham_CSSX.Text = "chart1";
+            title10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title10.Name = "Title1";
+            title10.Text = "Biểu đồ theo cơ sở sản xuất";
+            this.ChartSanPham_CSSX.Titles.Add(title10);
+            // 
+            // DGVSanPham
+            // 
+            this.DGVSanPham.AllowUserToAddRows = false;
+            this.DGVSanPham.AllowUserToDeleteRows = false;
+            this.DGVSanPham.AllowUserToResizeRows = false;
+            this.DGVSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DGVSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaSp,
+            this.TenSP,
+            this.DonVi,
+            this.macssx});
+            this.DGVSanPham.Location = new System.Drawing.Point(364, 3);
+            this.DGVSanPham.Name = "DGVSanPham";
+            this.DGVSanPham.ReadOnly = true;
+            this.DGVSanPham.RowHeadersVisible = false;
+            this.DGVSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVSanPham.Size = new System.Drawing.Size(667, 448);
+            this.DGVSanPham.TabIndex = 8;
+            // 
+            // MaSp
+            // 
+            this.MaSp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MaSp.HeaderText = "Mã sản phẩm";
+            this.MaSp.Name = "MaSp";
+            this.MaSp.ReadOnly = true;
+            // 
+            // TenSP
+            // 
+            this.TenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenSP.HeaderText = "Tên sản phẩm";
+            this.TenSP.Name = "TenSP";
+            this.TenSP.ReadOnly = true;
+            // 
+            // DonVi
+            // 
+            this.DonVi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DonVi.HeaderText = "Đơn vị";
+            this.DonVi.Name = "DonVi";
+            this.DonVi.ReadOnly = true;
+            // 
+            // macssx
+            // 
+            this.macssx.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.macssx.HeaderText = "Mã cơ sở sản xuất";
+            this.macssx.Name = "macssx";
+            this.macssx.ReadOnly = true;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 52);
+            this.label2.Location = new System.Drawing.Point(373, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 13);
             this.label2.TabIndex = 12;
@@ -395,7 +607,7 @@ namespace QuanLyCoSoSX.GUI
             // 
             // txtSLSP_pnsp
             // 
-            this.txtSLSP_pnsp.Location = new System.Drawing.Point(166, 49);
+            this.txtSLSP_pnsp.Location = new System.Drawing.Point(477, 55);
             this.txtSLSP_pnsp.Name = "txtSLSP_pnsp";
             this.txtSLSP_pnsp.Size = new System.Drawing.Size(107, 20);
             this.txtSLSP_pnsp.TabIndex = 11;
@@ -442,59 +654,10 @@ namespace QuanLyCoSoSX.GUI
             this.rdbtTatCa_pnsp.UseVisualStyleBackColor = true;
             this.rdbtTatCa_pnsp.CheckedChanged += new System.EventHandler(this.rdbtTatCa_CheckedChanged);
             // 
-            // DGVSanPham
-            // 
-            this.DGVSanPham.AllowUserToAddRows = false;
-            this.DGVSanPham.AllowUserToDeleteRows = false;
-            this.DGVSanPham.AllowUserToResizeRows = false;
-            this.DGVSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DGVSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaSp,
-            this.TenSP,
-            this.DonVi,
-            this.macssx});
-            this.DGVSanPham.Location = new System.Drawing.Point(6, 75);
-            this.DGVSanPham.Name = "DGVSanPham";
-            this.DGVSanPham.ReadOnly = true;
-            this.DGVSanPham.RowHeadersVisible = false;
-            this.DGVSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGVSanPham.Size = new System.Drawing.Size(968, 479);
-            this.DGVSanPham.TabIndex = 8;
-            // 
-            // MaSp
-            // 
-            this.MaSp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MaSp.HeaderText = "Mã sản phẩm";
-            this.MaSp.Name = "MaSp";
-            this.MaSp.ReadOnly = true;
-            // 
-            // TenSP
-            // 
-            this.TenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenSP.HeaderText = "Tên sản phẩm";
-            this.TenSP.Name = "TenSP";
-            this.TenSP.ReadOnly = true;
-            // 
-            // DonVi
-            // 
-            this.DonVi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DonVi.HeaderText = "Đơn vị";
-            this.DonVi.Name = "DonVi";
-            this.DonVi.ReadOnly = true;
-            // 
-            // macssx
-            // 
-            this.macssx.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.macssx.HeaderText = "Mã cơ sở sản xuất";
-            this.macssx.Name = "macssx";
-            this.macssx.ReadOnly = true;
-            // 
             // TabPhieuDK
             // 
             this.TabPhieuDK.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.TabPhieuDK.Controls.Add(this.tableLayoutPanel4);
             this.TabPhieuDK.Controls.Add(this.pnNgHH_pnpdk);
             this.TabPhieuDK.Controls.Add(this.ckbNgayHH_pnpdk);
             this.TabPhieuDK.Controls.Add(this.pnNgDK_pnpdk);
@@ -503,13 +666,124 @@ namespace QuanLyCoSoSX.GUI
             this.TabPhieuDK.Controls.Add(this.txtSoPDK);
             this.TabPhieuDK.Controls.Add(this.panel2);
             this.TabPhieuDK.Controls.Add(this.cbTieuChi_pnpdk);
-            this.TabPhieuDK.Controls.Add(this.DGVPhieuDK);
             this.TabPhieuDK.Location = new System.Drawing.Point(4, 22);
             this.TabPhieuDK.Name = "TabPhieuDK";
             this.TabPhieuDK.Padding = new System.Windows.Forms.Padding(3);
             this.TabPhieuDK.Size = new System.Drawing.Size(1043, 535);
             this.TabPhieuDK.TabIndex = 2;
             this.TabPhieuDK.Text = "Phiếu đăng ký";
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.tableLayoutPanel4.Controls.Add(this.ChartPDK_CSSX, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.DGVPhieuDK, 1, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 94);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1037, 438);
+            this.tableLayoutPanel4.TabIndex = 23;
+            // 
+            // ChartPDK_CSSX
+            // 
+            this.ChartPDK_CSSX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChartPDK_CSSX.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ChartPDK_CSSX.BorderlineColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            chartArea11.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            chartArea11.Name = "ChartArea1";
+            this.ChartPDK_CSSX.ChartAreas.Add(chartArea11);
+            legend11.Alignment = System.Drawing.StringAlignment.Center;
+            legend11.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            legend11.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend11.Name = "Legend1";
+            this.ChartPDK_CSSX.Legends.Add(legend11);
+            this.ChartPDK_CSSX.Location = new System.Drawing.Point(3, 3);
+            this.ChartPDK_CSSX.Name = "ChartPDK_CSSX";
+            series11.ChartArea = "ChartArea1";
+            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series11.CustomProperties = "PieLabelStyle=Disabled";
+            series11.Legend = "Legend1";
+            series11.Name = "S1";
+            this.ChartPDK_CSSX.Series.Add(series11);
+            this.ChartPDK_CSSX.Size = new System.Drawing.Size(356, 432);
+            this.ChartPDK_CSSX.TabIndex = 17;
+            this.ChartPDK_CSSX.Text = "chart2";
+            title11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title11.Name = "Title1";
+            title11.Text = "Biểu đồ theo cơ sở sản xuất";
+            this.ChartPDK_CSSX.Titles.Add(title11);
+            // 
+            // DGVPhieuDK
+            // 
+            this.DGVPhieuDK.AllowUserToAddRows = false;
+            this.DGVPhieuDK.AllowUserToDeleteRows = false;
+            this.DGVPhieuDK.AllowUserToResizeRows = false;
+            this.DGVPhieuDK.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DGVPhieuDK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVPhieuDK.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.spdk,
+            this.ngdk,
+            this.nghh,
+            this.macs,
+            this.masp1,
+            this.sl});
+            this.DGVPhieuDK.Location = new System.Drawing.Point(365, 3);
+            this.DGVPhieuDK.Name = "DGVPhieuDK";
+            this.DGVPhieuDK.ReadOnly = true;
+            this.DGVPhieuDK.RowHeadersVisible = false;
+            this.DGVPhieuDK.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVPhieuDK.Size = new System.Drawing.Size(669, 432);
+            this.DGVPhieuDK.TabIndex = 9;
+            // 
+            // spdk
+            // 
+            this.spdk.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.spdk.HeaderText = "Số phiếu đăng ký";
+            this.spdk.Name = "spdk";
+            this.spdk.ReadOnly = true;
+            // 
+            // ngdk
+            // 
+            this.ngdk.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ngdk.HeaderText = "Ngày đăng ký";
+            this.ngdk.Name = "ngdk";
+            this.ngdk.ReadOnly = true;
+            // 
+            // nghh
+            // 
+            this.nghh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nghh.HeaderText = "Ngày hết hạn";
+            this.nghh.Name = "nghh";
+            this.nghh.ReadOnly = true;
+            // 
+            // macs
+            // 
+            this.macs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.macs.HeaderText = "Mã cơ sở";
+            this.macs.Name = "macs";
+            this.macs.ReadOnly = true;
+            // 
+            // masp1
+            // 
+            this.masp1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.masp1.HeaderText = "Mã sản phẩm";
+            this.masp1.Name = "masp1";
+            this.masp1.ReadOnly = true;
+            // 
+            // sl
+            // 
+            this.sl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.sl.HeaderText = "Số lượng";
+            this.sl.Name = "sl";
+            this.sl.ReadOnly = true;
             // 
             // pnNgHH_pnpdk
             // 
@@ -630,7 +904,7 @@ namespace QuanLyCoSoSX.GUI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 52);
+            this.label3.Location = new System.Drawing.Point(369, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 13);
             this.label3.TabIndex = 18;
@@ -638,7 +912,7 @@ namespace QuanLyCoSoSX.GUI
             // 
             // txtSoPDK
             // 
-            this.txtSoPDK.Location = new System.Drawing.Point(137, 48);
+            this.txtSoPDK.Location = new System.Drawing.Point(495, 71);
             this.txtSoPDK.Name = "txtSoPDK";
             this.txtSoPDK.Size = new System.Drawing.Size(87, 20);
             this.txtSoPDK.TabIndex = 17;
@@ -649,7 +923,7 @@ namespace QuanLyCoSoSX.GUI
             this.panel2.Controls.Add(this.rdbtTatCa_pnPDK);
             this.panel2.Location = new System.Drawing.Point(14, 18);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(210, 28);
+            this.panel2.Size = new System.Drawing.Size(206, 28);
             this.panel2.TabIndex = 16;
             // 
             // rdbtCssx_pnpdk
@@ -685,80 +959,14 @@ namespace QuanLyCoSoSX.GUI
             this.cbTieuChi_pnpdk.TabIndex = 13;
             this.cbTieuChi_pnpdk.SelectedValueChanged += new System.EventHandler(this.cbTieuChi_pnpdk_SelectedValueChanged);
             // 
-            // DGVPhieuDK
-            // 
-            this.DGVPhieuDK.AllowUserToAddRows = false;
-            this.DGVPhieuDK.AllowUserToDeleteRows = false;
-            this.DGVPhieuDK.AllowUserToResizeRows = false;
-            this.DGVPhieuDK.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DGVPhieuDK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVPhieuDK.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.spdk,
-            this.ngdk,
-            this.nghh,
-            this.macs,
-            this.masp1,
-            this.sl});
-            this.DGVPhieuDK.Location = new System.Drawing.Point(3, 75);
-            this.DGVPhieuDK.Name = "DGVPhieuDK";
-            this.DGVPhieuDK.ReadOnly = true;
-            this.DGVPhieuDK.RowHeadersVisible = false;
-            this.DGVPhieuDK.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGVPhieuDK.Size = new System.Drawing.Size(968, 479);
-            this.DGVPhieuDK.TabIndex = 9;
-            // 
-            // spdk
-            // 
-            this.spdk.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.spdk.HeaderText = "Số phiếu đăng ký";
-            this.spdk.Name = "spdk";
-            this.spdk.ReadOnly = true;
-            // 
-            // ngdk
-            // 
-            this.ngdk.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ngdk.HeaderText = "Ngày đăng ký";
-            this.ngdk.Name = "ngdk";
-            this.ngdk.ReadOnly = true;
-            // 
-            // nghh
-            // 
-            this.nghh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nghh.HeaderText = "Ngày hết hạn";
-            this.nghh.Name = "nghh";
-            this.nghh.ReadOnly = true;
-            // 
-            // macs
-            // 
-            this.macs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.macs.HeaderText = "Mã cơ sở";
-            this.macs.Name = "macs";
-            this.macs.ReadOnly = true;
-            // 
-            // masp1
-            // 
-            this.masp1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.masp1.HeaderText = "Mã sản phẩm";
-            this.masp1.Name = "masp1";
-            this.masp1.ReadOnly = true;
-            // 
-            // sl
-            // 
-            this.sl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.sl.HeaderText = "Số lượng";
-            this.sl.Name = "sl";
-            this.sl.ReadOnly = true;
-            // 
             // TabPhieuKN
             // 
             this.TabPhieuKN.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.TabPhieuKN.Controls.Add(this.txtSoLuongPKN);
+            this.TabPhieuKN.Controls.Add(this.tableLayoutPanel3);
             this.TabPhieuKN.Controls.Add(this.pnNgayThang_pnpkn);
             this.TabPhieuKN.Controls.Add(this.ckbNgayKN);
-            this.TabPhieuKN.Controls.Add(this.DGVPKN);
             this.TabPhieuKN.Controls.Add(this.label4);
-            this.TabPhieuKN.Controls.Add(this.txtSoLuongPKN);
             this.TabPhieuKN.Controls.Add(this.panel3);
             this.TabPhieuKN.Controls.Add(this.cbTieuChi_pnpkn);
             this.TabPhieuKN.Location = new System.Drawing.Point(4, 22);
@@ -768,63 +976,65 @@ namespace QuanLyCoSoSX.GUI
             this.TabPhieuKN.TabIndex = 3;
             this.TabPhieuKN.Text = "Phiếu kiểm nghiệm";
             // 
-            // pnNgayThang_pnpkn
+            // tableLayoutPanel3
             // 
-            this.pnNgayThang_pnpkn.Controls.Add(this.label6);
-            this.pnNgayThang_pnpkn.Controls.Add(this.label7);
-            this.pnNgayThang_pnpkn.Controls.Add(this.dtDenNgay_pnpkn);
-            this.pnNgayThang_pnpkn.Controls.Add(this.dtTuNgay_pnpkn);
-            this.pnNgayThang_pnpkn.Location = new System.Drawing.Point(596, 3);
-            this.pnNgayThang_pnpkn.Name = "pnNgayThang_pnpkn";
-            this.pnNgayThang_pnpkn.Size = new System.Drawing.Size(244, 66);
-            this.pnNgayThang_pnpkn.TabIndex = 28;
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.tableLayoutPanel3.Controls.Add(this.ChartPKN_SP, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.DGVPKN, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.ChartPKN_NV, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.ChartPKN_KQ, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 81);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.34F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1034, 448);
+            this.tableLayoutPanel3.TabIndex = 29;
             // 
-            // label6
+            // ChartPKN_SP
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 11);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 13);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Từ Ngày";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(22, 46);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 13);
-            this.label7.TabIndex = 27;
-            this.label7.Text = "Đến ngày";
-            // 
-            // dtDenNgay_pnpkn
-            // 
-            this.dtDenNgay_pnpkn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtDenNgay_pnpkn.Location = new System.Drawing.Point(81, 40);
-            this.dtDenNgay_pnpkn.Name = "dtDenNgay_pnpkn";
-            this.dtDenNgay_pnpkn.Size = new System.Drawing.Size(146, 20);
-            this.dtDenNgay_pnpkn.TabIndex = 24;
-            this.dtDenNgay_pnpkn.ValueChanged += new System.EventHandler(this.dtDenNgay_pnpkn_ValueChanged);
-            // 
-            // dtTuNgay_pnpkn
-            // 
-            this.dtTuNgay_pnpkn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtTuNgay_pnpkn.Location = new System.Drawing.Point(81, 5);
-            this.dtTuNgay_pnpkn.Name = "dtTuNgay_pnpkn";
-            this.dtTuNgay_pnpkn.Size = new System.Drawing.Size(146, 20);
-            this.dtTuNgay_pnpkn.TabIndex = 24;
-            this.dtTuNgay_pnpkn.ValueChanged += new System.EventHandler(this.dtTuNgay_pnpkn_ValueChanged);
-            // 
-            // ckbNgayKN
-            // 
-            this.ckbNgayKN.AutoSize = true;
-            this.ckbNgayKN.Location = new System.Drawing.Point(521, 26);
-            this.ckbNgayKN.Name = "ckbNgayKN";
-            this.ckbNgayKN.Size = new System.Drawing.Size(69, 17);
-            this.ckbNgayKN.TabIndex = 25;
-            this.ckbNgayKN.Text = "Ngày KN";
-            this.ckbNgayKN.UseVisualStyleBackColor = true;
-            this.ckbNgayKN.CheckedChanged += new System.EventHandler(this.ckbNgayKN_CheckedChanged);
+            this.ChartPKN_SP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChartPKN_SP.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ChartPKN_SP.BorderlineColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            chartArea12.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            chartArea12.Name = "ChartArea1";
+            this.ChartPKN_SP.ChartAreas.Add(chartArea12);
+            legend12.Alignment = System.Drawing.StringAlignment.Center;
+            legend12.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            legend12.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            legend12.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend12.MaximumAutoSize = 30F;
+            legend12.Name = "Legend1";
+            legend12.Position.Auto = false;
+            legend12.Position.Height = 70F;
+            legend12.Position.Width = 25F;
+            legend12.Position.X = 3F;
+            legend12.Position.Y = 24.34575F;
+            this.ChartPKN_SP.Legends.Add(legend12);
+            this.ChartPKN_SP.Location = new System.Drawing.Point(4, 301);
+            this.ChartPKN_SP.Name = "ChartPKN_SP";
+            series12.ChartArea = "ChartArea1";
+            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series12.CustomProperties = "PieLabelStyle=Disabled";
+            series12.Legend = "Legend1";
+            series12.Name = "S1";
+            this.ChartPKN_SP.Series.Add(series12);
+            this.ChartPKN_SP.Size = new System.Drawing.Size(352, 144);
+            this.ChartPKN_SP.TabIndex = 24;
+            this.ChartPKN_SP.Text = "chart3";
+            title12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title12.Name = "Title1";
+            title12.Text = "Biểu đồ tỉ lệ phiếu kiểm nghiệm theo sản phẩm";
+            this.ChartPKN_SP.Titles.Add(title12);
             // 
             // DGVPKN
             // 
@@ -842,12 +1052,13 @@ namespace QuanLyCoSoSX.GUI
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
-            this.DGVPKN.Location = new System.Drawing.Point(6, 75);
+            this.DGVPKN.Location = new System.Drawing.Point(364, 3);
             this.DGVPKN.Name = "DGVPKN";
             this.DGVPKN.ReadOnly = true;
             this.DGVPKN.RowHeadersVisible = false;
+            this.tableLayoutPanel3.SetRowSpan(this.DGVPKN, 3);
             this.DGVPKN.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGVPKN.Size = new System.Drawing.Size(968, 479);
+            this.DGVPKN.Size = new System.Drawing.Size(667, 442);
             this.DGVPKN.TabIndex = 23;
             // 
             // spkn
@@ -892,10 +1103,146 @@ namespace QuanLyCoSoSX.GUI
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
+            // ChartPKN_NV
+            // 
+            this.ChartPKN_NV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChartPKN_NV.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ChartPKN_NV.BorderlineColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            chartArea13.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            chartArea13.Name = "ChartArea1";
+            this.ChartPKN_NV.ChartAreas.Add(chartArea13);
+            legend13.Alignment = System.Drawing.StringAlignment.Center;
+            legend13.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            legend13.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            legend13.ItemColumnSpacing = 35;
+            legend13.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend13.MaximumAutoSize = 35F;
+            legend13.Name = "Legend1";
+            legend13.Position.Auto = false;
+            legend13.Position.Height = 70F;
+            legend13.Position.Width = 25F;
+            legend13.Position.X = 3F;
+            legend13.Position.Y = 24.15453F;
+            this.ChartPKN_NV.Legends.Add(legend13);
+            this.ChartPKN_NV.Location = new System.Drawing.Point(4, 152);
+            this.ChartPKN_NV.Name = "ChartPKN_NV";
+            series13.ChartArea = "ChartArea1";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series13.CustomProperties = "PieLabelStyle=Disabled";
+            series13.Legend = "Legend1";
+            series13.Name = "S1";
+            this.ChartPKN_NV.Series.Add(series13);
+            this.ChartPKN_NV.Size = new System.Drawing.Size(352, 143);
+            this.ChartPKN_NV.TabIndex = 24;
+            this.ChartPKN_NV.Text = "chart3";
+            title13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title13.Name = "Title1";
+            title13.Text = "Biểu đồ tỉ lệ phiếu đăng lý theo nhân viên";
+            this.ChartPKN_NV.Titles.Add(title13);
+            // 
+            // ChartPKN_KQ
+            // 
+            this.ChartPKN_KQ.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChartPKN_KQ.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ChartPKN_KQ.BorderlineColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            chartArea14.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            chartArea14.Name = "ChartArea1";
+            this.ChartPKN_KQ.ChartAreas.Add(chartArea14);
+            legend14.Alignment = System.Drawing.StringAlignment.Center;
+            legend14.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            legend14.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            legend14.ItemColumnSpacing = 35;
+            legend14.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend14.Name = "Legend1";
+            legend14.Position.Auto = false;
+            legend14.Position.Height = 70F;
+            legend14.Position.Width = 25F;
+            legend14.Position.X = 3F;
+            legend14.Position.Y = 24.15453F;
+            this.ChartPKN_KQ.Legends.Add(legend14);
+            this.ChartPKN_KQ.Location = new System.Drawing.Point(4, 3);
+            this.ChartPKN_KQ.Name = "ChartPKN_KQ";
+            series14.ChartArea = "ChartArea1";
+            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series14.CustomProperties = "PieLabelStyle=Disabled";
+            series14.Legend = "Legend1";
+            series14.Name = "S1";
+            this.ChartPKN_KQ.Series.Add(series14);
+            this.ChartPKN_KQ.Size = new System.Drawing.Size(352, 143);
+            this.ChartPKN_KQ.TabIndex = 24;
+            this.ChartPKN_KQ.Text = "chart3";
+            title14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title14.Name = "Title1";
+            title14.Text = "Biểu đồ tỉ lệ phiếu kiểm nghiệm theo phiếu đăng lý";
+            this.ChartPKN_KQ.Titles.Add(title14);
+            // 
+            // pnNgayThang_pnpkn
+            // 
+            this.pnNgayThang_pnpkn.Controls.Add(this.label6);
+            this.pnNgayThang_pnpkn.Controls.Add(this.label7);
+            this.pnNgayThang_pnpkn.Controls.Add(this.dtDenNgay_pnpkn);
+            this.pnNgayThang_pnpkn.Controls.Add(this.dtTuNgay_pnpkn);
+            this.pnNgayThang_pnpkn.Location = new System.Drawing.Point(618, 3);
+            this.pnNgayThang_pnpkn.Name = "pnNgayThang_pnpkn";
+            this.pnNgayThang_pnpkn.Size = new System.Drawing.Size(232, 66);
+            this.pnNgayThang_pnpkn.TabIndex = 28;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(22, 11);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 13);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Từ Ngày";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(22, 46);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 13);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Đến ngày";
+            // 
+            // dtDenNgay_pnpkn
+            // 
+            this.dtDenNgay_pnpkn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtDenNgay_pnpkn.Location = new System.Drawing.Point(81, 40);
+            this.dtDenNgay_pnpkn.Name = "dtDenNgay_pnpkn";
+            this.dtDenNgay_pnpkn.Size = new System.Drawing.Size(146, 20);
+            this.dtDenNgay_pnpkn.TabIndex = 24;
+            this.dtDenNgay_pnpkn.ValueChanged += new System.EventHandler(this.dtDenNgay_pnpkn_ValueChanged);
+            // 
+            // dtTuNgay_pnpkn
+            // 
+            this.dtTuNgay_pnpkn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtTuNgay_pnpkn.Location = new System.Drawing.Point(81, 5);
+            this.dtTuNgay_pnpkn.Name = "dtTuNgay_pnpkn";
+            this.dtTuNgay_pnpkn.Size = new System.Drawing.Size(146, 20);
+            this.dtTuNgay_pnpkn.TabIndex = 24;
+            this.dtTuNgay_pnpkn.ValueChanged += new System.EventHandler(this.dtTuNgay_pnpkn_ValueChanged);
+            // 
+            // ckbNgayKN
+            // 
+            this.ckbNgayKN.AutoSize = true;
+            this.ckbNgayKN.Location = new System.Drawing.Point(543, 25);
+            this.ckbNgayKN.Name = "ckbNgayKN";
+            this.ckbNgayKN.Size = new System.Drawing.Size(69, 17);
+            this.ckbNgayKN.TabIndex = 25;
+            this.ckbNgayKN.Text = "Ngày KN";
+            this.ckbNgayKN.UseVisualStyleBackColor = true;
+            this.ckbNgayKN.CheckedChanged += new System.EventHandler(this.ckbNgayKN_CheckedChanged);
+            // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 54);
+            this.label4.Location = new System.Drawing.Point(377, 61);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(140, 13);
             this.label4.TabIndex = 22;
@@ -903,33 +1250,34 @@ namespace QuanLyCoSoSX.GUI
             // 
             // txtSoLuongPKN
             // 
-            this.txtSoLuongPKN.Location = new System.Drawing.Point(168, 49);
+            this.txtSoLuongPKN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtSoLuongPKN.Location = new System.Drawing.Point(519, 58);
             this.txtSoLuongPKN.Name = "txtSoLuongPKN";
             this.txtSoLuongPKN.Size = new System.Drawing.Size(93, 20);
             this.txtSoLuongPKN.TabIndex = 21;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.rdbtPDK_pnpkn);
+            this.panel3.Controls.Add(this.rdbtKQ_pnpkn);
             this.panel3.Controls.Add(this.rdbtTatca_pnpkn);
             this.panel3.Controls.Add(this.rdbtSanPham_pnpkn);
             this.panel3.Controls.Add(this.rdbtNhanVien_pnpkn);
             this.panel3.Location = new System.Drawing.Point(25, 17);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(324, 28);
+            this.panel3.Size = new System.Drawing.Size(349, 28);
             this.panel3.TabIndex = 20;
             // 
-            // rdbtPDK_pnpkn
+            // rdbtKQ_pnpkn
             // 
-            this.rdbtPDK_pnpkn.AutoSize = true;
-            this.rdbtPDK_pnpkn.Location = new System.Drawing.Point(64, 7);
-            this.rdbtPDK_pnpkn.Name = "rdbtPDK_pnpkn";
-            this.rdbtPDK_pnpkn.Size = new System.Drawing.Size(94, 17);
-            this.rdbtPDK_pnpkn.TabIndex = 11;
-            this.rdbtPDK_pnpkn.TabStop = true;
-            this.rdbtPDK_pnpkn.Text = "Phiếu đăng ký";
-            this.rdbtPDK_pnpkn.UseVisualStyleBackColor = true;
-            this.rdbtPDK_pnpkn.CheckedChanged += new System.EventHandler(this.rdbtPDK_pnpkn_CheckedChanged);
+            this.rdbtKQ_pnpkn.AutoSize = true;
+            this.rdbtKQ_pnpkn.Location = new System.Drawing.Point(64, 7);
+            this.rdbtKQ_pnpkn.Name = "rdbtKQ_pnpkn";
+            this.rdbtKQ_pnpkn.Size = new System.Drawing.Size(111, 17);
+            this.rdbtKQ_pnpkn.TabIndex = 11;
+            this.rdbtKQ_pnpkn.TabStop = true;
+            this.rdbtKQ_pnpkn.Text = "Kết quả kiểm định";
+            this.rdbtKQ_pnpkn.UseVisualStyleBackColor = true;
+            this.rdbtKQ_pnpkn.CheckedChanged += new System.EventHandler(this.rdbtKQ_pnpkn_CheckedChanged);
             // 
             // rdbtTatca_pnpkn
             // 
@@ -946,7 +1294,7 @@ namespace QuanLyCoSoSX.GUI
             // rdbtSanPham_pnpkn
             // 
             this.rdbtSanPham_pnpkn.AutoSize = true;
-            this.rdbtSanPham_pnpkn.Location = new System.Drawing.Point(244, 7);
+            this.rdbtSanPham_pnpkn.Location = new System.Drawing.Point(261, 7);
             this.rdbtSanPham_pnpkn.Name = "rdbtSanPham_pnpkn";
             this.rdbtSanPham_pnpkn.Size = new System.Drawing.Size(73, 17);
             this.rdbtSanPham_pnpkn.TabIndex = 12;
@@ -958,7 +1306,7 @@ namespace QuanLyCoSoSX.GUI
             // rdbtNhanVien_pnpkn
             // 
             this.rdbtNhanVien_pnpkn.AutoSize = true;
-            this.rdbtNhanVien_pnpkn.Location = new System.Drawing.Point(164, 7);
+            this.rdbtNhanVien_pnpkn.Location = new System.Drawing.Point(181, 7);
             this.rdbtNhanVien_pnpkn.Name = "rdbtNhanVien_pnpkn";
             this.rdbtNhanVien_pnpkn.Size = new System.Drawing.Size(74, 17);
             this.rdbtNhanVien_pnpkn.TabIndex = 12;
@@ -970,11 +1318,27 @@ namespace QuanLyCoSoSX.GUI
             // cbTieuChi_pnpkn
             // 
             this.cbTieuChi_pnpkn.FormattingEnabled = true;
-            this.cbTieuChi_pnpkn.Location = new System.Drawing.Point(355, 24);
+            this.cbTieuChi_pnpkn.Location = new System.Drawing.Point(380, 20);
             this.cbTieuChi_pnpkn.Name = "cbTieuChi_pnpkn";
-            this.cbTieuChi_pnpkn.Size = new System.Drawing.Size(121, 21);
+            this.cbTieuChi_pnpkn.Size = new System.Drawing.Size(137, 21);
             this.cbTieuChi_pnpkn.TabIndex = 19;
             this.cbTieuChi_pnpkn.SelectedValueChanged += new System.EventHandler(this.cbTieuChi_pnpkn_SelectedValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(372, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Số lượng nhân viên";
+            // 
+            // txtSLNV_pnnv
+            // 
+            this.txtSLNV_pnnv.Location = new System.Drawing.Point(476, 50);
+            this.txtSLNV_pnnv.Name = "txtSLNV_pnnv";
+            this.txtSLNV_pnnv.Size = new System.Drawing.Size(107, 20);
+            this.txtSLNV_pnnv.TabIndex = 20;
             // 
             // FormThongKe
             // 
@@ -990,30 +1354,41 @@ namespace QuanLyCoSoSX.GUI
             this.TabControl.ResumeLayout(false);
             this.TabNhanVien.ResumeLayout(false);
             this.TabNhanVien.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ChartNhanVien_PhongBan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartNhanVien_GioiTinh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
             this.pnNgaySinh_pnnv.ResumeLayout(false);
             this.pnNgaySinh_pnnv.PerformLayout();
             this.SelectPanel.ResumeLayout(false);
             this.SelectPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
             this.tabSanPham.ResumeLayout(false);
             this.tabSanPham.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ChartSanPham_CSSX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVSanPham)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVSanPham)).EndInit();
             this.TabPhieuDK.ResumeLayout(false);
             this.TabPhieuDK.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ChartPDK_CSSX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVPhieuDK)).EndInit();
             this.pnNgHH_pnpdk.ResumeLayout(false);
             this.pnNgHH_pnpdk.PerformLayout();
             this.pnNgDK_pnpdk.ResumeLayout(false);
             this.pnNgDK_pnpdk.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVPhieuDK)).EndInit();
             this.TabPhieuKN.ResumeLayout(false);
             this.TabPhieuKN.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ChartPKN_SP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVPKN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartPKN_NV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartPKN_KQ)).EndInit();
             this.pnNgayThang_pnpkn.ResumeLayout(false);
             this.pnNgayThang_pnpkn.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVPKN)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -1025,8 +1400,6 @@ namespace QuanLyCoSoSX.GUI
         private System.Windows.Forms.TabControl TabControl;
         private System.Windows.Forms.TabPage TabNhanVien;
         private System.Windows.Forms.TabPage tabSanPham;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSoNV_pnnv;
         private System.Windows.Forms.DataGridView dgvNhanVien;
         private System.Windows.Forms.ComboBox cbTieuChi;
         private System.Windows.Forms.DateTimePicker dtTuNgay;
@@ -1078,7 +1451,7 @@ namespace QuanLyCoSoSX.GUI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtSoLuongPKN;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RadioButton rdbtPDK_pnpkn;
+        private System.Windows.Forms.RadioButton rdbtKQ_pnpkn;
         private System.Windows.Forms.RadioButton rdbtTatca_pnpkn;
         private System.Windows.Forms.ComboBox cbTieuChi_pnpkn;
         private System.Windows.Forms.RadioButton rdbtNhanVien_pnpkn;
@@ -1105,5 +1478,18 @@ namespace QuanLyCoSoSX.GUI
         private System.Windows.Forms.CheckBox ckbNgSinh_pnnv;
         private System.Windows.Forms.CheckBox ckbGioiTinh_pnnv;
         private System.Windows.Forms.ComboBox cbGioiTinh_pnnv;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ChartNhanVien_GioiTinh;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ChartNhanVien_PhongBan;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ChartSanPham_CSSX;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ChartPDK_CSSX;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ChartPKN_SP;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ChartPKN_NV;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ChartPKN_KQ;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtSLNV_pnnv;
     }
 }

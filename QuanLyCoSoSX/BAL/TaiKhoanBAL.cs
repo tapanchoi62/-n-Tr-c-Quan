@@ -38,14 +38,15 @@ namespace QuanLyCoSoSX.BAL
             conn.Close();
             return list;
         }
-        public bool CheckUser(MySqlConnection conn,string tentk)
+        public bool CheckUser(MySqlConnection conn,string tentk,string manv)
         {
             try
             {
                 conn.Open();
-                string sql = "SELECT * FROM taikhoan where tentk= @tentk ";
+                string sql = "SELECT * FROM taikhoan where tentk= @tentk or manv = @manv";
                 var cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@tentk", tentk);
+                cmd.Parameters.AddWithValue("@manv", manv);
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 if (rdr.HasRows)
                 {
@@ -59,6 +60,30 @@ namespace QuanLyCoSoSX.BAL
             {
                 throw ex;
             }           
+        }
+
+        public bool CheckUserName(MySqlConnection conn, string tentk, string manv)
+        {
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM taikhoan where tentk= @tentk and manv <> @manv";
+                var cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@tentk", tentk);
+                cmd.Parameters.AddWithValue("@manv", manv);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.HasRows)
+                {
+                    conn.Close();
+                    return true;
+                }
+                conn.Close();
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public TaiKhoan GetByID(MySqlConnection conn, int id)
         {
@@ -171,17 +196,16 @@ namespace QuanLyCoSoSX.BAL
 
         }
 
-        public void Update(MySqlConnection conn, int matk, string tentk, string matkhau,
+        public void Update(MySqlConnection conn, string tentk, string matkhau,
             int manv, string quyen)
         {
             try
             {
                 conn.Open();
                 string sql = "UPDATE `taikhoan` " +
-                    "SET `tentk` = @tentk, `matkhau` = @matkhau, `manv` = @manv, `quyen` = @quyen" +
-                    " WHERE `taikhoan`.`matk` = @matk;";
+                    "SET `tentk` = @tentk, `matkhau` = @matkhau, `quyen` = @quyen" +
+                    " WHERE manv = @manv";
                 var cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@matk", matk);
                 cmd.Parameters.AddWithValue("@tentk", tentk);
                 cmd.Parameters.AddWithValue("@matkhau", matkhau);
                 cmd.Parameters.AddWithValue("@manv", manv);

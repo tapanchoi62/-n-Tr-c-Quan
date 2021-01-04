@@ -44,7 +44,7 @@ namespace QuanLyCoSoSX.BAL
         public int GetIDByName(MySqlConnection conn, string name)
         {
             conn.Open();
-            string sqlcommand = "SELECT * FROM CSSX WHERE tencs LIKE '%" + name + "%'";
+            string sqlcommand = "SELECT * FROM cssx WHERE tencs LIKE '%" + name + "%'";
             MySqlCommand cmd = new MySqlCommand(sqlcommand, conn);
             MySqlDataReader data = cmd.ExecuteReader();
             if(data.HasRows)
@@ -68,7 +68,7 @@ namespace QuanLyCoSoSX.BAL
         {
             conn.Open();
             CSSX a = new CSSX();
-            string sql = "SELECT * FROM CSSX where macs= @id";
+            string sql = "SELECT * FROM cssx where macs= @id";
 
             var cmd = new MySqlCommand(sql, conn);
 
@@ -102,7 +102,7 @@ namespace QuanLyCoSoSX.BAL
         public List<CSSX> SearchByInfo(MySqlConnection conn, string info)
         {
             conn.Open();
-            string sqlcommand = "select * from CSSX where macs like '%" + info +"%' or tenchu like '%"+ info + "%' or tencs like '%" + info +"%' or diachi like '%" + info +"%' or sodt like '" + info + "'";
+            string sqlcommand = "select * from cssx where macs like '%" + info +"%' or tenchu like '%"+ info + "%' or tencs like '%" + info +"%' or diachi like '%" + info +"%' or sodt like '" + info + "'";
             MySqlCommand cmd = new MySqlCommand(sqlcommand, conn);
             
             MySqlDataReader data = cmd.ExecuteReader();
@@ -141,7 +141,7 @@ namespace QuanLyCoSoSX.BAL
                 }
 
                 mrd.Close();
-                string sql = "INSERT INTO `cssx` (`macs`, `tencs`, `diachi`, `tenchu`, `sodt`) VALUES (@macs, @tencs, @diachi, @tenchu,@sodt);";
+                string sql = "INSERT INTO cssx (`macs`, `tencs`, `diachi`, `tenchu`, `sodt`) VALUES (@macs, @tencs, @diachi, @tenchu,@sodt);";
                 var cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@macs", macs);
                 cmd.Parameters.AddWithValue("@tencs", tencs);
@@ -168,7 +168,7 @@ namespace QuanLyCoSoSX.BAL
             try
             {
                 conn.Open();
-                string sql = "Update `cssx` Set `tencs`=@tencs, `diachi`=@diachi, `tenchu`=@tenchu," +
+                string sql = "Update cssx Set `tencs`=@tencs, `diachi`=@diachi, `tenchu`=@tenchu," +
                     "`sodt`=@sodt where macs =@macs;";
                 var cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@macs", macs);
@@ -193,7 +193,9 @@ namespace QuanLyCoSoSX.BAL
             try
             {
                 conn.Open();
-                string sql = "Delete from CSSX where macs= @macs";
+                SanPhamBAL SPBAL = new SanPhamBAL();
+                SPBAL.DeleteByCSSX(conn,macs);
+                string sql = "Delete from cssx where macs= @macs";
                 var cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@macs", macs);
                 cmd.ExecuteNonQuery();

@@ -41,36 +41,47 @@ namespace QuanLyCoSoSX.GUI
         {
             MySqlConnection conn = DBConnect.GetDBConnection();
             NhanVienBAL nv = new NhanVienBAL();
-            if (nv.CheackMaNV(conn,int.Parse(txtMaNhanVien.Text)))
-                return true;
-            else
-                return false;
+            try
+            {
+                if (nv.CheackMaNV(conn, int.Parse(txtMaNhanVien.Text)))
+                    return true;
+                else
+                    return false;
+            }
+            catch
+            {
+                throw new Exception("Mã nhân viên phải là số");
+            }
          }
+
+
         
         private void button1_Click(object sender, EventArgs e)
         {
             MySqlConnection conn = DBConnect.GetDBConnection();
             TaiKhoanBAL taikhoan = new TaiKhoanBAL();
 
-            if (!CheckManv())
-            {
-                MessageBox.Show("Mã nhân viên không tồn tại");
-                return;
-            }
-
-            if (taikhoan.CheckUser(conn, txtUsername.Text))
-            {
-                MessageBox.Show("Tài khoản đã tồn tại");
-                return;
-            }
-
-            if (!CheckPassword())
-            {
-                MessageBox.Show("Mật khẩu không trùng khớp");
-                return;
-            }
+           
             try
             {
+                if (!CheckManv())
+                {
+                    MessageBox.Show("Mã nhân viên không tồn tại");
+                    return;
+                }
+
+                if (taikhoan.CheckUser(conn, txtUsername.Text,txtMaNhanVien.Text))
+                {
+                    MessageBox.Show("Thông tin tài khoản đã tồn tại");
+                    return;
+                }
+
+                if (!CheckPassword())
+                {
+                    MessageBox.Show("Mật khẩu không trùng khớp");
+                    return;
+                }
+
                 byte[] temp = ASCIIEncoding.ASCII.GetBytes(txtPass.Text);
                 byte[] hasData = new MD5CryptoServiceProvider().ComputeHash(temp);
                 string hasPass = "";

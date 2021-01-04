@@ -37,7 +37,7 @@ namespace QuanLyCoSoSX.GUI
         bool CheckSDT()
         {
             
-            if (txtSoDienThoai.Text.Length > 20)
+            if (txtSoDienThoai.Text.Length > 15)
                 return false; 
             foreach(char c in txtSoDienThoai.Text)
             {
@@ -166,27 +166,35 @@ namespace QuanLyCoSoSX.GUI
                 CSSXBAL CSSX = new CSSXBAL();
                 CSSX.Update(conn, Macs, TenCS, DiaChi, TenChu, SoDT);
                 GetDGV();
+                MessageBox.Show("Sửa thông tin thành công", "Thành công");
 
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Lỗi");
             }
         }
-
         private void Xoa_Click(object sender, EventArgs e)
         {
             
             try
             {
-                MySqlConnection conn = DBConnect.GetDBConnection();
-                CSSXBAL cssx = new CSSXBAL();
-                cssx.Delete(conn, txtMaCSSX.Text);
-                GetDGV();
+                var select = MessageBox.Show("Nếu tiếp tục hệ thống sẽ xoá toàn bộ các dữ liệu có liên quan đến cơ sở sản xuất này. Bạn có muốn tiếp tục không ?", "Cảnh báo!", MessageBoxButtons.YesNoCancel);
+                if (select == DialogResult.Yes)
+                {
+
+                    MySqlConnection conn = DBConnect.GetDBConnection();
+                    CSSXBAL cssx = new CSSXBAL();
+                    cssx.Delete(conn, txtMaCSSX.Text);
+                    GetDGV();
+                    MessageBox.Show("Xoá thành công", "Thành công");
+                }
+                
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Xóa không thành công");
+
+                MessageBox.Show(ex.Message, "Lỗi");
             }
         }
 
@@ -199,16 +207,17 @@ namespace QuanLyCoSoSX.GUI
                 string TenChu = txtChuCoSo.Text;
                 string DiaChi = txtDiaChi.Text;
                 string SoDT = txtSoDienThoai.Text;
-                int MaCS = int.Parse(txtMaCSSX.Text);
                 MySqlConnection conn = DBConnect.GetDBConnection();
                 CSSXBAL CSSX = new CSSXBAL();
                 CSSX.Insert(conn, TenCs, DiaChi, TenChu, SoDT);
                 GetDGV();
+                MessageBox.Show("Thêm thành công","Thành công");
 
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+
+                MessageBox.Show(ex.Message, "Lỗi");
             }
         }
 

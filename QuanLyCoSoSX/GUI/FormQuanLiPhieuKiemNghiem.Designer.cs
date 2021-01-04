@@ -37,18 +37,18 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.SoPhieuKiemNghiem = new System.Windows.Forms.TextBox();
-            this.ChiSoKiemNghiem = new System.Windows.Forms.TextBox();
+            this.txtChiSoKN = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.tbCSXX = new System.Windows.Forms.TextBox();
-            this.MaSP = new System.Windows.Forms.TextBox();
-            this.MaCT = new System.Windows.Forms.TextBox();
-            this.MaNV = new System.Windows.Forms.TextBox();
-            this.ChiSoKetQua = new System.Windows.Forms.TextBox();
+            this.txtCSXX = new System.Windows.Forms.TextBox();
+            this.txtMaSP = new System.Windows.Forms.TextBox();
+            this.txtMaCT = new System.Windows.Forms.TextBox();
+            this.txtMaNV = new System.Windows.Forms.TextBox();
+            this.txtChiSoKQ = new System.Windows.Forms.TextBox();
             this.XoaPKN = new System.Windows.Forms.Button();
             this.ThemPKN = new System.Windows.Forms.Button();
             this.SuaPKN = new System.Windows.Forms.Button();
@@ -60,20 +60,19 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.NgayKiemNghiem = new System.Windows.Forms.DateTimePicker();
+            this.dtNgayKN = new System.Windows.Forms.DateTimePicker();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.TxTSoPhieuKN = new System.Windows.Forms.TextBox();
             this.TxTSoPhieuDK = new System.Windows.Forms.TextBox();
-            this.TxtCSXX = new System.Windows.Forms.TextBox();
+            this.TxtCSXX2 = new System.Windows.Forms.TextBox();
             this.txtSanPham = new System.Windows.Forms.TextBox();
             this.TxtKetLuan2 = new System.Windows.Forms.TextBox();
             this.TxtDonVi = new System.Windows.Forms.TextBox();
             this.TxTSoLuong = new System.Windows.Forms.TextBox();
-            this.NhanVienThucHien = new System.Windows.Forms.ComboBox();
-            this.ChiTieu = new System.Windows.Forms.ComboBox();
-            this.KetLuan = new System.Windows.Forms.TextBox();
+            this.cbNhanVien = new System.Windows.Forms.ComboBox();
+            this.cbChiTieu = new System.Windows.Forms.ComboBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -90,16 +89,16 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.DGV1 = new System.Windows.Forms.DataGridView();
+            this.DGVPhieuDK = new System.Windows.Forms.DataGridView();
             this.DGVMaCT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTenChiTieu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvYNghia1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvChiSoDangKi1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.SPDK = new System.Windows.Forms.TextBox();
-            this.tbSanPham = new System.Windows.Forms.ComboBox();
+            this.txtSPDK = new System.Windows.Forms.TextBox();
+            this.cbSanPham = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.DGV3 = new System.Windows.Forms.DataGridView();
+            this.DGVChiTieuKN = new System.Windows.Forms.DataGridView();
             this.Mactt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTenChiTieu3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvChiSoDangKi3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,23 +112,24 @@
             this.In = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.TraCuuKiemNghiem = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.DGV2 = new System.Windows.Forms.DataGridView();
+            this.txtTTTimKiem = new System.Windows.Forms.TextBox();
+            this.DGVDSPhieuKiemNghiem = new System.Windows.Forms.DataGridView();
             this.dgvSoPhieuKiemNghiem2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvNgayKiemNghiem2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTenSanPham2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvNhanVienThucHien2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvKetLuan2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label30 = new System.Windows.Forms.Label();
+            this.cbKetLuan = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVPhieuDK)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVChiTieuKN)).BeginInit();
             this.panel4.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVDSPhieuKiemNghiem)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -186,7 +186,6 @@
             this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 1;
             this.label5.Text = "Chỉ tiêu";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -198,7 +197,6 @@
             this.label6.Size = new System.Drawing.Size(98, 13);
             this.label6.TabIndex = 1;
             this.label6.Text = "Chỉ số kiểm nghiệm";
-            this.label6.Click += new System.EventHandler(this.label5_Click);
             // 
             // label7
             // 
@@ -210,7 +208,6 @@
             this.label7.Size = new System.Drawing.Size(46, 13);
             this.label7.TabIndex = 1;
             this.label7.Text = "Kết luận";
-            this.label7.Click += new System.EventHandler(this.label5_Click);
             // 
             // SoPhieuKiemNghiem
             // 
@@ -223,14 +220,14 @@
             this.SoPhieuKiemNghiem.Size = new System.Drawing.Size(120, 20);
             this.SoPhieuKiemNghiem.TabIndex = 2;
             // 
-            // ChiSoKiemNghiem
+            // txtChiSoKN
             // 
-            this.ChiSoKiemNghiem.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ChiSoKiemNghiem.Location = new System.Drawing.Point(129, 241);
-            this.ChiSoKiemNghiem.Margin = new System.Windows.Forms.Padding(2);
-            this.ChiSoKiemNghiem.Name = "ChiSoKiemNghiem";
-            this.ChiSoKiemNghiem.Size = new System.Drawing.Size(120, 20);
-            this.ChiSoKiemNghiem.TabIndex = 2;
+            this.txtChiSoKN.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtChiSoKN.Location = new System.Drawing.Point(129, 241);
+            this.txtChiSoKN.Margin = new System.Windows.Forms.Padding(2);
+            this.txtChiSoKN.Name = "txtChiSoKN";
+            this.txtChiSoKN.Size = new System.Drawing.Size(120, 20);
+            this.txtChiSoKN.TabIndex = 2;
             // 
             // label8
             // 
@@ -298,57 +295,57 @@
             this.label14.TabIndex = 3;
             this.label14.Text = "Chỉ số kết quả";
             // 
-            // tbCSXX
+            // txtCSXX
             // 
-            this.tbCSXX.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tbCSXX.Location = new System.Drawing.Point(340, 62);
-            this.tbCSXX.Margin = new System.Windows.Forms.Padding(2);
-            this.tbCSXX.Name = "tbCSXX";
-            this.tbCSXX.ReadOnly = true;
-            this.tbCSXX.Size = new System.Drawing.Size(120, 20);
-            this.tbCSXX.TabIndex = 4;
+            this.txtCSXX.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtCSXX.Location = new System.Drawing.Point(340, 62);
+            this.txtCSXX.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCSXX.Name = "txtCSXX";
+            this.txtCSXX.ReadOnly = true;
+            this.txtCSXX.Size = new System.Drawing.Size(120, 20);
+            this.txtCSXX.TabIndex = 4;
             // 
-            // MaSP
+            // txtMaSP
             // 
-            this.MaSP.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.MaSP.Enabled = false;
-            this.MaSP.Location = new System.Drawing.Point(340, 110);
-            this.MaSP.Margin = new System.Windows.Forms.Padding(2);
-            this.MaSP.Name = "MaSP";
-            this.MaSP.ReadOnly = true;
-            this.MaSP.Size = new System.Drawing.Size(120, 20);
-            this.MaSP.TabIndex = 4;
+            this.txtMaSP.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtMaSP.Enabled = false;
+            this.txtMaSP.Location = new System.Drawing.Point(340, 110);
+            this.txtMaSP.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMaSP.Name = "txtMaSP";
+            this.txtMaSP.ReadOnly = true;
+            this.txtMaSP.Size = new System.Drawing.Size(120, 20);
+            this.txtMaSP.TabIndex = 4;
             // 
-            // MaCT
+            // txtMaCT
             // 
-            this.MaCT.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.MaCT.Enabled = false;
-            this.MaCT.Location = new System.Drawing.Point(340, 200);
-            this.MaCT.Margin = new System.Windows.Forms.Padding(2);
-            this.MaCT.Name = "MaCT";
-            this.MaCT.ReadOnly = true;
-            this.MaCT.Size = new System.Drawing.Size(120, 20);
-            this.MaCT.TabIndex = 4;
+            this.txtMaCT.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtMaCT.Enabled = false;
+            this.txtMaCT.Location = new System.Drawing.Point(340, 200);
+            this.txtMaCT.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMaCT.Name = "txtMaCT";
+            this.txtMaCT.ReadOnly = true;
+            this.txtMaCT.Size = new System.Drawing.Size(120, 20);
+            this.txtMaCT.TabIndex = 4;
             // 
-            // MaNV
+            // txtMaNV
             // 
-            this.MaNV.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.MaNV.Enabled = false;
-            this.MaNV.Location = new System.Drawing.Point(340, 156);
-            this.MaNV.Margin = new System.Windows.Forms.Padding(2);
-            this.MaNV.Name = "MaNV";
-            this.MaNV.ReadOnly = true;
-            this.MaNV.Size = new System.Drawing.Size(120, 20);
-            this.MaNV.TabIndex = 4;
+            this.txtMaNV.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtMaNV.Enabled = false;
+            this.txtMaNV.Location = new System.Drawing.Point(340, 156);
+            this.txtMaNV.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMaNV.Name = "txtMaNV";
+            this.txtMaNV.ReadOnly = true;
+            this.txtMaNV.Size = new System.Drawing.Size(120, 20);
+            this.txtMaNV.TabIndex = 4;
             // 
-            // ChiSoKetQua
+            // txtChiSoKQ
             // 
-            this.ChiSoKetQua.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ChiSoKetQua.Location = new System.Drawing.Point(340, 241);
-            this.ChiSoKetQua.Margin = new System.Windows.Forms.Padding(2);
-            this.ChiSoKetQua.Name = "ChiSoKetQua";
-            this.ChiSoKetQua.Size = new System.Drawing.Size(120, 20);
-            this.ChiSoKetQua.TabIndex = 4;
+            this.txtChiSoKQ.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtChiSoKQ.Location = new System.Drawing.Point(340, 241);
+            this.txtChiSoKQ.Margin = new System.Windows.Forms.Padding(2);
+            this.txtChiSoKQ.Name = "txtChiSoKQ";
+            this.txtChiSoKQ.Size = new System.Drawing.Size(120, 20);
+            this.txtChiSoKQ.TabIndex = 4;
             // 
             // XoaPKN
             // 
@@ -488,17 +485,16 @@
             this.label18.Size = new System.Drawing.Size(46, 13);
             this.label18.TabIndex = 1;
             this.label18.Text = "Kết luận";
-            this.label18.Click += new System.EventHandler(this.label5_Click);
             // 
-            // NgayKiemNghiem
+            // dtNgayKN
             // 
-            this.NgayKiemNghiem.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.NgayKiemNghiem.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.NgayKiemNghiem.Location = new System.Drawing.Point(129, 62);
-            this.NgayKiemNghiem.Margin = new System.Windows.Forms.Padding(2);
-            this.NgayKiemNghiem.Name = "NgayKiemNghiem";
-            this.NgayKiemNghiem.Size = new System.Drawing.Size(120, 20);
-            this.NgayKiemNghiem.TabIndex = 8;
+            this.dtNgayKN.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dtNgayKN.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtNgayKN.Location = new System.Drawing.Point(129, 62);
+            this.dtNgayKN.Margin = new System.Windows.Forms.Padding(2);
+            this.dtNgayKN.Name = "dtNgayKN";
+            this.dtNgayKN.Size = new System.Drawing.Size(120, 20);
+            this.dtNgayKN.TabIndex = 8;
             // 
             // label19
             // 
@@ -548,14 +544,14 @@
             this.TxTSoPhieuDK.Size = new System.Drawing.Size(151, 20);
             this.TxTSoPhieuDK.TabIndex = 2;
             // 
-            // TxtCSXX
+            // TxtCSXX2
             // 
-            this.TxtCSXX.Enabled = false;
-            this.TxtCSXX.Location = new System.Drawing.Point(383, 8);
-            this.TxtCSXX.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtCSXX.Name = "TxtCSXX";
-            this.TxtCSXX.Size = new System.Drawing.Size(150, 20);
-            this.TxtCSXX.TabIndex = 2;
+            this.TxtCSXX2.Enabled = false;
+            this.TxtCSXX2.Location = new System.Drawing.Point(383, 8);
+            this.TxtCSXX2.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtCSXX2.Name = "TxtCSXX2";
+            this.TxtCSXX2.Size = new System.Drawing.Size(150, 20);
+            this.TxtCSXX2.TabIndex = 2;
             // 
             // txtSanPham
             // 
@@ -594,37 +590,27 @@
             this.TxTSoLuong.Size = new System.Drawing.Size(150, 20);
             this.TxTSoLuong.TabIndex = 2;
             // 
-            // NhanVienThucHien
+            // cbNhanVien
             // 
-            this.NhanVienThucHien.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.NhanVienThucHien.FormattingEnabled = true;
-            this.NhanVienThucHien.Location = new System.Drawing.Point(129, 159);
-            this.NhanVienThucHien.Margin = new System.Windows.Forms.Padding(2);
-            this.NhanVienThucHien.Name = "NhanVienThucHien";
-            this.NhanVienThucHien.Size = new System.Drawing.Size(120, 21);
-            this.NhanVienThucHien.TabIndex = 10;
-            this.NhanVienThucHien.SelectedIndexChanged += new System.EventHandler(this.NhanVienThucHien_SelectedIndexChanged);
+            this.cbNhanVien.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbNhanVien.FormattingEnabled = true;
+            this.cbNhanVien.Location = new System.Drawing.Point(129, 159);
+            this.cbNhanVien.Margin = new System.Windows.Forms.Padding(2);
+            this.cbNhanVien.Name = "cbNhanVien";
+            this.cbNhanVien.Size = new System.Drawing.Size(120, 21);
+            this.cbNhanVien.TabIndex = 10;
+            this.cbNhanVien.SelectedIndexChanged += new System.EventHandler(this.NhanVienThucHien_SelectedIndexChanged);
             // 
-            // ChiTieu
+            // cbChiTieu
             // 
-            this.ChiTieu.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ChiTieu.FormattingEnabled = true;
-            this.ChiTieu.Location = new System.Drawing.Point(129, 200);
-            this.ChiTieu.Margin = new System.Windows.Forms.Padding(2);
-            this.ChiTieu.Name = "ChiTieu";
-            this.ChiTieu.Size = new System.Drawing.Size(120, 21);
-            this.ChiTieu.TabIndex = 10;
-            this.ChiTieu.SelectedIndexChanged += new System.EventHandler(this.ChiTieu_SelectedIndexChanged);
-            // 
-            // KetLuan
-            // 
-            this.KetLuan.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.KetLuan.Location = new System.Drawing.Point(129, 290);
-            this.KetLuan.Margin = new System.Windows.Forms.Padding(2);
-            this.KetLuan.Multiline = true;
-            this.KetLuan.Name = "KetLuan";
-            this.KetLuan.Size = new System.Drawing.Size(333, 19);
-            this.KetLuan.TabIndex = 11;
+            this.cbChiTieu.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbChiTieu.FormattingEnabled = true;
+            this.cbChiTieu.Location = new System.Drawing.Point(129, 200);
+            this.cbChiTieu.Margin = new System.Windows.Forms.Padding(2);
+            this.cbChiTieu.Name = "cbChiTieu";
+            this.cbChiTieu.Size = new System.Drawing.Size(120, 21);
+            this.cbChiTieu.TabIndex = 10;
+            this.cbChiTieu.SelectedIndexChanged += new System.EventHandler(this.ChiTieu_SelectedIndexChanged);
             // 
             // textBox5
             // 
@@ -768,7 +754,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.DGV1);
+            this.panel1.Controls.Add(this.DGVPhieuDK);
             this.panel1.Controls.Add(this.label29);
             this.panel1.Controls.Add(this.textBox5);
             this.panel1.Controls.Add(this.label28);
@@ -790,31 +776,31 @@
             this.panel1.Size = new System.Drawing.Size(705, 204);
             this.panel1.TabIndex = 29;
             // 
-            // DGV1
+            // DGVPhieuDK
             // 
-            this.DGV1.AllowUserToAddRows = false;
-            this.DGV1.AllowUserToDeleteRows = false;
-            this.DGV1.AllowUserToResizeRows = false;
-            this.DGV1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.DGVPhieuDK.AllowUserToAddRows = false;
+            this.DGVPhieuDK.AllowUserToDeleteRows = false;
+            this.DGVPhieuDK.AllowUserToResizeRows = false;
+            this.DGVPhieuDK.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DGV1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGVPhieuDK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVPhieuDK.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DGVMaCT,
             this.dgvTenChiTieu1,
             this.dgvYNghia1,
             this.dgvChiSoDangKi1});
-            this.DGV1.Location = new System.Drawing.Point(6, 65);
-            this.DGV1.Margin = new System.Windows.Forms.Padding(2);
-            this.DGV1.MultiSelect = false;
-            this.DGV1.Name = "DGV1";
-            this.DGV1.ReadOnly = true;
-            this.DGV1.RowHeadersVisible = false;
-            this.DGV1.RowHeadersWidth = 51;
-            this.DGV1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGV1.Size = new System.Drawing.Size(694, 128);
-            this.DGV1.TabIndex = 29;
-            this.DGV1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV1_CellClick);
+            this.DGVPhieuDK.Location = new System.Drawing.Point(6, 65);
+            this.DGVPhieuDK.Margin = new System.Windows.Forms.Padding(2);
+            this.DGVPhieuDK.MultiSelect = false;
+            this.DGVPhieuDK.Name = "DGVPhieuDK";
+            this.DGVPhieuDK.ReadOnly = true;
+            this.DGVPhieuDK.RowHeadersVisible = false;
+            this.DGVPhieuDK.RowHeadersWidth = 51;
+            this.DGVPhieuDK.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVPhieuDK.Size = new System.Drawing.Size(694, 128);
+            this.DGVPhieuDK.TabIndex = 29;
+            this.DGVPhieuDK.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVPhieuDK_CellClick);
             // 
             // DGVMaCT
             // 
@@ -854,12 +840,12 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Controls.Add(this.SPDK);
-            this.panel2.Controls.Add(this.KetLuan);
-            this.panel2.Controls.Add(this.ChiTieu);
-            this.panel2.Controls.Add(this.NhanVienThucHien);
-            this.panel2.Controls.Add(this.tbSanPham);
-            this.panel2.Controls.Add(this.NgayKiemNghiem);
+            this.panel2.Controls.Add(this.cbKetLuan);
+            this.panel2.Controls.Add(this.txtSPDK);
+            this.panel2.Controls.Add(this.cbChiTieu);
+            this.panel2.Controls.Add(this.cbNhanVien);
+            this.panel2.Controls.Add(this.cbSanPham);
+            this.panel2.Controls.Add(this.dtNgayKN);
             this.panel2.Controls.Add(this.LayThongTin);
             this.panel2.Controls.Add(this.SuaPKN);
             this.panel2.Controls.Add(this.ThemPKN);
@@ -867,18 +853,18 @@
             this.panel2.Controls.Add(this.SuaChiTiet);
             this.panel2.Controls.Add(this.ThemChiTiet);
             this.panel2.Controls.Add(this.XoaPKN);
-            this.panel2.Controls.Add(this.MaNV);
-            this.panel2.Controls.Add(this.ChiSoKetQua);
-            this.panel2.Controls.Add(this.MaCT);
-            this.panel2.Controls.Add(this.MaSP);
-            this.panel2.Controls.Add(this.tbCSXX);
+            this.panel2.Controls.Add(this.txtMaNV);
+            this.panel2.Controls.Add(this.txtChiSoKQ);
+            this.panel2.Controls.Add(this.txtMaCT);
+            this.panel2.Controls.Add(this.txtMaSP);
+            this.panel2.Controls.Add(this.txtCSXX);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.ChiSoKiemNghiem);
+            this.panel2.Controls.Add(this.txtChiSoKN);
             this.panel2.Controls.Add(this.SoPhieuKiemNghiem);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
@@ -893,33 +879,33 @@
             this.panel2.Size = new System.Drawing.Size(478, 440);
             this.panel2.TabIndex = 30;
             // 
-            // SPDK
+            // txtSPDK
             // 
-            this.SPDK.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.SPDK.Location = new System.Drawing.Point(340, 20);
-            this.SPDK.Margin = new System.Windows.Forms.Padding(2);
-            this.SPDK.Name = "SPDK";
-            this.SPDK.Size = new System.Drawing.Size(120, 20);
-            this.SPDK.TabIndex = 12;
-            this.SPDK.TextChanged += new System.EventHandler(this.SPDK_TextChanged_1);
+            this.txtSPDK.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtSPDK.Location = new System.Drawing.Point(340, 20);
+            this.txtSPDK.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSPDK.Name = "txtSPDK";
+            this.txtSPDK.Size = new System.Drawing.Size(120, 20);
+            this.txtSPDK.TabIndex = 12;
+            this.txtSPDK.TextChanged += new System.EventHandler(this.txtSPDK_TextChanged);
             // 
-            // tbSanPham
+            // cbSanPham
             // 
-            this.tbSanPham.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tbSanPham.FormattingEnabled = true;
-            this.tbSanPham.Location = new System.Drawing.Point(129, 110);
-            this.tbSanPham.Margin = new System.Windows.Forms.Padding(2);
-            this.tbSanPham.Name = "tbSanPham";
-            this.tbSanPham.Size = new System.Drawing.Size(120, 21);
-            this.tbSanPham.TabIndex = 10;
-            this.tbSanPham.SelectedIndexChanged += new System.EventHandler(this.tbSanPham_SelectedIndexChanged);
+            this.cbSanPham.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbSanPham.FormattingEnabled = true;
+            this.cbSanPham.Location = new System.Drawing.Point(129, 110);
+            this.cbSanPham.Margin = new System.Windows.Forms.Padding(2);
+            this.cbSanPham.Name = "cbSanPham";
+            this.cbSanPham.Size = new System.Drawing.Size(120, 21);
+            this.cbSanPham.TabIndex = 10;
+            this.cbSanPham.SelectedIndexChanged += new System.EventHandler(this.tbSanPham_SelectedIndexChanged);
             // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel3.Controls.Add(this.DGV3);
+            this.panel3.Controls.Add(this.DGVChiTieuKN);
             this.panel3.Controls.Add(this.label21);
             this.panel3.Controls.Add(this.label20);
             this.panel3.Controls.Add(this.label16);
@@ -927,7 +913,7 @@
             this.panel3.Controls.Add(this.TxTSoLuong);
             this.panel3.Controls.Add(this.txtSanPham);
             this.panel3.Controls.Add(this.TxtDonVi);
-            this.panel3.Controls.Add(this.TxtCSXX);
+            this.panel3.Controls.Add(this.TxtCSXX2);
             this.panel3.Controls.Add(this.TxTSoPhieuDK);
             this.panel3.Controls.Add(this.TxTSoPhieuKN);
             this.panel3.Controls.Add(this.label18);
@@ -940,30 +926,30 @@
             this.panel3.Size = new System.Drawing.Size(1189, 185);
             this.panel3.TabIndex = 31;
             // 
-            // DGV3
+            // DGVChiTieuKN
             // 
-            this.DGV3.AllowUserToAddRows = false;
-            this.DGV3.AllowUserToDeleteRows = false;
-            this.DGV3.AllowUserToResizeRows = false;
-            this.DGV3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.DGV3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGVChiTieuKN.AllowUserToAddRows = false;
+            this.DGVChiTieuKN.AllowUserToDeleteRows = false;
+            this.DGVChiTieuKN.AllowUserToResizeRows = false;
+            this.DGVChiTieuKN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.DGVChiTieuKN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVChiTieuKN.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Mactt,
             this.dgvTenChiTieu3,
             this.dgvChiSoDangKi3,
             this.dgvChiSoKiemNghiem3,
             this.dgvChiSoKetQua3});
-            this.DGV3.Location = new System.Drawing.Point(7, 71);
-            this.DGV3.Margin = new System.Windows.Forms.Padding(2);
-            this.DGV3.MultiSelect = false;
-            this.DGV3.Name = "DGV3";
-            this.DGV3.ReadOnly = true;
-            this.DGV3.RowHeadersVisible = false;
-            this.DGV3.RowHeadersWidth = 51;
-            this.DGV3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGV3.Size = new System.Drawing.Size(1173, 105);
-            this.DGV3.TabIndex = 20;
-            this.DGV3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV3_CellClick);
+            this.DGVChiTieuKN.Location = new System.Drawing.Point(7, 71);
+            this.DGVChiTieuKN.Margin = new System.Windows.Forms.Padding(2);
+            this.DGVChiTieuKN.MultiSelect = false;
+            this.DGVChiTieuKN.Name = "DGVChiTieuKN";
+            this.DGVChiTieuKN.ReadOnly = true;
+            this.DGVChiTieuKN.RowHeadersVisible = false;
+            this.DGVChiTieuKN.RowHeadersWidth = 51;
+            this.DGVChiTieuKN.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVChiTieuKN.Size = new System.Drawing.Size(1173, 105);
+            this.DGVChiTieuKN.TabIndex = 20;
+            this.DGVChiTieuKN.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVChiTieuKN_CellClick);
             // 
             // Mactt
             // 
@@ -1026,7 +1012,7 @@
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel4.Controls.Add(this.groupBox4);
             this.panel4.Controls.Add(this.groupBox3);
-            this.panel4.Controls.Add(this.DGV2);
+            this.panel4.Controls.Add(this.DGVDSPhieuKiemNghiem);
             this.panel4.Controls.Add(this.label30);
             this.panel4.Location = new System.Drawing.Point(484, 211);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
@@ -1081,7 +1067,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.groupBox3.Controls.Add(this.TraCuuKiemNghiem);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.txtTTTimKiem);
             this.groupBox3.Location = new System.Drawing.Point(314, 152);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(382, 65);
@@ -1103,42 +1089,42 @@
             this.TraCuuKiemNghiem.UseVisualStyleBackColor = true;
             this.TraCuuKiemNghiem.Click += new System.EventHandler(this.TraCuuKiemNghiem_Click);
             // 
-            // textBox2
+            // txtTTTimKiem
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtTTTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(22, 27);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(235, 20);
-            this.textBox2.TabIndex = 0;
-            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
+            this.txtTTTimKiem.Location = new System.Drawing.Point(22, 27);
+            this.txtTTTimKiem.Name = "txtTTTimKiem";
+            this.txtTTTimKiem.Size = new System.Drawing.Size(235, 20);
+            this.txtTTTimKiem.TabIndex = 0;
+            this.txtTTTimKiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
             // 
-            // DGV2
+            // DGVDSPhieuKiemNghiem
             // 
-            this.DGV2.AllowUserToAddRows = false;
-            this.DGV2.AllowUserToDeleteRows = false;
-            this.DGV2.AllowUserToResizeRows = false;
-            this.DGV2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.DGVDSPhieuKiemNghiem.AllowUserToAddRows = false;
+            this.DGVDSPhieuKiemNghiem.AllowUserToDeleteRows = false;
+            this.DGVDSPhieuKiemNghiem.AllowUserToResizeRows = false;
+            this.DGVDSPhieuKiemNghiem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DGV2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGVDSPhieuKiemNghiem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVDSPhieuKiemNghiem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvSoPhieuKiemNghiem2,
             this.dgvNgayKiemNghiem2,
             this.dgvTenSanPham2,
             this.dgvNhanVienThucHien2,
             this.dgvKetLuan2});
-            this.DGV2.Location = new System.Drawing.Point(8, 22);
-            this.DGV2.Margin = new System.Windows.Forms.Padding(2);
-            this.DGV2.MultiSelect = false;
-            this.DGV2.Name = "DGV2";
-            this.DGV2.ReadOnly = true;
-            this.DGV2.RowHeadersVisible = false;
-            this.DGV2.RowHeadersWidth = 51;
-            this.DGV2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGV2.Size = new System.Drawing.Size(688, 123);
-            this.DGV2.TabIndex = 32;
-            this.DGV2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV2_CellClick_1);
+            this.DGVDSPhieuKiemNghiem.Location = new System.Drawing.Point(8, 22);
+            this.DGVDSPhieuKiemNghiem.Margin = new System.Windows.Forms.Padding(2);
+            this.DGVDSPhieuKiemNghiem.MultiSelect = false;
+            this.DGVDSPhieuKiemNghiem.Name = "DGVDSPhieuKiemNghiem";
+            this.DGVDSPhieuKiemNghiem.ReadOnly = true;
+            this.DGVDSPhieuKiemNghiem.RowHeadersVisible = false;
+            this.DGVDSPhieuKiemNghiem.RowHeadersWidth = 51;
+            this.DGVDSPhieuKiemNghiem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVDSPhieuKiemNghiem.Size = new System.Drawing.Size(688, 123);
+            this.DGVDSPhieuKiemNghiem.TabIndex = 32;
+            this.DGVDSPhieuKiemNghiem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVDSPhieuKiemNghiem_CellClick);
             // 
             // dgvSoPhieuKiemNghiem2
             // 
@@ -1194,6 +1180,19 @@
             this.label30.TabIndex = 31;
             this.label30.Text = "DANH SÁCH PHIẾU KIỂM NGHIỆM CHẤT LƯỢNG";
             // 
+            // cbKetLuan
+            // 
+            this.cbKetLuan.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbKetLuan.FormattingEnabled = true;
+            this.cbKetLuan.Items.AddRange(new object[] {
+            "Chưa hoàn tất kiểm định",
+            "Mẫu thử đạt chất lượng",
+            "Mẫu thử không đạt chất lượng"});
+            this.cbKetLuan.Location = new System.Drawing.Point(129, 290);
+            this.cbKetLuan.Name = "cbKetLuan";
+            this.cbKetLuan.Size = new System.Drawing.Size(330, 21);
+            this.cbKetLuan.TabIndex = 13;
+            // 
             // FormQuanLiPhieuKiemNghiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1212,18 +1211,18 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormQuanLiPhieuKiemNghiem_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVPhieuDK)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVChiTieuKN)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVDSPhieuKiemNghiem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1238,18 +1237,18 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox SoPhieuKiemNghiem;
-        private System.Windows.Forms.TextBox ChiSoKiemNghiem;
+        private System.Windows.Forms.TextBox txtChiSoKN;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox tbCSXX;
-        private System.Windows.Forms.TextBox MaSP;
-        private System.Windows.Forms.TextBox MaCT;
-        private System.Windows.Forms.TextBox MaNV;
-        private System.Windows.Forms.TextBox ChiSoKetQua;
+        private System.Windows.Forms.TextBox txtCSXX;
+        private System.Windows.Forms.TextBox txtMaSP;
+        private System.Windows.Forms.TextBox txtMaCT;
+        private System.Windows.Forms.TextBox txtMaNV;
+        private System.Windows.Forms.TextBox txtChiSoKQ;
         private System.Windows.Forms.Button XoaPKN;
         private System.Windows.Forms.Button ThemPKN;
         private System.Windows.Forms.Button SuaPKN;
@@ -1261,20 +1260,19 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.DateTimePicker NgayKiemNghiem;
+        private System.Windows.Forms.DateTimePicker dtNgayKN;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox TxTSoPhieuKN;
         private System.Windows.Forms.TextBox TxTSoPhieuDK;
-        private System.Windows.Forms.TextBox TxtCSXX;
+        private System.Windows.Forms.TextBox TxtCSXX2;
         private System.Windows.Forms.TextBox txtSanPham;
         private System.Windows.Forms.TextBox TxtKetLuan2;
         private System.Windows.Forms.TextBox TxtDonVi;
         private System.Windows.Forms.TextBox TxTSoLuong;
-        private System.Windows.Forms.ComboBox NhanVienThucHien;
-        private System.Windows.Forms.ComboBox ChiTieu;
-        private System.Windows.Forms.TextBox KetLuan;
+        private System.Windows.Forms.ComboBox cbNhanVien;
+        private System.Windows.Forms.ComboBox cbChiTieu;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox textBox3;
@@ -1293,14 +1291,14 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView DGV1;
-        private System.Windows.Forms.DataGridView DGV3;
-        private System.Windows.Forms.TextBox SPDK;
+        private System.Windows.Forms.DataGridView DGVPhieuDK;
+        private System.Windows.Forms.DataGridView DGVChiTieuKN;
+        private System.Windows.Forms.TextBox txtSPDK;
         private System.Windows.Forms.DataGridViewTextBoxColumn DGVMaCT;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTenChiTieu1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvYNghia1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvChiSoDangKi1;
-        private System.Windows.Forms.ComboBox tbSanPham;
+        private System.Windows.Forms.ComboBox cbSanPham;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.Panel panel4;
@@ -1309,8 +1307,8 @@
         private System.Windows.Forms.Button In;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button TraCuuKiemNghiem;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DataGridView DGV2;
+        private System.Windows.Forms.TextBox txtTTTimKiem;
+        private System.Windows.Forms.DataGridView DGVDSPhieuKiemNghiem;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvSoPhieuKiemNghiem2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvNgayKiemNghiem2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTenSanPham2;
@@ -1322,5 +1320,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvChiSoDangKi3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvChiSoKiemNghiem3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvChiSoKetQua3;
+        private System.Windows.Forms.ComboBox cbKetLuan;
     }
 }

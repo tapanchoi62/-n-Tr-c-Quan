@@ -15,7 +15,7 @@ namespace QuanLyCoSoSX.BAL
         {
             conn.Open();
 
-            string sql = "SELECT * FROM PhongBan";
+            string sql = "SELECT * FROM phongban";
 
             var cmd = new MySqlCommand(sql, conn);
 
@@ -39,7 +39,7 @@ namespace QuanLyCoSoSX.BAL
         {
             conn.Open();
             PhongBan a = new PhongBan();
-            string sql = "SELECT * FROM PhongBan where mapb= @id";
+            string sql = "SELECT * FROM phongban where mapb= @id";
 
             var cmd = new MySqlCommand(sql, conn);
 
@@ -63,7 +63,7 @@ namespace QuanLyCoSoSX.BAL
         {
             conn.Open();
             PhongBan a = new PhongBan();
-            string sql = "SELECT * FROM PhongBan where tenpb= @tenpb";
+            string sql = "SELECT * FROM phongban where tenpb= @tenpb";
 
             var cmd = new MySqlCommand(sql, conn);
 
@@ -114,7 +114,7 @@ namespace QuanLyCoSoSX.BAL
             try
             {
                 conn.Open();
-                string sql = "Update `PhongBan` Set `tenpb`=@tenpb where mapb =@mapb;";
+                string sql = "Update `phongban` Set `tenpb`=@tenpb where mapb =@mapb;";
                 var cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@mapb", mapb);
                 cmd.Parameters.AddWithValue("@tenpb", tenpb);
@@ -136,7 +136,7 @@ namespace QuanLyCoSoSX.BAL
             try
             {
                 conn.Open();
-                string sql = "Delete from PhongBan where mapb= @mapb";
+                string sql = "Delete from phongban where mapb= @mapb";
                 var cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@mapb", mapb);
 
